@@ -1,0 +1,2 @@
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:48:1: incompatible types: java.lang.Object cannot be converted to java.lang.String
+[error] jsonArr.getJSONObject(i).get("time_submitted")

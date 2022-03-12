@@ -1,0 +1,191 @@
+[debug] > Exec(run, None, None)
+[debug] Evaluating tasks: Compile / run
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 1 Java source to E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\target\scala-2.13\classes ...
+[info] done compiling
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Exporting web-assets:freelancelot
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 1 Java source to E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\target\scala-2.13\classes ...
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:40:1: ';' expected
+[error] (Compile / compileIncremental) javac returned non-zero exit code
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 1 Java source to E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\target\scala-2.13\classes ...
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:41:1: cannot find symbol
+[error]   symbol:   method getJsonObject(int)
+[error]   location: variable jsonArr of type org.json.JSONArray
+[error] jsonArr.getJsonObject
+[error] (Compile / compileIncremental) javac returned non-zero exit code
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 1 Java source to E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\target\scala-2.13\classes ...
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:41:1: cannot find symbol
+[error]   symbol:   method getSting(java.lang.String)
+[error]   location: class org.json.JSONObject
+[error] jsonArr.getJSONObject(i).getSting
+[error] (Compile / compileIncremental) javac returned non-zero exit code
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 1 Java source to E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\target\scala-2.13\classes ...
+[info] done compiling
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Exporting web-assets:freelancelot
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 1 Java source to E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\target\scala-2.13\classes ...
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:41:1: incompatible types: int cannot be converted to java.lang.Long
+[error] jsonArr.getJSONObject(i).getInt("id")
+[error] (Compile / compileIncremental) javac returned non-zero exit code
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 1 Java source to E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\target\scala-2.13\classes ...
+[info] done compiling
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Exporting web-assets:freelancelot
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 1 Java source to E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\target\scala-2.13\classes ...
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:42:1: cannot find symbol
+[error]   symbol:   variable getJSONObject
+[error]   location: variable jsonArr of type org.json.JSONArray
+[error] jsonArr.getJSONObject
+[debug] Forcing garbage collection...
+[error] (Compile / compileIncremental) javac returned non-zero exit code
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 1 Java source to E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\target\scala-2.13\classes ...
+[info] done compiling
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Exporting web-assets:freelancelot
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 2 Java sources to E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\target\scala-2.13\classes ...
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:12:1: cannot find symbol
+[error]   symbol:   class Freelancelot
+[error]   location: class models.BusinessLogic
+[error] Freelancelot
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:13:1: cannot find symbol
+[error]   symbol:   class Freelancelot
+[error]   location: class models.BusinessLogic
+[error] Freelancelot
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:12:1: cannot find symbol
+[error]   symbol:   variable Integer
+[error]   location: class models.BusinessLogic
+[error] Integer
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:12:1: cannot find symbol
+[error]   symbol:   variable Freelancelot
+[error]   location: class models.BusinessLogic
+[error] Freelancelot
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:46:1: incompatible types: java.lang.Object cannot be converted to java.lang.String
+[error] jsonArr.getJSONObject(i).get("time_submitted")
+[debug] Forcing garbage collection...
+[error] (Compile / compileIncremental) javac returned non-zero exit code
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 2 Java sources to E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\target\scala-2.13\classes ...
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:13:1: cannot find symbol
+[error]   symbol:   class Freelancelot
+[error]   location: class models.BusinessLogic
+[error] Freelancelot
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:14:1: cannot find symbol
+[error]   symbol:   class Freelancelot
+[error]   location: class models.BusinessLogic
+[error] Freelancelot
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:13:1: cannot find symbol
+[error]   symbol:   variable Integer
+[error]   location: class models.BusinessLogic
+[error] Integer
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:13:1: cannot find symbol
+[error]   symbol:   variable Freelancelot
+[error]   location: class models.BusinessLogic
+[error] Freelancelot
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:47:1: incompatible types: java.lang.Object cannot be converted to java.lang.String
+[error] jsonArr.getJSONObject(i).get("time_submitted")
+[error] (Compile / compileIncremental) javac returned non-zero exit code
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 2 Java sources to E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\target\scala-2.13\classes ...
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:10:1: cannot find symbol
+[error]   symbol:   class Freelancelot
+[error]   location: package models
+[error] models.Freelancelot
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:13:1: cannot find symbol
+[error]   symbol:   class Freelancelot
+[error]   location: class models.BusinessLogic
+[error] Freelancelot
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:14:1: cannot find symbol
+[error]   symbol:   class Freelancelot
+[error]   location: class models.BusinessLogic
+[error] Freelancelot
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:13:1: cannot find symbol
+[error]   symbol:   variable Integer
+[error]   location: class models.BusinessLogic
+[error] Integer
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:13:1: cannot find symbol
+[error]   symbol:   variable Freelancelot
+[error]   location: class models.BusinessLogic
+[error] Freelancelot
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:47:1: incompatible types: java.lang.Object cannot be converted to java.lang.String
+[error] jsonArr.getJSONObject(i).get("time_submitted")
+[error] (Compile / compileIncremental) javac returned non-zero exit code
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 2 Java sources to E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\target\scala-2.13\classes ...
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:14:1: cannot find symbol
+[error]   symbol:   variable Integer
+[error]   location: class models.BusinessLogic
+[error] Integer
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:14:1: cannot find symbol
+[error]   symbol:   variable Freelancelot
+[error]   location: class models.BusinessLogic
+[error] Freelancelot
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:48:1: incompatible types: java.lang.Object cannot be converted to java.lang.String
+[error] jsonArr.getJSONObject(i).get("time_submitted")
+[error] (Compile / compileIncremental) javac returned non-zero exit code
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 2 Java sources to E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\target\scala-2.13\classes ...
+[error] E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\app\models\BusinessLogic.java:48:1: incompatible types: java.lang.Object cannot be converted to java.lang.String
+[error] jsonArr.getJSONObject(i).get("time_submitted")
+[error] (Compile / compileIncremental) javac returned non-zero exit code
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 2 Java sources to E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\target\scala-2.13\classes ...
+[info] done compiling
+[info] compiling 1 Java source to E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\target\scala-2.13\classes ...
+[info] done compiling
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Exporting web-assets:freelancelot
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 1 Java source to E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\target\scala-2.13\classes ...
+[info] done compiling
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Exporting web-assets:freelancelot
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 2 Java sources to E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\target\scala-2.13\classes ...
+[info] done compiling
+[debug] Forcing garbage collection...
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Exporting web-assets:freelancelot
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 2 Java sources to E:\SOEN-6441\FreenLanceLotProject\FreeLanceLot\target\scala-2.13\classes ...
+[info] done compiling
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Exporting web-assets:freelancelot
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
