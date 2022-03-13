@@ -1,0 +1,4 @@
+[debug] Copy resource mappings: 
+[debug] 	(E:\SOEN-6441\Freelancelot\conf\application.conf,E:\SOEN-6441\Freelancelot\target\scala-2.13\classes\application.conf)
+[debug] 	(E:\SOEN-6441\Freelancelot\conf\logback.xml,E:\SOEN-6441\Freelancelot\target\scala-2.13\classes\logback.xml)
+[debug] 	(E:\SOEN-6441\Freelancelot\conf\routes,E:\SOEN-6441\Freelancelot\target\scala-2.13\classes\routes)

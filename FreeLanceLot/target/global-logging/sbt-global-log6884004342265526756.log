@@ -1,0 +1,112 @@
+[debug] > Exec(run, None, None)
+[debug] Evaluating tasks: Compile / run
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 10 Scala sources and 5 Java sources to E:\SOEN-6441\play-samples-play-java-hello-world-tutorial\target\scala-2.13\classes ...
+[error] E:\SOEN-6441\play-samples-play-java-hello-world-tutorial\conf\routes:9:1: missing argument list for method freelance in class HomeController
+[error] Unapplied methods are only converted to functions when a function type is expected.
+[error] You can make this conversion explicit by writing `freelance _` or `freelance(_)` instead of `freelance`.
+[error] GET    /freelancelot                controllers.HomeController.freelance
+[error] E:\SOEN-6441\play-samples-play-java-hello-world-tutorial\app\views\commonSidebar.scala.html:7:39: value tutorial is not a member of controllers.ReverseHomeController
+[error]   <li><a href="@routes.HomeController.tutorial">Implementing Hello World</a>
+[error]                                       ^
+[error] E:\SOEN-6441\play-samples-play-java-hello-world-tutorial\app\views\explore.scala.html:80:107: value tutorial is not a member of controllers.ReverseHomeController
+[error]       <p>With this overview of the tutorial application, you are ready to <a href="@routes.HomeController.tutorial">add
+[error]                                                                                                           ^
+[error] three errors found
+[error] (Compile / compileIncremental) Compilation failed
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 10 Scala sources and 5 Java sources to E:\SOEN-6441\play-samples-play-java-hello-world-tutorial\target\scala-2.13\classes ...
+[error] E:\SOEN-6441\play-samples-play-java-hello-world-tutorial\app\views\commonSidebar.scala.html:7:39: value tutorial is not a member of controllers.ReverseHomeController
+[error]   <li><a href="@routes.HomeController.tutorial">Implementing Hello World</a>
+[error]                                       ^
+[warn] E:\SOEN-6441\play-samples-play-java-hello-world-tutorial\app\views\commonSidebar.scala.html:6:39: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method explore,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn]   <li><a href="@routes.HomeController.explore">Play application overview</a>
+[warn]                                       ^
+[error] E:\SOEN-6441\play-samples-play-java-hello-world-tutorial\app\views\explore.scala.html:80:107: value tutorial is not a member of controllers.ReverseHomeController
+[error]       <p>With this overview of the tutorial application, you are ready to <a href="@routes.HomeController.tutorial">add
+[error]                                                                                                           ^
+[warn] E:\SOEN-6441\play-samples-play-java-hello-world-tutorial\app\views\freelancelot.scala.html:10:52: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method explore,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn]        @helper.form(action = routes.HomeController.explore) {
+[warn]                                                    ^
+[warn] E:\SOEN-6441\play-samples-play-java-hello-world-tutorial\app\views\index.scala.html:66:53: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method explore,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn]       <p>Now, let's <a href="@routes.HomeController.explore">explore the tutorial Play application</a>.</p>
+[warn]                                                     ^
+[warn] three warnings found
+[error] two errors found
+[error] (Compile / compileIncremental) Compilation failed
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 10 Scala sources and 5 Java sources to E:\SOEN-6441\play-samples-play-java-hello-world-tutorial\target\scala-2.13\classes ...
+[warn] E:\SOEN-6441\play-samples-play-java-hello-world-tutorial\app\views\commonSidebar.scala.html:6:39: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method explore,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn]   <li><a href="@routes.HomeController.explore">Play application overview</a>
+[warn]                                       ^
+[warn] E:\SOEN-6441\play-samples-play-java-hello-world-tutorial\app\views\freelancelot.scala.html:10:52: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method explore,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn]        @helper.form(action = routes.HomeController.explore) {
+[warn]                                                    ^
+[warn] E:\SOEN-6441\play-samples-play-java-hello-world-tutorial\app\views\index.scala.html:66:53: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method explore,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn]       <p>Now, let's <a href="@routes.HomeController.explore">explore the tutorial Play application</a>.</p>
+[warn]                                                     ^
+[warn] three warnings found
+[info] done compiling
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Exporting web-assets:play-java-hello-world-tutorial
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 1 Java source to E:\SOEN-6441\play-samples-play-java-hello-world-tutorial\target\scala-2.13\classes ...
+[info] done compiling
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Exporting web-assets:play-java-hello-world-tutorial
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 1 Java source to E:\SOEN-6441\play-samples-play-java-hello-world-tutorial\target\scala-2.13\classes ...
+[info] done compiling
+[debug] Forcing garbage collection...
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Exporting web-assets:play-java-hello-world-tutorial
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Exporting web-assets:play-java-hello-world-tutorial
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 3 Scala sources to E:\SOEN-6441\play-samples-play-java-hello-world-tutorial\target\scala-2.13\classes ...
+[info] done compiling
+[info] compiling 1 Java source to E:\SOEN-6441\play-samples-play-java-hello-world-tutorial\target\scala-2.13\classes ...
+[info] done compiling
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Exporting web-assets:play-java-hello-world-tutorial
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 2 Java sources to E:\SOEN-6441\play-samples-play-java-hello-world-tutorial\target\scala-2.13\classes ...
+[info] done compiling
+[debug] Forcing garbage collection...
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Exporting web-assets:play-java-hello-world-tutorial
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 1 Java source to E:\SOEN-6441\play-samples-play-java-hello-world-tutorial\target\scala-2.13\classes ...
+[info] done compiling
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Exporting web-assets:play-java-hello-world-tutorial
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[warn] Canceling execution...
+[error] Cancelled: run
+[error] Cancelled: run
+[error] Use 'last' for the full log.
+[debug] > Exec(idea-shell, None, None)

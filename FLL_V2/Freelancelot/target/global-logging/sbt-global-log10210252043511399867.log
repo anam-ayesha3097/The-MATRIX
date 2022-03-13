@@ -1,0 +1,57 @@
+[debug] > Exec(run, None, None)
+[debug] Evaluating tasks: Compile / run
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 5 Scala sources and 1 Java source to E:\SOEN-6441\Freelancelot\target\scala-2.13\classes ...
+[warn] E:\SOEN-6441\Freelancelot\app\views\index.scala.html:66:53: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method explore,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn]       <p>Now, let's <a href="@routes.HomeController.explore">search the tutorial Play application</a>.</p>
+[warn]                                                     ^
+[warn] one warning found
+[info] done compiling
+[info] compiling 1 Scala source and 1 Java source to E:\SOEN-6441\Freelancelot\target\scala-2.13\classes ...
+[info] done compiling
+[info] compiling 6 Scala sources to E:\SOEN-6441\Freelancelot\target\scala-2.13\classes ...
+[warn] E:\SOEN-6441\Freelancelot\app\views\commonSidebar.scala.html:6:39: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method explore,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn]   <li><a href="@routes.HomeController.explore">Play application overview</a>
+[warn]                                       ^
+[warn] E:\SOEN-6441\Freelancelot\app\views\index.scala.html:66:53: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method explore,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn]       <p>Now, let's <a href="@routes.HomeController.explore">search the tutorial Play application</a>.</p>
+[warn]                                                     ^
+[warn] two warnings found
+[info] done compiling
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Exporting web-assets:freelancelot
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 3 Scala sources to E:\SOEN-6441\Freelancelot\target\scala-2.13\classes ...
+[info] done compiling
+[info] compiling 1 Scala source and 1 Java source to E:\SOEN-6441\Freelancelot\target\scala-2.13\classes ...
+[info] done compiling
+[info] compiling 6 Scala sources to E:\SOEN-6441\Freelancelot\target\scala-2.13\classes ...
+[warn] E:\SOEN-6441\Freelancelot\app\views\commonSidebar.scala.html:6:39: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method explore,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn]   <li><a href="@routes.HomeController.explore">Play application overview</a>
+[warn]                                       ^
+[warn] E:\SOEN-6441\Freelancelot\app\views\index.scala.html:66:53: Auto-application to `()` is deprecated. Supply the empty argument list `()` explicitly to invoke method explore,
+[warn] or remove the empty argument list from its definition (Java-defined methods are exempt).
+[warn] In Scala 3, an unapplied method like this will be eta-expanded into a function.
+[warn]       <p>Now, let's <a href="@routes.HomeController.explore">search the tutorial Play application</a>.</p>
+[warn]                                                     ^
+[warn] two warnings found
+[info] done compiling
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Exporting web-assets:freelancelot
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[warn] Canceling execution...
+[debug] Forcing garbage collection...
+[error] Cancelled: run
+[error] Cancelled: run
+[error] Use 'last' for the full log.
+[debug] > Exec(idea-shell, None, None)

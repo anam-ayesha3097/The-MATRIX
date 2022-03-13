@@ -1,0 +1,14 @@
+@(searchForm: Form[Search])(implicit messagesProvider: MessagesProvider)
+@import helper._
+
+<html>
+<head>
+    <h1 style= text-align:center;>Welcome to FreeLancelot</h1>
+</head>
+    <body>
+       @helper.form(action = routes.HomeController.explore()) {
+          @helper.inputText(searchForm("searchInput"))
+           <input type="submit" value="Go!">
+       }
+    </body>
+</html>
