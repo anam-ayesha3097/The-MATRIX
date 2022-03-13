@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -14,6 +15,7 @@ public class BusinessLogic {
 
     public static HashMap<Integer, Freelancelot> projects_active= new HashMap<Integer, Freelancelot>();
     public static Freelancelot proj_det = null;
+    public static ArrayList<Freelancelot> proj_det_list = new ArrayList<>();
     static JSONObject result;
     static String jsonResult = null;
     public static HashMap<Integer, Freelancelot> getAPIData( ) {
@@ -33,9 +35,9 @@ public class BusinessLogic {
                 }
                 JSONObject json = new JSONObject(temp);
                 result = json.getJSONObject("result");
+
                 System.out.println("*************RESULT**********" + result);
 
-                //jsonResult = (String) json.getJSONObject("result").get("projects");
                 JSONArray jsonArr = json.getJSONObject("result").getJSONArray("projects");
                 System.out.println("*********JSON Array:************ " +jsonArr);
 
@@ -56,10 +58,9 @@ public class BusinessLogic {
                     System.out.println("owner_id  : "+owner_ID);
                     System.out.println("date : "+date);
 
-
                     proj_det = new Freelancelot(owner_ID, date, project_title, project_Description, project_type, "", "", 1L);
                     projects_active.put(project_ID, proj_det);
-
+                    proj_det_list.add(proj_det);
                 }
 
                 System.out.println("\n\n***Projects HashMap***");
