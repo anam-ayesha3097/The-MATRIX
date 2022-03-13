@@ -89,4 +89,12 @@ public class Freelancelot {
     public void display() {
         System.out.println("Owner ID: " +getOwner_id()+ " Date: " +getDate()+ " Project Description : " +getProject_description()+ " Project Type: " +getProject_type());
     }
+
+    public String toString()
+    {
+        return "[Owner ID:" +getOwner_id()+
+                    "\nDate: " +getDate()+
+                    "\nProject Description : " +getProject_description()+
+                    "\nProject Type: " +getProject_type() + "]\n";
+    }
 }

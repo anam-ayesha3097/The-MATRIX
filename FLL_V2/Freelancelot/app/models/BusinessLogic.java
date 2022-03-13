@@ -19,7 +19,6 @@ public class BusinessLogic {
     public static HashMap<Integer, Freelancelot> getAPIData( ) {
         System.out.println("Inside Business Logic");
         try {
-            String q = "\"pdf%20to%20toword\"";
             URL url = new URL("https://www.freelancer.com/api/projects/0.1/projects/active?limit=10");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
@@ -30,18 +29,17 @@ public class BusinessLogic {
                 String temp = "";
                 while (sc.hasNext()) {
                     temp = temp + sc.nextLine();
-                    System.out.println("Temp" +temp);
+                    System.out.println("********Temp**********" +temp);
                 }
                 JSONObject json = new JSONObject(temp);
-                System.out.println(json.toString());
                 result = json.getJSONObject("result");
-                System.out.println(result.toString());
+                System.out.println("*************RESULT**********" + result);
 
                 //jsonResult = (String) json.getJSONObject("result").get("projects");
                 JSONArray jsonArr = json.getJSONObject("result").getJSONArray("projects");
-                System.out.println("JSON Array: " +jsonArr);
+                System.out.println("*********JSON Array:************ " +jsonArr);
 
-                System.out.println("\n\n ****** Proejct Details *****");
+                System.out.println("\n\n ****** Project Details *****");
 
                 for(int i = 0; i < jsonArr.length(); i++){
                     Integer project_ID = jsonArr.getJSONObject(i).getInt("id");
