@@ -2,12 +2,9 @@ package controllers;
 
 import models.BusinessLogic;
 import models.Freelancelot;
-import models.Search;
-import play.data.Form;
 import play.data.FormFactory;
 import play.i18n.MessagesApi;
 import play.mvc.Controller;
-import play.mvc.Http;
 import play.mvc.Result;
 
 import javax.inject.Inject;
@@ -40,33 +37,14 @@ public class HomeController extends Controller {
         return ok(views.html.index.render());
     }
 
-    public Result tutorial() {
-        return ok(views.html.tutorial.render());
-    }
-
-    public Result sayHello(String name) { return ok("<h1>" + name + "</h1>").as("Text/html"); }
-
-    public Result freelance(Http.Request request) {
-        projects_active = BusinessLogic.getAPIData();
-
-        Form<Search> searchForm = formFactory.form(Search.class);
-
-        return ok(views.html.freelancelot.render(searchForm, messagesApi.preferred(request)));
-    }
-
-    public Result explore(Http.Request request) {
-        Form<Search> searchForm = formFactory.form(Search.class).bindFromRequest(request);
-        if(searchForm.hasErrors()) {
-            System.out.println("Input Field has some erros");
-            return ok("Bad Request");
+    public Result freelancer(String search) {
+        if(search == ""){
+            return ok(views.html.freelancer.render(null));
         }
-        else {
-            Search searchObj = searchForm.get();
-            searchInput = searchObj.getSearchInput();
-
-            return ok("The Search Parameter : " +searchObj.getSearchInput()).as("Text/html");
-
+        else{
+            return ok(views.html.freelancer.render(BusinessLogic.getData(search)));
         }
     }
-}
+
+    }
 
