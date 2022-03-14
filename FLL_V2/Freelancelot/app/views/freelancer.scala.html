@@ -1,10 +1,12 @@
 @import models.Freelancelot
 @import models.FreelaancelotList
 @(searchForm: Map[String,FreelaancelotList])
-<html>
+@main("FreeLancelot"){
+    <article>
     <head>
         <h1 style= text-align:center;>Welcome to FreeLancelot</h1>
     </head>
+    <center>
         <body>
             <form action ="/freelance" method="GET">
                 <input type="text" name="searchTerm" placeholder="Enter search Terms"/>
@@ -12,6 +14,15 @@
             </form>
             <div>
                 @if(searchForm != null) {
+                    <tr>
+                        <td>Owner_id()</td>
+                        <td>Date()</td>
+                        <td>Title()</td>
+                        <td>Type()</td>
+                        <td>Skills</td>
+                        <td><a href=#>Stats</a></td>
+                        <td><a href=#>Readability</a></td>
+                    </tr>
                     @for((searchterm,searchvalue) <- searchForm){
                         <p> search term: @searchterm : Flesh reading Ease Index ## FKLG #.#</p>
                         <a href="">Global Stats</a>
@@ -22,7 +33,9 @@
                                 <td>@result.getDate()</td>
                                 <td>@result.getProject_title()</td>
                                 <td>@result.getProject_type()</td>
-                                <td>@result.getProject_description()</td>
+                                <td>@result.getSkills</td>
+                                <td><a href=#>Stats</a></td>
+                                <td><a href=#>Readability</a></td>
                             </tr>
                         }
                         </table>
@@ -30,4 +43,6 @@
                 }
             </div>
         </body>
-</html>
+    </center>
+    </article>
+}
