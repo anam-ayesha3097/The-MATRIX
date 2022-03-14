@@ -4,6 +4,7 @@ public class Freelancelot {
 
     private Integer owner_id;
     private Integer date;
+    private Integer project_ID;
     private String project_title;
     private String project_description;
     private String project_type;
@@ -11,10 +12,11 @@ public class Freelancelot {
     private String stats;
     private Long readability;
 
-    public Freelancelot(Integer owner_id, Integer date, String project_title ,String project_description, String project_type, String skills, String stats, Long readability){
+    public Freelancelot(Integer owner_id, Integer date,Integer project_ID, String project_title ,String project_description, String project_type, String skills, String stats, Long readability){
         this.owner_id = owner_id;
         this.date = date;
         this.project_title = project_title;
+        this.project_ID = project_ID;
         this.project_description = project_description;
         this.project_type = project_type;
         this.skills = skills;
@@ -68,6 +70,10 @@ public class Freelancelot {
 
     public void setProject_type(java.lang.String project_type) {
         this.project_type = project_type;
+    }
+
+    public void setProject_ID(java.lang.Integer project_ID) {
+        this.project_ID = project_ID;
     }
 
     public void setSkills(java.lang.String skills) {
