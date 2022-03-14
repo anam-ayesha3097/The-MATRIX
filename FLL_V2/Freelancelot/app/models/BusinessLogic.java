@@ -49,7 +49,10 @@ public class BusinessLogic {
                     Integer owner_ID = jsonArr.getJSONObject(i).getInt("owner_id");
                     Integer date = jsonArr.getJSONObject(i).getInt("time_submitted");
                     String project_type = jsonArr.getJSONObject(i).getString("type");
-                    proj_det = new Freelancelot(owner_ID, date,project_ID, project_title, project_Description, project_type, "", "", 1L);
+                    String skills = jsonArr.getJSONObject(i).getString("seo_url");
+                    String skillarr[] = skills.split("/");
+                    skills = skillarr[0];
+                    proj_det = new Freelancelot(owner_ID, date,project_ID, project_title, project_Description, project_type, skills, "", 1L);
                     projects.add(proj_det);
                 }
                 projectList.setProjectList(projects);

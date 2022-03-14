@@ -33,7 +33,7 @@
                                 <td>@result.getDate()</td>
                                 <td>@result.getProject_title()</td>
                                 <td>@result.getProject_type()</td>
-                                <td>@result.getSkills</td>
+                                <td><a href="@routes.HomeController.skills(result.getSkills())">@result.getSkills()</a></td>
                                 <td><a href=#>Stats</a></td>
                                 <td><a href=#>Readability</a></td>
                             </tr>

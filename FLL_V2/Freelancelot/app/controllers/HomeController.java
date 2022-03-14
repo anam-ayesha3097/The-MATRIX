@@ -45,6 +45,10 @@ public class HomeController extends Controller {
             return ok(views.html.freelancer.render(BusinessLogic.getData(search)));
         }
     }
+    public Result skills(String s) {
+
+        return ok(views.html.skills.render(BusinessLogic.getData(s)));
+    }
 
     }
 

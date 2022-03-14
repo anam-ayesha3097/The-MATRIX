@@ -29,7 +29,8 @@ object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Html
       {
 
 
-Seq[Any](format.raw/*2.1*/("""
+Seq[Any](format.raw/*1.4*/("""
+
 
 """),_display_(/*4.2*/main("Welcome")/*4.17*/ {_display_(Seq[Any](format.raw/*4.19*/("""
 """),_display_(/*5.2*/defining(play.core.PlayVersion.current)/*5.41*/ { version =>_display_(Seq[Any](format.raw/*5.54*/("""
@@ -93,14 +94,10 @@ Seq[Any](format.raw/*2.1*/("""
           website</a>.</p>
 
       <h3 id="next-steps">Next steps</h3>
-      <p>Now, let's <a href=""""),_display_(/*66.31*/routes/*66.37*/.HomeController.explore),format.raw/*66.60*/("""">search the tutorial Play application</a>.</p>
-    </article>
-    <aside>
-      """),_display_(/*69.8*/commonSidebar()),format.raw/*69.23*/("""
-    """),format.raw/*70.5*/("""</aside>
+         </article>
   </div>
 </section>
-""")))}),format.raw/*73.2*/("""
+""")))}),format.raw/*69.2*/("""
 """)))}))
       }
     }
@@ -118,9 +115,9 @@ Seq[Any](format.raw/*2.1*/("""
               /*
                   -- GENERATED --
                   SOURCE: app/views/index.scala.html
-                  HASH: 21f5e2aabbee0188d751001127e868aac23afa1e
-                  MATRIX: 900->1|996->4|1024->7|1047->22|1086->24|1113->26|1160->65|1210->78|1238->80|2687->1501|2716->1508|2842->1607|2870->1614|3002->1719|3030->1726|3166->1835|3194->1842|3315->1935|3344->1942|5152->3723|5167->3729|5211->3752|5319->3834|5355->3849|5387->3854|5447->3884
-                  LINES: 27->1|32->2|34->4|34->4|34->4|35->5|35->5|35->5|37->7|61->31|61->31|62->32|62->32|63->33|63->33|64->34|64->34|64->34|64->34|96->66|96->66|96->66|99->69|99->69|100->70|103->73
+                  HASH: 5ce807fd193822737f2f463dd59cc9a4a02998e4
+                  MATRIX: 900->1|996->3|1028->10|1051->25|1090->27|1118->30|1165->69|1215->82|1245->86|2718->1531|2747->1538|2874->1638|2902->1645|3035->1751|3063->1758|3200->1868|3228->1875|3349->1968|3378->1975|5235->3802
+                  LINES: 27->1|32->1|35->4|35->4|35->4|36->5|36->5|36->5|38->7|62->31|62->31|63->32|63->32|64->33|64->33|65->34|65->34|65->34|65->34|100->69
                   -- GENERATED --
               */
           
