@@ -1,4 +1,3 @@
-@import models.Freelancelot
 @import models.FreelaancelotList
 @(searchForm: Map[String,FreelaancelotList])
 @main("FreeLancelot"){
@@ -16,7 +15,7 @@
                 @if(searchForm != null) {
                     @for((searchterm,searchvalue) <- searchForm){
                         <p> search term: @searchterm : Flesh reading Ease Index ## FKLG #.#</p>
-                        <a href="">Global Stats</a>
+                        <a href="@routes.HomeController.wordStats(searchterm)">Global Stats</a>
                         <table>
                         <tr>
                             <td>Owner_id</td>
@@ -34,8 +33,8 @@
                                 <td>@result.getProject_title()</td>
                                 <td>@result.getProject_type()</td>
                                 <td>@result.getSkills</td>
-                                <td><a href=#>Stats</a></td>
-                                <td><a href=#>Readability</a></td>
+                                <td><a href="@routes.HomeController.projectWordStats(result.getProject_description)">Stats</a></td>
+                                <td><a href="#">Readability</a></td>
                             </tr>
                         }
                         </table>

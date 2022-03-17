@@ -1,0 +1,42 @@
+@(wordsHashMap: Map[String, Integer])
+
+<head>
+    @* Here's where we render the page title `String`. *@
+<title>FreeLancelot</title>
+</head>
+
+<body id="wordStatsPageBody">
+    <div id="main-div" class="container">
+
+        <div id="allProjectsDiv" class="projects-main-div">
+            @if(wordsHashMap.isEmpty) {
+                <div class="alert alert-warning" role="alert" id="userMsgDiv">
+                    No projects as of now
+                </div>
+            } else {
+                <div class="" id="tableContainerDiv" >
+
+                </div>
+                <table class="table table-striped table-hover" id="projectsTable">
+                    <thead>
+                        <tr>
+                            <th>Words</th>
+                            <th>Frequency</th>
+                    <tr/>
+                    </thead>
+                    <tbody>
+                        <div>
+                        @for((word,count) <- wordsHashMap) {
+                            <tr>
+                                <td>@word</td>
+                                <td>@count</td>
+                            </tr>
+                        }
+                        </div>
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+
+</body>

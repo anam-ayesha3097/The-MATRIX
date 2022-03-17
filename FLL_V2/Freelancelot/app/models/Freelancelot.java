@@ -1,9 +1,11 @@
 package models;
 
+import java.util.HashMap;
+
 public class Freelancelot {
 
     private Integer owner_id;
-    private Integer date;
+    private String date;
     private Integer project_ID;
     private String project_title;
     private String project_description;
@@ -11,8 +13,9 @@ public class Freelancelot {
     private String skills;
     private String stats;
     private Long readability;
+    private HashMap<String,Integer> wordstats;
 
-    public Freelancelot(Integer owner_id, Integer date,Integer project_ID, String project_title ,String project_description, String project_type, String skills, String stats, Long readability){
+    public Freelancelot(Integer owner_id, String date,Integer project_ID, String project_title ,String project_description, String project_type, String skills, String stats, Long readability,HashMap wordstats){
         this.owner_id = owner_id;
         this.date = date;
         this.project_title = project_title;
@@ -22,13 +25,14 @@ public class Freelancelot {
         this.skills = skills;
         this.stats = stats;
         this.readability = readability;
+        this.wordstats =wordstats;
     }
 
     public java.lang.Integer getOwner_id() {
         return this.owner_id;
     }
 
-    public java.lang.Integer getDate() {
+    public java.lang.String getDate() {
         return this.date;
     }
 
@@ -52,15 +56,21 @@ public class Freelancelot {
         return this.readability;
     }
 
+    public java.util.HashMap getWordStats() {
+        return this.wordstats;
+    }
+
     public java.lang.String getProject_title() {
         return this.project_title;
     }
+
+    public java.lang.Integer getProject_ID(){return this.project_ID;}
 
     public void setOwner_id(java.lang.Integer owner_id) {
         this.owner_id = owner_id;
     }
 
-    public void setDate(java.lang.Integer date) {
+    public void setDate(java.lang.String date) {
         this.date = date;
     }
 
@@ -88,6 +98,9 @@ public class Freelancelot {
         this.stats = stats;
     }
 
+    public void setWordStats() {
+        this.wordstats = wordstats;
+    }
     public void setProject_title(java.lang.String project_title) {
         this.project_title = project_title;
     }

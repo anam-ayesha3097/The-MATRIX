@@ -1,18 +1,16 @@
 package controllers;
-
-import models.BusinessLogic;
-import models.Freelancelot;
-import play.data.FormFactory;
-import play.i18n.MessagesApi;
+import models.*;
 import play.mvc.Controller;
 import play.mvc.Result;
 
-import javax.inject.Inject;
 import java.util.HashMap;
+
 /**
  * This controller contains an action to handle HTTP requests
  * to the application's home page.
  */
+
+
 public class HomeController extends Controller {
 
     /**
@@ -22,19 +20,20 @@ public class HomeController extends Controller {
      * <code>GET</code> request with a path of <code>/</code>.
      */
 
-    HashMap<Integer, Freelancelot> projects_active;
-    String searchInput;
-    @Inject
-    FormFactory formFactory;
-
-    private MessagesApi messagesApi;
-
-    @Inject
-    public HomeController(MessagesApi messagesApi) {
-        this.messagesApi = messagesApi;
-    }
+    public HashMap<String, FreelaancelotList> projlist = new HashMap<String, FreelaancelotList>();
     public Result index() {
         return ok(views.html.index.render());
+    }
+
+    public Result projectWordStats(String search) //pass proj id from html to this func
+    {
+            System.out.println("Word Stats Proj List" +projlist);
+            return ok(views.html.projectwordstats.render(Utilities.wordFrequencyCounter(search)));
+    }
+
+    public Result wordStats(String search)
+     {
+        return ok(views.html.wordstats.render(WordStats.GlobalStats(projlist.get(search))));
     }
 
     public Result freelancer(String search) {
@@ -42,6 +41,8 @@ public class HomeController extends Controller {
             return ok(views.html.freelancer.render(null));
         }
         else{
+            projlist = BusinessLogic.getData(search);
+            System.out.println("Project List" +projlist);
             return ok(views.html.freelancer.render(BusinessLogic.getData(search)));
         }
     }
