@@ -1,0 +1,13 @@
+[debug] > Exec(test, None, None)
+[debug] Evaluating tasks: Test / test
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Exporting web-assets:freelancelot
+[info] compiling 1 Java source to D:\FREE\The-MATRIX\FLL_V2\Freelancelot\target\scala-2.13\test-classes ...
+[debug] Exporting web-assets-test:freelancelot
+[error] D:\FREE\The-MATRIX\FLL_V2\Freelancelot\test\controllers\HomeControllerTest.java:40:1: cannot find symbol
+[error]   symbol:   class FunctionalTest
+[error]   location: class controllers.HomeControllerTest
+[error] FunctionalTest
+[error] (Test / compileIncremental) javac returned non-zero exit code
+[error] Total time: 2 s, completed 15-Mar-2022 2:19:17 PM
+[debug] > Exec(idea-shell, None, None)

@@ -1,0 +1,9 @@
+[debug] > Exec(test, None, None)
+[debug] Evaluating tasks: Test / test
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Exporting web-assets:freelancelot
+[info] compiling 1 Java source to D:\FREE\The-MATRIX\FLL_V2\Freelancelot\target\scala-2.13\test-classes ...
+[debug] Exporting web-assets-test:freelancelot
+[info] done compiling
+[success] Total time: 1 s, completed 15-Mar-2022 2:19:44 PM
+[debug] > Exec(idea-shell, None, None)
