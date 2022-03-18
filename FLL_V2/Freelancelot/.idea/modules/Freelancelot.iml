@@ -97,6 +97,7 @@
     <orderEntry type="library" name="sbt: javax.inject:javax.inject:1:jar" level="project" />
     <orderEntry type="library" name="sbt: joda-time:joda-time:2.10.5:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: junit:junit:4.13.2:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: net.bytebuddy:byte-buddy-agent:1.7.4:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: net.bytebuddy:byte-buddy:1.8.15:jar" level="project" />
     <orderEntry type="library" name="sbt: net.jodah:typetools:0.5.0:jar" level="project" />
     <orderEntry type="library" name="sbt: net.sf.ehcache:ehcache:2.10.9.2:jar" level="project" />
@@ -128,6 +129,8 @@
     <orderEntry type="library" name="sbt: org.jboss.logging:jboss-logging:3.3.2.Final:jar" level="project" />
     <orderEntry type="library" name="sbt: org.json:json:20131018:jar" level="project" />
     <orderEntry type="library" name="sbt: org.lz4:lz4-java:1.8.0:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.mockito:mockito-core:2.10.0:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.objenesis:objenesis:2.6:jar" level="project" />
     <orderEntry type="library" name="sbt: org.reactivestreams:reactive-streams:1.0.3:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang.modules:scala-java8-compat_2.13:1.0.2:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang.modules:scala-parser-combinators_2.13:1.1.2:jar" level="project" />
