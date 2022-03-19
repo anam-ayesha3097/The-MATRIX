@@ -124,5 +124,3 @@ span.by{font-size:14px;font-weight:normal;}
 form dl{padding:10px 0;}
 dd.info{color:#888;font-size:12px;}
 dd.error{color:#c00;}
-aside a[href^="http"]:after,.doc a[href^="http"]:after{content:url(/assets/images/external.png);vertical-align:middle;margin-left:5px;}
-img.resize{width:44.8px;height74.18px;float:left;}

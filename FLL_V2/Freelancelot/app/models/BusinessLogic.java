@@ -12,8 +12,10 @@ import static models.Utilities.date_converter;
 public class BusinessLogic {
 
     public static LinkedHashMap<String, FreelaancelotList> projects_active= new LinkedHashMap<String, FreelaancelotList>();
+    public static LinkedHashMap<String, FreelaancelotList> projects_active10= new LinkedHashMap<String, FreelaancelotList>();
+
     public static Freelancelot proj_det = null;
-    public static String total_preview_description = "";
+    public static String preview_description = "";
     static JSONObject result;
 
     public static LinkedHashMap<String, FreelaancelotList> getData(String searchTerm ) {
@@ -25,7 +27,7 @@ public class BusinessLogic {
         string += "\"";
         FreelaancelotList projectList = new FreelaancelotList();
         try {
-            URL url = new URL("https://www.freelancer.com/api/projects/0.1/projects/active?job_details=true&limit=10&preview_description=true&query="+ string);
+            URL url = new URL("https://www.freelancer.com/api/projects/0.1/projects/active?job_details=true&limit=250&preview_description=true&query="+ string);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.connect();
@@ -50,8 +52,12 @@ public class BusinessLogic {
                     Integer date = jsonArr.getJSONObject(i).getInt("time_submitted");
                     String converted_date = date_converter(date);
                     String project_type = jsonArr.getJSONObject(i).getString("type");
-                    HashMap<String,Integer> wordstats = new HashMap<String,Integer>();
-                    proj_det = new Freelancelot(owner_ID, converted_date,project_ID, project_title, project_Description, project_type, "", "stats", 1L,wordstats);
+                    String seoUrl = jsonArr.getJSONObject(i).getString("seo_url");
+                    String[] skillarr = seoUrl.split("/");
+                    String skills = skillarr[0];
+                    String seoUrl1 = skillarr[1];
+                    preview_description += project_Description;
+                    proj_det = new Freelancelot(owner_ID, converted_date,project_ID, project_title, project_Description, project_type, skills, "stats", 1L,seoUrl1);
                     projects.add(proj_det);
                 }
                 projectList.setProjectList(projects);

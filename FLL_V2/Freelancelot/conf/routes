@@ -4,6 +4,7 @@
 
 # An example controller showing a sample home page
 
+
 GET    /freelance                controllers.HomeController.freelancer(searchTerm: String ?="")
 GET    /IndvWordStats            controllers.HomeController.projectWordStats(searchTerm: String ?="")
 GET    /wordstats                controllers.HomeController.wordStats(searchTerm: String ?="")
