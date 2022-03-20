@@ -48,10 +48,6 @@ public class Freelancelot {
         return this.skills;
     }
 
-    public java.lang.String getStats() {
-        return this.stats;
-    }
-
     public java.lang.Long getReadability() {
         return this.readability;
     }
@@ -70,13 +66,6 @@ public class Freelancelot {
         this.date = date;
     }
 
-    public void setProject_description(java.lang.String project_description) {
-        this.project_description = project_description;
-    }
-
-    public void setProject_type(java.lang.String project_type) {
-        this.project_type = project_type;
-    }
 
     public void setSkills(java.lang.String skills) {
         this.skills = skills;
@@ -89,11 +78,6 @@ public class Freelancelot {
     public void setStats(java.lang.String stats) {
         this.stats = stats;
     }
-
-    public void setProject_title(java.lang.String project_title) {
-        this.project_title = project_title;
-    }
-
 
     public String toString()
     {

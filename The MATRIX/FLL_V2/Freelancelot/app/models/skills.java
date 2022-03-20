@@ -70,9 +70,7 @@ public class skills {
                 skills_active.put(searchTerm,projectList);
             }
             conn.disconnect();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return skills_active;

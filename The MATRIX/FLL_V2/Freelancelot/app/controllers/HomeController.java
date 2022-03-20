@@ -23,7 +23,7 @@ public class HomeController extends Controller {
      * <code>GET</code> request with a path of <code>/</code>.
      */
 
-    public HashMap<String, FreelaancelotList> projlistmap = new HashMap<String, FreelaancelotList>();
+    public LinkedHashMap<String, FreelaancelotList> projlistmap = new LinkedHashMap<String, FreelaancelotList>();
 
     public Result index() {
         return ok(views.html.index.render());
@@ -51,31 +51,11 @@ public class HomeController extends Controller {
         else{
             BusinessLogic Bl = new BusinessLogic();
             projlistmap = Bl.getData(search);
-            for(String i: projlistmap.keySet())
-            {
-                FreelaancelotList value = projlistmap.get(i);
-                ArrayList<Freelancelot> entireprojectList = value.getProjectList();
-                ArrayList<Freelancelot> tempList = new ArrayList<>();
-
-                int counter = 1;
-                for (Freelancelot proj:entireprojectList) {
-                    if (counter <= 10) {
-                        tempList.add(proj);
-                    }
-                    else
-                    {
-                        break;
-                    }
-                    counter++;
-                }
-
-                FreelaancelotList frlistobj = new FreelaancelotList();
-                frlistobj.setProjectList(tempList);
-                projlistmap_10Projs.put(i, frlistobj);
+            Utilities ut = new Utilities();
+            projlistmap_10Projs = ut.first10projects(projlistmap);
             }
             return ok(views.html.freelancer.render(projlistmap_10Projs));
         }
-    }
     public Result skills(String s) {
         skills sl = new skills();
         return ok(views.html.skills.render(sl.getDataSkills(s)));

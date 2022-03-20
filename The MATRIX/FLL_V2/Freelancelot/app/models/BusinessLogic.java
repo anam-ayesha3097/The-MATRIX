@@ -63,9 +63,7 @@ public class BusinessLogic {
                 projects_active.put(searchTerm,projectList);
             }
             conn.disconnect();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return projects_active;
