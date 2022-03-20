@@ -47,31 +47,28 @@ public class BusinessLogic {
 
         try {
             URL url = new URL("https://www.freelancer.com/api/projects/0.1/projects/active?job_details=true&limit=10&preview_description=true&query="+ searchURL);
-
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.connect();
-
             if (conn.getResponseCode() == 200) {
                 Scanner sc = new Scanner(url.openStream());
                 String temp = "";
                 while (sc.hasNext()) {
 
                     temp = temp + sc.nextLine();
-
                     System.out.println("********Temp**********" +temp);
                 }
 
 
                 JSONObject json = new JSONObject(temp);
-
-
                 result = json.getJSONObject("result");
 
 
                 JSONArray jsonArr = json.getJSONObject("result").getJSONArray("projects");
                 Stream<JSONArray>  jsonArrayStream = Stream.generate(() -> jsonArr);
+                System.out.println("*********JSON Array:************ " +jsonArr);
 
+                System.out.println("\n\n ****** Project Details *****");
 
                 ArrayList<Freelancelot> projects = new ArrayList<Freelancelot>();
                 for(int i = 0; i < jsonArr.length(); i++){
