@@ -1,0 +1,51 @@
+@import models.FreelancelotList
+@import models.Freelancelot
+
+@(searchForm : Map[String,FreelancelotList])
+@main("FreeLance"){
+    <article>
+        <div>
+            <p> </p>
+        </div>
+        <body>
+            <form action ="/freelance" method="GET">
+                <input type="text"   style="text-align: center"  name="searchTerm"  placeholder="Enter search Terms"/>
+                <input type="submit" style="text-align: center" value="Go!">
+            </form>
+
+            <div>
+
+                @if(searchForm != null) {
+                    @for((searchterm,searchvalue) <- searchForm){
+                    <p> Job Search For: @searchterm : Flesh reading Ease Index ## FKLG #.#</p>
+                    <a href="">Global Stats</a>
+                    <table>
+                        <tr>
+                            <td>Owner_id</td>
+                            <td>Date</td>
+                            <td>Title</td>
+                            <td>Type</td>
+                            <td>Skills</td>
+                            <td>Stats</td>
+                            <td>Readability</td>
+                            <td>Educational Level</td>
+                        </tr>
+                        @for(result <- searchvalue.getProjectList()) {
+                            <tr>
+                                <td>@result.getOwner_id()</td>
+                                <td>@result.getDate()</td>
+                                <td>@result.getProject_title()</td>
+                                <td>@result.getProject_type()</td>
+                                <td>@result.getSkills</td>
+                                <td><a href=#>Stats</a></td>
+                                <td>@result.getReadability()</td>
+                                <td>@result.getEducationalLevel()</td>
+                            </tr>
+                        }
+                    </table>
+                }
+            }
+            </div>
+        </body>
+    </article>
+}

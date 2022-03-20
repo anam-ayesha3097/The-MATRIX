@@ -10,6 +10,6 @@ scalaVersion := "2.13.6"
 libraryDependencies += guice
 libraryDependencies += ws
 libraryDependencies ++= Seq(javaWs, ws)
-libraryDependencies += ehcache
+libraryDependencies ++= Seq( ehcache )
 libraryDependencies += "org.json" % "json" % "20131018"
 libraryDependencies += javaForms

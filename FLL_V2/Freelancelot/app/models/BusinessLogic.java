@@ -7,20 +7,47 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.Scanner;
+import java.util.concurrent.CompletableFuture;
+import java.util.stream.Stream;
 
 public class BusinessLogic {
+    public static LinkedHashMap<String, FreelancelotList> projects_active= new LinkedHashMap<>();
 
-    public static HashMap<Integer, Freelancelot> projects_active= new HashMap<Integer, Freelancelot>();
     public static Freelancelot proj_det = null;
     static JSONObject result;
     static String jsonResult = null;
-    public static HashMap<Integer, Freelancelot> getAPIData( ) {
-        System.out.println("Inside Business Logic");
+
+    public static CompletableFuture<LinkedHashMap<String, FreelancelotList>> getAPIDataAsync(String searchTerm ) {
+        CompletableFuture<LinkedHashMap<String, FreelancelotList>> resultAPI = new CompletableFuture<>();
+        return CompletableFuture.supplyAsync(() -> {
+            try {
+                return callAPI(searchTerm);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+            return null;
+        } );
+    }
+
+
+    public static LinkedHashMap<String, FreelancelotList> callAPI(String searchTerm) throws MalformedURLException {
+
+        FreelancelotList projectList = new FreelancelotList();
+        String searchURL = "\"";
+
+        String [] searchSplit= searchTerm.split(" ");
+        for(String sAppend: searchSplit)
+            searchURL += sAppend+"%20";
+
+        searchURL += "\"";
+        System.out.println("String after process " +searchURL);
+
         try {
-            String q = "\"pdf%20to%20toword\"";
-            URL url = new URL("https://www.freelancer.com/api/projects/0.1/projects/active?limit=10");
+            URL url = new URL("https://www.freelancer.com/api/projects/0.1/projects/active?job_details=true&limit=10&preview_description=true&query="+ searchURL);
+
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.connect();
@@ -29,20 +56,24 @@ public class BusinessLogic {
                 Scanner sc = new Scanner(url.openStream());
                 String temp = "";
                 while (sc.hasNext()) {
+
                     temp = temp + sc.nextLine();
-                    System.out.println("Temp" +temp);
+
+                    System.out.println("********Temp**********" +temp);
                 }
+
+
                 JSONObject json = new JSONObject(temp);
-                System.out.println(json.toString());
+
+
                 result = json.getJSONObject("result");
-                System.out.println(result.toString());
 
-                //jsonResult = (String) json.getJSONObject("result").get("projects");
+
                 JSONArray jsonArr = json.getJSONObject("result").getJSONArray("projects");
-                System.out.println("JSON Array: " +jsonArr);
+                Stream<JSONArray>  jsonArrayStream = Stream.generate(() -> jsonArr);
 
-                System.out.println("\n\n ****** Proejct Details *****");
 
+                ArrayList<Freelancelot> projects = new ArrayList<Freelancelot>();
                 for(int i = 0; i < jsonArr.length(); i++){
                     Integer project_ID = jsonArr.getJSONObject(i).getInt("id");
                     String project_title = jsonArr.getJSONObject(i).getString("title");
@@ -50,27 +81,15 @@ public class BusinessLogic {
                     Integer owner_ID = jsonArr.getJSONObject(i).getInt("owner_id");
                     Integer date = jsonArr.getJSONObject(i).getInt("time_submitted");
                     String project_type = jsonArr.getJSONObject(i).getString("type");
-
-                    System.out.println("pid : "+project_ID);
-                    System.out.println("ptitle : "+project_title);
-                    System.out.println("p_desc  : "+project_Description);
-                    System.out.println("p_type : "+project_type);
-                    System.out.println("owner_id  : "+owner_ID);
-                    System.out.println("date : "+date);
-
-
-                    proj_det = new Freelancelot(owner_ID, date, project_title, project_Description, project_type, "", "", 1L);
-                    projects_active.put(project_ID, proj_det);
-
+                    proj_det = new Freelancelot(owner_ID, date,project_ID, project_title, project_Description, project_type, "", "", 0L, "");
+                    projects.add(proj_det);
                 }
-
-                System.out.println("\n\n***Projects HashMap***");
-                System.out.println(projects_active);
+                projectList.setProjectList(projects);
+                System.out.println(projectList);
+                projects_active.put(searchTerm,projectList);
             }
             conn.disconnect();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        }  catch (IOException e) {
             e.printStackTrace();
         }
         return projects_active;

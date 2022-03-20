@@ -4,22 +4,26 @@ public class Freelancelot {
 
     private Integer owner_id;
     private Integer date;
+    private Integer project_id;
     private String project_title;
     private String project_description;
     private String project_type;
     private String skills;
     private String stats;
     private Long readability;
+    private String educationalLevel;
 
-    public Freelancelot(Integer owner_id, Integer date, String project_title ,String project_description, String project_type, String skills, String stats, Long readability){
+    public Freelancelot(Integer owner_id, Integer date, Integer project_id ,String project_title ,String project_description, String project_type, String skills, String stats, Long readability, String educationalLevel){
         this.owner_id = owner_id;
         this.date = date;
+        this.project_id = project_id;
         this.project_title = project_title;
         this.project_description = project_description;
         this.project_type = project_type;
         this.skills = skills;
         this.stats = stats;
         this.readability = readability;
+        this.educationalLevel = educationalLevel;
     }
 
     public java.lang.Integer getOwner_id() {
@@ -54,6 +58,14 @@ public class Freelancelot {
         return this.project_title;
     }
 
+    public Integer getProject_id() {
+        return this.project_id;
+    }
+
+    public String getEducationalLevel() {
+        return this.educationalLevel;
+    }
+
     public void setOwner_id(java.lang.Integer owner_id) {
         this.owner_id = owner_id;
     }
@@ -86,7 +98,15 @@ public class Freelancelot {
         this.project_title = project_title;
     }
 
+    public void setProject_id(Integer project_id) {
+        this.project_id = project_id;
+    }
+
+    public void setEducationalLevel(String educationalLevel) {
+        this.educationalLevel = educationalLevel;
+    }
+
     public void display() {
-        System.out.println("Owner ID: " +getOwner_id()+ " Date: " +getDate()+ " Project Description : " +getProject_description()+ " Project Type: " +getProject_type());
+        System.out.println("Owner ID: " +getOwner_id()+ " Date: " +getDate()+ " Project Title : " +getProject_title()+ " Project Type: " +getProject_type() +" Flesch Index: " +getReadability() +" Educational Level: "+getEducationalLevel());
     }
 }
