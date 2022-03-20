@@ -17,10 +17,10 @@ package controllers {
     }
 
   
-    // @LINE:10
-    def wordStats(searchTerm:String = ""): Call = {
+    // @LINE:8
+    def freelancer(searchTerm:String = ""): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "wordstats" + play.core.routing.queryString(List(if(searchTerm == "") None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("searchTerm", searchTerm)))))
+      Call("GET", _prefix + { _defaultPrefix } + "freelance" + play.core.routing.queryString(List(if(searchTerm == "") None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("searchTerm", searchTerm)))))
     }
   
     // @LINE:9
@@ -29,16 +29,16 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "IndvWordStats" + play.core.routing.queryString(List(if(searchTerm == "") None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("searchTerm", searchTerm)))))
     }
   
+    // @LINE:10
+    def wordStats(searchTerm:String = ""): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "wordstats" + play.core.routing.queryString(List(if(searchTerm == "") None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("searchTerm", searchTerm)))))
+    }
+  
     // @LINE:13
     def skills(s:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "skills" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("s", s)))))
-    }
-  
-    // @LINE:8
-    def freelancer(searchTerm:String = ""): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "freelance" + play.core.routing.queryString(List(if(searchTerm == "") None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("searchTerm", searchTerm)))))
     }
   
   }

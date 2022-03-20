@@ -77,8 +77,8 @@ public class HomeController extends Controller {
         }
     }
     public Result skills(String s) {
-        BusinessLogic bl = new BusinessLogic();
-        return ok(views.html.skills.render(bl.getDataSkills(s)));
+        skills sl = new skills();
+        return ok(views.html.skills.render(sl.getDataSkills(s)));
     }
     }
 

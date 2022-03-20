@@ -1,1 +1,6 @@
-[0m[[0m[0mdebug[0m] [0m[0mNo changes[0m
+[debug] [zinc] IncrementalCompile -----------
+[debug] IncrementalCompile.incrementalCompile
+[debug] previous = Stamps for: 21 products, 18 sources, 9 libraries
+[debug] current source = Set(${BASE}/target/scala-2.13/routes/main/controllers/javascript/JavaScriptReverseRoutes.scala, ${BASE}/target/scala-2.13/twirl/main/views/html/index.template.scala, ${BASE}/target/scala-2.13/twirl/main/views/html/freelancer.template.scala, ${BASE}/target/scala-2.13/routes/main/controllers/routes.java, ${BASE}/target/scala-2.13/routes/main/router/Routes.scala, ${BASE}/target/scala-2.13/routes/main/controllers/ReverseRoutes.scala, ${BASE}/app/models/FreelaancelotList.java, ${BASE}/app/models/BusinessLogic.java, ${BASE}/target/scala-2.13/twirl/main/views/html/main.template.scala, ${BASE}/app/models/WordStats.java, ${BASE}/app/models/skills.java, ${BASE}/target/scala-2.13/twirl/main/views/html/projectwordstats.template.scala, ${BASE}/target/scala-2.13/twirl/main/views/html/skills.template.scala, ${BASE}/app/models/Utilities.java, ${BASE}/app/models/Freelancelot.java, ${BASE}/app/controllers/HomeController.java, ${BASE}/target/scala-2.13/routes/main/router/RoutesPrefix.scala, ${BASE}/target/scala-2.13/twirl/main/views/html/wordstats.template.scala)
+[debug] > initialChanges = InitialChanges(Changes(added = Set(), removed = Set(), changed = Set(), unmodified = ...),Set(),Set(),API Changes: Set())
+[debug] No changes

@@ -9,7 +9,7 @@ import static java.util.stream.Collectors.toMap;
 public class Utilities {
    // public long sortedfrequencyMap;
 
-    public String date_converter(Integer date){
+    public static String date_converter(Integer date){
         String milsec = Integer.toString(date) + "000";
         long miliSec = Long.valueOf(milsec);
         DateFormat obj = new SimpleDateFormat("dd MMM yyyy HH:mm:ss");
