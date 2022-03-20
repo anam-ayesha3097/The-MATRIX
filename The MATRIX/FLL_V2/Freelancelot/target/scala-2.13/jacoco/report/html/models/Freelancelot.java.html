@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Freelancelot.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">models</a> &gt; <span class="el_source">Freelancelot.java</span></div><h1>Freelancelot.java</h1><pre class="source lang-java linenums">package models;
+
+import java.util.HashMap;
+
+public class Freelancelot {
+
+    private Integer owner_id;
+    private String date;
+    private Integer project_ID;
+    private String project_title;
+    private String project_description;
+    private String project_type;
+    private String skills;
+    private String stats;
+    private Long readability;
+    private String seoUrl;
+
+<span class="fc" id="L18">    public Freelancelot(Integer owner_id, String date,Integer project_ID, String project_title ,String project_description, String project_type, String skills, String stats, Long readability,String seoUrl){</span>
+<span class="fc" id="L19">        this.owner_id = owner_id;</span>
+<span class="fc" id="L20">        this.date = date;</span>
+<span class="fc" id="L21">        this.project_title = project_title;</span>
+<span class="fc" id="L22">        this.project_ID = project_ID;</span>
+<span class="fc" id="L23">        this.project_description = project_description;</span>
+<span class="fc" id="L24">        this.project_type = project_type;</span>
+<span class="fc" id="L25">        this.skills = skills;</span>
+<span class="fc" id="L26">        this.stats = stats;</span>
+<span class="fc" id="L27">        this.readability = readability;</span>
+<span class="fc" id="L28">        this.seoUrl =seoUrl;</span>
+<span class="fc" id="L29">    }</span>
+
+    public java.lang.Integer getOwner_id() {
+<span class="fc" id="L32">        return this.owner_id;</span>
+    }
+
+    public java.lang.String getDate() {
+<span class="fc" id="L36">        return this.date;</span>
+    }
+
+    public java.lang.String getProject_description() {
+<span class="fc" id="L40">        return this.project_description;</span>
+    }
+
+    public java.lang.String getProject_type() {
+<span class="fc" id="L44">        return this.project_type;</span>
+    }
+
+    public java.lang.String getSkills() {
+<span class="fc" id="L48">        return this.skills;</span>
+    }
+
+    public java.lang.String getStats() {
+<span class="nc" id="L52">        return this.stats;</span>
+    }
+
+    public java.lang.Long getReadability() {
+<span class="nc" id="L56">        return this.readability;</span>
+    }
+
+    public java.lang.String getProject_title() {
+<span class="fc" id="L60">        return this.project_title;</span>
+    }
+
+<span class="fc" id="L63">    public java.lang.Integer getProject_ID(){return this.project_ID;}</span>
+
+    public void setOwner_id(java.lang.Integer owner_id) {
+<span class="nc" id="L66">        this.owner_id = owner_id;</span>
+<span class="nc" id="L67">    }</span>
+
+    public void setDate(java.lang.String date) {
+<span class="nc" id="L70">        this.date = date;</span>
+<span class="nc" id="L71">    }</span>
+
+    public void setProject_description(java.lang.String project_description) {
+<span class="nc" id="L74">        this.project_description = project_description;</span>
+<span class="nc" id="L75">    }</span>
+
+    public void setProject_type(java.lang.String project_type) {
+<span class="nc" id="L78">        this.project_type = project_type;</span>
+<span class="nc" id="L79">    }</span>
+
+    public void setSkills(java.lang.String skills) {
+<span class="nc" id="L82">        this.skills = skills;</span>
+<span class="nc" id="L83">    }</span>
+
+    public void setReadability(java.lang.Long readability) {
+<span class="nc" id="L86">        this.readability = readability;</span>
+<span class="nc" id="L87">    }</span>
+
+    public void setStats(java.lang.String stats) {
+<span class="nc" id="L90">        this.stats = stats;</span>
+<span class="nc" id="L91">    }</span>
+
+    public void setProject_title(java.lang.String project_title) {
+<span class="nc" id="L94">        this.project_title = project_title;</span>
+<span class="nc" id="L95">    }</span>
+
+
+    public String toString()
+    {
+<span class="fc" id="L100">        return &quot;[Owner ID:&quot; +getOwner_id()+</span>
+<span class="fc" id="L101">                    &quot;\nDate: &quot; +getDate()+</span>
+<span class="fc" id="L102">                    &quot;\nProject Description : &quot; +getProject_description()+</span>
+<span class="fc" id="L103">                    &quot;\nProject Type: &quot; +getProject_type() + &quot;]\n&quot;;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
