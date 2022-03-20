@@ -1,4 +1,4 @@
-[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
-[0m[[0m[0mdebug[0m] [0m[0m	(C:\Integrated soen\MatrixCopy\The MATRIX\FLL_V2\Freelancelot\conf\application.conf,C:\Integrated soen\MatrixCopy\The MATRIX\FLL_V2\Freelancelot\target\scala-2.13\classes\application.conf)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(C:\Integrated soen\MatrixCopy\The MATRIX\FLL_V2\Freelancelot\conf\logback.xml,C:\Integrated soen\MatrixCopy\The MATRIX\FLL_V2\Freelancelot\target\scala-2.13\classes\logback.xml)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(C:\Integrated soen\MatrixCopy\The MATRIX\FLL_V2\Freelancelot\conf\routes,C:\Integrated soen\MatrixCopy\The MATRIX\FLL_V2\Freelancelot\target\scala-2.13\classes\routes)[0m
+[debug] Copy resource mappings: 
+[debug] 	(D:\FREE_NEW\The MATRIX\FLL_V2\Freelancelot\conf\application.conf,D:\FREE_NEW\The MATRIX\FLL_V2\Freelancelot\target\scala-2.13\classes\application.conf)
+[debug] 	(D:\FREE_NEW\The MATRIX\FLL_V2\Freelancelot\conf\logback.xml,D:\FREE_NEW\The MATRIX\FLL_V2\Freelancelot\target\scala-2.13\classes\logback.xml)
+[debug] 	(D:\FREE_NEW\The MATRIX\FLL_V2\Freelancelot\conf\routes,D:\FREE_NEW\The MATRIX\FLL_V2\Freelancelot\target\scala-2.13\classes\routes)

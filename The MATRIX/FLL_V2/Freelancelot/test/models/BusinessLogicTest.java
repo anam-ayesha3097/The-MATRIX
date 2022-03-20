@@ -34,8 +34,9 @@ public class BusinessLogicTest extends Mockito{
 //
 //
 //    }
-//    @Test
-//    public void getskillsdatatest(){
-//        assertSame(bl.skills_active,bl.getDataSkills("php"));
-//    }
+    @Test
+    public void getskillsdatatest(){
+        skills sl = new skills();
+        assertSame(sl.skills_active,sl.getDataSkills("php"));
+    }
 }

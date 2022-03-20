@@ -18,12 +18,12 @@ package controllers.javascript {
     }
 
   
-    // @LINE:10
-    def wordStats: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.wordStats",
+    // @LINE:8
+    def freelancer: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.freelancer",
       """
         function(searchTerm0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "wordstats" + _qS([(searchTerm0 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("searchTerm", searchTerm0))])})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "freelance" + _qS([(searchTerm0 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("searchTerm", searchTerm0))])})
         }
       """
     )
@@ -38,22 +38,22 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:10
+    def wordStats: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.wordStats",
+      """
+        function(searchTerm0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "wordstats" + _qS([(searchTerm0 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("searchTerm", searchTerm0))])})
+        }
+      """
+    )
+  
     // @LINE:13
     def skills: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.skills",
       """
         function(s0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "skills" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("s", s0)])})
-        }
-      """
-    )
-  
-    // @LINE:8
-    def freelancer: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.freelancer",
-      """
-        function(searchTerm0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "freelance" + _qS([(searchTerm0 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("searchTerm", searchTerm0))])})
         }
       """
     )

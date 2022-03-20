@@ -8,14 +8,14 @@
         <center>
             <body>
                 <form action ="/freelance" method="GET">
-                    <input type="text" name="searchTerm" placeholder="Enter search Terms"/>
-                    <input type="submit" value="Go!">
+                    <input type="text" name="searchTerm" placeholder="Enter Search Terms"/>
+                    <input type="submit" value="Go!" style="background-color: #1874CD;color: white">
                 </form>
                 <div>
                 @if(searchForm != null) {
                     @for((searchterm,searchvalue) <- searchForm){
                         <p> search term: @searchterm : Flesh reading Ease Index ## FKLG #.#</p>
-                        <a href="@routes.HomeController.wordStats(searchterm)">Global Stats</a>
+                        <a href="@routes.HomeController.wordStats(searchterm)" >Global Stats</a>
                         <table>
                             <tr>
                                 <th style="font-weight: bold">Owner_id</th>
