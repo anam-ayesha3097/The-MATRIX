@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>wordstats.template.scala</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">views.html</a> &gt; <span class="el_source">wordstats.template.scala</span></div><h1>wordstats.template.scala</h1><pre class="source lang-java linenums">
+package views.html
+
+import _root_.play.twirl.api.TwirlFeatureImports._
+import _root_.play.twirl.api.TwirlHelperImports._
+import _root_.play.twirl.api.Html
+import _root_.play.twirl.api.JavaScript
+import _root_.play.twirl.api.Txt
+import _root_.play.twirl.api.Xml
+import models._
+import controllers._
+import play.api.i18n._
+import views.html._
+import play.api.templates.PlayMagic._
+import java.lang._
+import java.util._
+import play.core.j.PlayMagicForJava._
+import play.mvc._
+import play.api.data.Field
+import play.data._
+import play.core.j.PlayFormsMagicForJava._
+import scala.jdk.CollectionConverters._
+
+<span class="pc" id="L24">object wordstats extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[Map[String, Integer],play.twirl.api.HtmlFormat.Appendable] {</span>
+
+  /**/
+  def apply/*1.2*/(wordsHashMap: Map[String, Integer]):play.twirl.api.HtmlFormat.Appendable = {
+<span class="fc" id="L28">    _display_ {</span>
+      {
+
+
+<span class="fc" id="L32">Seq[Any](format.raw/*1.38*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L33">&quot;&quot;&quot;),_display_(/*2.2*/main(&quot;Global Word Stats&quot;)/*2.27*/{_display_(Seq[Any](format.raw/*2.28*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L34">    &quot;&quot;&quot;),format.raw/*3.5*/(&quot;&quot;&quot;&lt;html&gt;</span>
+&lt;head&gt;
+    &lt;title&gt;Global Word Stats&lt;/title&gt;
+&lt;/head&gt;
+&lt;article&gt;
+&lt;body id=&quot;wordStatsPageBody&quot;&gt;
+    &lt;div id=&quot;main-div&quot; class=&quot;container&quot;&gt;
+
+        &lt;div id=&quot;allProjectsDiv&quot; class=&quot;projects-main-div&quot;&gt;
+<span class="pc bpc" id="L43" title="1 of 2 branches missed.">            &quot;&quot;&quot;),_display_(/*12.14*/if(wordsHashMap.isEmpty)/*12.38*/ {_display_(Seq[Any](format.raw/*12.40*/(&quot;&quot;&quot;</span>
+<span class="nc" id="L44">                &quot;&quot;&quot;),format.raw/*13.17*/(&quot;&quot;&quot;&lt;div class=&quot;alert alert-warning&quot; role=&quot;alert&quot; id=&quot;userMsgDiv&quot;&gt;</span>
+                    No projects as of now
+                &lt;/div&gt;
+<span class="fc" id="L47">            &quot;&quot;&quot;)))}/*16.15*/else/*16.20*/{_display_(Seq[Any](format.raw/*16.21*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L48">                &quot;&quot;&quot;),format.raw/*17.17*/(&quot;&quot;&quot;&lt;div class=&quot;&quot; id=&quot;tableContainerDiv&quot; &gt;</span>
+
+                &lt;/div&gt;
+                &lt;table&gt;
+                        &lt;tr&gt;
+                            &lt;th style=&quot;font-weight: bold&quot;&gt;Words&lt;/th&gt;
+                            &lt;th style=&quot;font-weight: bold&quot;&gt;Frequency&lt;/th&gt;
+                    &lt;tr/&gt;
+                    &lt;tbody&gt;
+                        &lt;div&gt;
+<span class="fc" id="L58">                        &quot;&quot;&quot;),_display_(/*27.26*/for((word,count) &lt;- wordsHashMap) yield /*27.59*/ {_display_(Seq[Any](format.raw/*27.61*/(&quot;&quot;&quot;</span>
+                            &quot;&quot;&quot;),format.raw/*28.29*/(&quot;&quot;&quot;&lt;tr&gt;
+                                &lt;td&gt;&quot;&quot;&quot;),_display_(/*29.38*/word),format.raw/*29.42*/(&quot;&quot;&quot;&lt;/td&gt;
+                                &lt;td&gt;&quot;&quot;&quot;),_display_(/*30.38*/count),format.raw/*30.43*/(&quot;&quot;&quot;&lt;/td&gt;
+                            &lt;/tr&gt;
+<span class="fc" id="L63">                        &quot;&quot;&quot;)))}),format.raw/*32.26*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L64">                        &quot;&quot;&quot;),format.raw/*33.25*/(&quot;&quot;&quot;&lt;/div&gt;</span>
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+<span class="fc" id="L67">            &quot;&quot;&quot;)))}),format.raw/*36.14*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L68">        &quot;&quot;&quot;),format.raw/*37.9*/(&quot;&quot;&quot;&lt;/div&gt;</span>
+    &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/article&gt;
+    &lt;/html&gt;
+&quot;&quot;&quot;)))}))
+      }
+    }
+  }
+
+<span class="fc" id="L79">  def render(wordsHashMap:Map[String, Integer]): play.twirl.api.HtmlFormat.Appendable = apply(wordsHashMap)</span>
+
+<span class="nc" id="L81">  def f:((Map[String, Integer]) =&gt; play.twirl.api.HtmlFormat.Appendable) = (wordsHashMap) =&gt; apply(wordsHashMap)</span>
+
+<span class="nc" id="L83">  def ref: this.type = this</span>
+
+}
+
+
+              /*
+                  -- GENERATED --
+                  SOURCE: app/views/wordstats.scala.html
+                  HASH: c3acdfa922446e6fd006dc5c4efdf572652f472c
+                  MATRIX: 925-&gt;1|1056-&gt;37|1084-&gt;40|1117-&gt;65|1155-&gt;66|1187-&gt;72|1438-&gt;296|1471-&gt;320|1511-&gt;322|1557-&gt;340|1720-&gt;485|1733-&gt;490|1772-&gt;491|1818-&gt;509|2222-&gt;886|2271-&gt;919|2311-&gt;921|2369-&gt;951|2439-&gt;994|2464-&gt;998|2535-&gt;1042|2561-&gt;1047|2659-&gt;1114|2713-&gt;1140|2821-&gt;1217|2858-&gt;1227
+                  LINES: 27-&gt;1|32-&gt;1|33-&gt;2|33-&gt;2|33-&gt;2|34-&gt;3|43-&gt;12|43-&gt;12|43-&gt;12|44-&gt;13|47-&gt;16|47-&gt;16|47-&gt;16|48-&gt;17|58-&gt;27|58-&gt;27|58-&gt;27|59-&gt;28|60-&gt;29|60-&gt;29|61-&gt;30|61-&gt;30|63-&gt;32|64-&gt;33|67-&gt;36|68-&gt;37
+                  -- GENERATED --
+              */
+          
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

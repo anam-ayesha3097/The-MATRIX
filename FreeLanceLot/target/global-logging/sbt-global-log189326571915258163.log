@@ -1,0 +1,8 @@
+[debug] > Exec(test, None, None)
+[debug] Evaluating tasks: Test / test
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Exporting web-assets:freelancelot
+[debug] Exporting web-assets-test:freelancelot
+[info] Instrumenting 36 classes to C:\Version_1 SOEN\The-MATRIX\Freelancelot\target\scala-2.13\jacoco\instrumented-classes
+[success] Total time: 3 s, completed 28 Mar, 2022 3:29:05 AM
+[debug] > Exec(idea-shell, None, None)

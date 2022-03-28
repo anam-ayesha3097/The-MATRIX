@@ -1,0 +1,12 @@
+[debug] > Exec(test, None, None)
+[debug] Evaluating tasks: Test / test
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Exporting web-assets:freelancelot
+[info] compiling 1 Scala source to C:\Users\sanke\Downloads\Project\Freelancelot\target\scala-2.13\classes ...
+[info] done compiling
+[info] compiling 5 Java sources to C:\Users\sanke\Downloads\Project\Freelancelot\target\scala-2.13\test-classes ...
+[debug] Exporting web-assets-test:freelancelot
+[info] done compiling
+[info] Instrumenting 36 classes to C:\Users\sanke\Downloads\Project\Freelancelot\target\scala-2.13\jacoco\instrumented-classes
+[success] Total time: 6 s, completed 28 Mar, 2022 2:41:01 AM
+[debug] > Exec(idea-shell, None, None)

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>skills.template.scala</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">views.html</a> &gt; <span class="el_source">skills.template.scala</span></div><h1>skills.template.scala</h1><pre class="source lang-java linenums">
+package views.html
+
+import _root_.play.twirl.api.TwirlFeatureImports._
+import _root_.play.twirl.api.TwirlHelperImports._
+import _root_.play.twirl.api.Html
+import _root_.play.twirl.api.JavaScript
+import _root_.play.twirl.api.Txt
+import _root_.play.twirl.api.Xml
+import models._
+import controllers._
+import play.api.i18n._
+import views.html._
+import play.api.templates.PlayMagic._
+import java.lang._
+import java.util._
+import play.core.j.PlayMagicForJava._
+import play.mvc._
+import play.api.data.Field
+import play.data._
+import play.core.j.PlayFormsMagicForJava._
+import scala.jdk.CollectionConverters._
+/*1.2*/import models.Freelancelot
+/*2.2*/import models.FreelaancelotList
+
+<span class="pc" id="L26">object skills extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[Map[String, FreelaancelotList],play.twirl.api.HtmlFormat.Appendable] {</span>
+
+  /**/
+  def apply/*3.2*/(searchForm: Map[String,FreelaancelotList]):play.twirl.api.HtmlFormat.Appendable = {
+<span class="fc" id="L30">    _display_ {</span>
+      {
+
+
+<span class="fc" id="L34">Seq[Any](format.raw/*3.45*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L35">    &quot;&quot;&quot;),_display_(/*4.6*/main(&quot;skills&quot;)/*4.20*/{_display_(Seq[Any](format.raw/*4.21*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L36">    &quot;&quot;&quot;),format.raw/*5.5*/(&quot;&quot;&quot;&lt;article&gt;</span>
+        &lt;head&gt;
+            &lt;h1 style= text-align:center;&gt;Welcome to FreeLancelot&lt;/h1&gt;
+        &lt;/head&gt;
+        &lt;center&gt;
+            &lt;body&gt;
+                &lt;div&gt;
+<span class="pc bpc" id="L43" title="1 of 2 branches missed.">                &quot;&quot;&quot;),_display_(/*12.18*/if(searchForm != null)/*12.40*/ {_display_(Seq[Any](format.raw/*12.42*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L44">                    &quot;&quot;&quot;),_display_(/*13.22*/for((s,searchvalue) &lt;- searchForm) yield /*13.56*/{_display_(Seq[Any](format.raw/*13.57*/(&quot;&quot;&quot;</span>
+                        &quot;&quot;&quot;),format.raw/*14.25*/(&quot;&quot;&quot;&lt;table&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;Owner_id&lt;/td&gt;
+                                &lt;td&gt;Date&lt;/td&gt;
+                                &lt;td&gt;Title&lt;/td&gt;
+                                &lt;td&gt;Type&lt;/td&gt;
+                                &lt;td&gt;Skills&lt;/td&gt;
+                            &lt;/tr&gt;
+                            &quot;&quot;&quot;),_display_(/*22.30*/for(result &lt;- searchvalue.getProjectList()) yield /*22.73*/ {_display_(Seq[Any](format.raw/*22.75*/(&quot;&quot;&quot;
+                                &quot;&quot;&quot;),format.raw/*23.33*/(&quot;&quot;&quot;&lt;tr&gt;
+                                    &lt;td&gt;&quot;&quot;&quot;),_display_(/*24.42*/result/*24.48*/.getOwner_id()),format.raw/*24.62*/(&quot;&quot;&quot;&lt;/td&gt;
+                                    &lt;td&gt;&quot;&quot;&quot;),_display_(/*25.42*/result/*25.48*/.getDate()),format.raw/*25.58*/(&quot;&quot;&quot;&lt;/td&gt;
+                                    &lt;td&gt;&quot;&quot;&quot;),_display_(/*26.42*/result/*26.48*/.getProject_title()),format.raw/*26.67*/(&quot;&quot;&quot;&lt;/td&gt;
+                                    &lt;td&gt;&quot;&quot;&quot;),_display_(/*27.42*/result/*27.48*/.getProject_type()),format.raw/*27.66*/(&quot;&quot;&quot;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href=&quot;&quot;&quot;&quot;),_display_(/*28.51*/routes/*28.57*/.HomeController.skills(result.getSkills())),format.raw/*28.99*/(&quot;&quot;&quot;&quot;&gt;&quot;&quot;&quot;),_display_(/*28.102*/result/*28.108*/.getSkills()),format.raw/*28.120*/(&quot;&quot;&quot;&lt;/a&gt;&lt;/td&gt;
+                                &lt;/tr&gt;
+                            &quot;&quot;&quot;)))}),format.raw/*30.30*/(&quot;&quot;&quot;
+                        &quot;&quot;&quot;),format.raw/*31.25*/(&quot;&quot;&quot;&lt;/table&gt;
+<span class="fc" id="L63">                    &quot;&quot;&quot;)))}),format.raw/*32.22*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L64">                &quot;&quot;&quot;)))}),format.raw/*33.18*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L65">                &quot;&quot;&quot;),format.raw/*34.17*/(&quot;&quot;&quot;&lt;/div&gt;</span>
+            &lt;/body&gt;
+        &lt;/center&gt;
+    &lt;/article&gt;
+<span class="fc" id="L69">    &quot;&quot;&quot;)))}),format.raw/*38.6*/(&quot;&quot;&quot;</span>
+&quot;&quot;&quot;))
+      }
+    }
+  }
+
+<span class="fc" id="L75">  def render(searchForm:Map[String, FreelaancelotList]): play.twirl.api.HtmlFormat.Appendable = apply(searchForm)</span>
+
+<span class="nc" id="L77">  def f:((Map[String, FreelaancelotList]) =&gt; play.twirl.api.HtmlFormat.Appendable) = (searchForm) =&gt; apply(searchForm)</span>
+
+<span class="nc" id="L79">  def ref: this.type = this</span>
+
+}
+
+
+              /*
+                  -- GENERATED --
+                  SOURCE: app/views/skills.scala.html
+                  HASH: 7c0fcf429cea527d13488974fb724cc7e9021650
+                  MATRIX: 610-&gt;1|644-&gt;30|1005-&gt;64|1143-&gt;107|1175-&gt;114|1197-&gt;128|1235-&gt;129|1267-&gt;135|1488-&gt;329|1519-&gt;351|1559-&gt;353|1609-&gt;376|1659-&gt;410|1698-&gt;411|1752-&gt;437|2128-&gt;786|2187-&gt;829|2227-&gt;831|2289-&gt;865|2363-&gt;912|2378-&gt;918|2413-&gt;932|2488-&gt;980|2503-&gt;986|2534-&gt;996|2609-&gt;1044|2624-&gt;1050|2664-&gt;1069|2739-&gt;1117|2754-&gt;1123|2793-&gt;1141|2877-&gt;1198|2892-&gt;1204|2955-&gt;1246|2986-&gt;1249|3002-&gt;1255|3036-&gt;1267|3146-&gt;1346|3200-&gt;1372|3262-&gt;1403|3312-&gt;1422|3358-&gt;1440|3457-&gt;1509
+                  LINES: 23-&gt;1|24-&gt;2|29-&gt;3|34-&gt;3|35-&gt;4|35-&gt;4|35-&gt;4|36-&gt;5|43-&gt;12|43-&gt;12|43-&gt;12|44-&gt;13|44-&gt;13|44-&gt;13|45-&gt;14|53-&gt;22|53-&gt;22|53-&gt;22|54-&gt;23|55-&gt;24|55-&gt;24|55-&gt;24|56-&gt;25|56-&gt;25|56-&gt;25|57-&gt;26|57-&gt;26|57-&gt;26|58-&gt;27|58-&gt;27|58-&gt;27|59-&gt;28|59-&gt;28|59-&gt;28|59-&gt;28|59-&gt;28|59-&gt;28|61-&gt;30|62-&gt;31|63-&gt;32|64-&gt;33|65-&gt;34|69-&gt;38
+                  -- GENERATED --
+              */
+          
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

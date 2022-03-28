@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BusinessLogic.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">models</a> &gt; <span class="el_source">BusinessLogic.java</span></div><h1>BusinessLogic.java</h1><pre class="source lang-java linenums">package models;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.*;
+import java.util.concurrent.CompletableFuture;
+
+<span class="fc" id="L9">public class BusinessLogic {</span>
+
+    //BusinessLogic businessLogic = new BusinessLogic();
+<span class="fc" id="L12">    public static LinkedHashMap&lt;String, FreelaancelotList&gt; projects_active= new LinkedHashMap&lt;String, FreelaancelotList&gt;();</span>
+<span class="fc" id="L13">    public static LinkedHashMap&lt;String, FreelaancelotList&gt; skills_active= new LinkedHashMap&lt;String, FreelaancelotList&gt;();</span>
+<span class="fc" id="L14">    public  static String API = &quot;https://www.freelancer.com/api/projects/0.1/projects/active?job_details=true&amp;limit=250&amp;preview_description=true&amp;query=&quot;;</span>
+<span class="fc" id="L15">    public  static Freelancelot proj_det = null;</span>
+<span class="fc" id="L16">    public  static String preview_description = &quot;&quot;;</span>
+    static JSONObject result;
+
+    public CompletableFuture&lt;LinkedHashMap&lt;String, FreelaancelotList&gt;&gt; getAPIDataAsync(String searchTerm )
+    {
+<span class="fc" id="L21">        CompletableFuture&lt;LinkedHashMap&lt;String, FreelaancelotList&gt;&gt; resultAPI = new CompletableFuture&lt;&gt;();</span>
+<span class="fc" id="L22">        return CompletableFuture.supplyAsync(() -&gt; getData(searchTerm) );</span>
+    }
+
+
+    public static LinkedHashMap&lt;String, FreelaancelotList&gt; getData(String searchTerm ) {
+<span class="fc" id="L27">        String [] s= searchTerm.split(&quot; &quot;);</span>
+<span class="fc" id="L28">        String string = &quot;\&quot;&quot;;</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        for(int i =0;i&lt;s.length;i++){</span>
+<span class="fc" id="L30">            string += s[i]+&quot;%20&quot;;</span>
+        }
+<span class="fc" id="L32">        string += &quot;\&quot;&quot;;</span>
+<span class="fc" id="L33">        FreelaancelotList projectList = new FreelaancelotList();</span>
+        try {
+<span class="fc" id="L35">            URL url = new URL(API+ string);</span>
+<span class="fc" id="L36">            HttpURLConnection conn = (HttpURLConnection) url.openConnection();</span>
+<span class="fc" id="L37">            conn.setRequestMethod(&quot;GET&quot;);</span>
+<span class="fc" id="L38">            conn.connect();</span>
+
+<span class="pc bpc" id="L40" title="1 of 2 branches missed.">            if (conn.getResponseCode() == 200) {</span>
+<span class="fc" id="L41">                Scanner sc = new Scanner(url.openStream());</span>
+<span class="fc" id="L42">                String temp = &quot;&quot;;</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">                while (sc.hasNext()) {</span>
+<span class="fc" id="L44">                    temp = temp + sc.nextLine();</span>
+                }
+<span class="fc" id="L46">                Utilities ut = new Utilities();</span>
+<span class="fc" id="L47">                JSONObject json = new JSONObject(temp);</span>
+<span class="fc" id="L48">                result = json.getJSONObject(&quot;result&quot;);</span>
+<span class="fc" id="L49">                JSONArray jsonArr = json.getJSONObject(&quot;result&quot;).getJSONArray(&quot;projects&quot;);</span>
+
+<span class="fc" id="L51">                ArrayList&lt;Freelancelot&gt; projects = new ArrayList&lt;Freelancelot&gt;();</span>
+<span class="fc" id="L52">                Map&lt;String, Integer&gt; frequencyMap = new HashMap&lt;String, Integer&gt;();</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">                for(int i = 0; i &lt; jsonArr.length(); i++){</span>
+<span class="fc" id="L54">                    Integer project_ID = jsonArr.getJSONObject(i).getInt(&quot;id&quot;);</span>
+<span class="fc" id="L55">                    String project_title = jsonArr.getJSONObject(i).getString(&quot;title&quot;);</span>
+<span class="fc" id="L56">                    String project_Description = jsonArr.getJSONObject(i).getString(&quot;preview_description&quot;);</span>
+<span class="fc" id="L57">                    String owner_ID = String.valueOf(jsonArr.getJSONObject(i).getInt(&quot;owner_id&quot;));</span>
+<span class="fc" id="L58">                    Integer date = jsonArr.getJSONObject(i).getInt(&quot;time_submitted&quot;);</span>
+<span class="fc" id="L59">                    String converted_date = ut.date_converter(date);</span>
+<span class="fc" id="L60">                    String project_type = jsonArr.getJSONObject(i).getString(&quot;type&quot;);</span>
+<span class="fc" id="L61">                    String seoUrl = jsonArr.getJSONObject(i).getString(&quot;seo_url&quot;);</span>
+<span class="fc" id="L62">                    String[] skillarr = seoUrl.split(&quot;/&quot;);</span>
+<span class="fc" id="L63">                    String skills = skillarr[0];</span>
+<span class="fc" id="L64">                    System.out.println(&quot;Skills &quot;+skills);</span>
+<span class="fc" id="L65">                    String seoUrl1 = skillarr[1];</span>
+<span class="fc" id="L66">                    preview_description += project_Description;</span>
+<span class="fc" id="L67">                    proj_det = new Freelancelot(owner_ID, converted_date,project_ID, project_title, project_Description, project_type, skills, &quot;stats&quot;, 0L, &quot;&quot;,seoUrl1,0,&quot;&quot;);</span>
+<span class="fc" id="L68">                    projects.add(proj_det);</span>
+                }
+<span class="fc" id="L70">                projectList.setProjectList(projects);</span>
+<span class="fc" id="L71">                projects_active.put(searchTerm,projectList);</span>
+            }
+<span class="fc" id="L73">            conn.disconnect();</span>
+<span class="fc" id="L74">        } catch (Exception e) {</span>
+<span class="fc" id="L75">            e.printStackTrace();</span>
+<span class="fc" id="L76">        }</span>
+<span class="fc" id="L77">        return projects_active;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

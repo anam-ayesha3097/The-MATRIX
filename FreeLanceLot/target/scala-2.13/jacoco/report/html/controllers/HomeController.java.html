@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HomeController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">controllers</a> &gt; <span class="el_source">HomeController.java</span></div><h1>HomeController.java</h1><pre class="source lang-java linenums">package controllers;
+import models.*;
+import play.mvc.Controller;
+import play.mvc.Result;
+
+import javax.inject.Inject;
+import java.util.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+
+/**
+ * This controller contains an action to handle HTTP requests
+ * to the application's home page.
+ */
+
+
+public class HomeController extends Controller {
+<span class="fc" id="L18">    LinkedHashMap&lt;String, FreelaancelotList&gt; response = new LinkedHashMap&lt;&gt;();</span>
+<span class="fc" id="L19">    int flagCount = 0;</span>
+    private LinkedHashMap&lt;String, FreelaancelotList&gt; cache;
+<span class="fc" id="L21">    OwnerDetails ownerDetails = new OwnerDetails();</span>
+    /**
+     * An action that renders an HTML page with a welcome message.
+     * The configuration in the &lt;code&gt;routes&lt;/code&gt; file means that
+     * this method will be called when the application receives a
+     * &lt;code&gt;GET&lt;/code&gt; request with a path of &lt;code&gt;/&lt;/code&gt;.
+     */
+
+<span class="fc" id="L29">    public HomeController(){</span>
+<span class="fc" id="L30">        System.out.println(&quot;Default Home Controller&quot;);</span>
+<span class="fc" id="L31">    }</span>
+    @Inject
+<span class="fc" id="L33">    public HomeController( LinkedHashMap&lt;String, FreelaancelotList&gt; cache) {</span>
+<span class="fc" id="L34">        this.cache = cache;</span>
+<span class="fc" id="L35">    }</span>
+
+
+    public Result index() {
+<span class="nc" id="L39">        return ok(views.html.index.render());</span>
+    }
+
+    public Result projectWordStats(String search)
+    {
+<span class="fc" id="L44">            Utilities ut = new Utilities();</span>
+<span class="fc" id="L45">            return ok(views.html.projectwordstats.render(ut.wordFrequencyCounter(search)));</span>
+    }
+
+    public Result wordStats(String search)
+     {
+<span class="nc" id="L50">         WordStats ws = new WordStats();</span>
+<span class="nc" id="L51">         return ok(views.html.wordstats.render(ws.GlobalStats(response.get(search))));</span>
+    }
+
+    public Result freelancer(String searchTerm) throws ExecutionException, InterruptedException {
+<span class="fc" id="L55">        LinkedHashMap&lt;String, FreelaancelotList&gt; projlistmap_10Projs = new LinkedHashMap&lt;String, FreelaancelotList&gt;();</span>
+<span class="fc" id="L56">        LinkedHashMap&lt;String, FreelaancelotList&gt; responseProcessed = new LinkedHashMap&lt;&gt;();</span>
+
+<span class="fc" id="L58">        int flag = 1;</span>
+<span class="fc" id="L59">        HomeController responseCache = null;</span>
+<span class="fc" id="L60">        BusinessLogic businessLogic = new BusinessLogic();</span>
+<span class="fc" id="L61">        Utilities ut = new Utilities();</span>
+
+<span class="fc bfc" id="L63" title="All 2 branches covered.">        if(searchTerm.length() != 0 ) {</span>
+<span class="fc" id="L64">            flagCount += 1;</span>
+<span class="pc bpc" id="L65" title="1 of 2 branches missed.">            if(flagCount &lt;= 10 ){</span>
+<span class="fc" id="L66">                System.out.println(&quot;Flag Count &quot;+flagCount);</span>
+<span class="pc bpc" id="L67" title="1 of 2 branches missed.">                if (flag == 1) {</span>
+<span class="fc" id="L68">                    CompletableFuture&lt;LinkedHashMap&lt;String, FreelaancelotList&gt;&gt; futureAPIResult = businessLogic.getAPIDataAsync(searchTerm);</span>
+<span class="fc" id="L69">                    response = futureAPIResult.get();</span>
+
+<span class="fc" id="L71">                    responseCache = new HomeController(response);</span>
+<span class="fc" id="L72">                    flag += 1;</span>
+
+                }
+
+<span class="pc bpc" id="L76" title="2 of 4 branches missed.">                if (responseCache != null &amp;&amp; responseCache.cache.containsKey(searchTerm)) {</span>
+
+<span class="fc" id="L78">                    projlistmap_10Projs = ut.first10projects(responseCache.cache);</span>
+<span class="fc" id="L79">                    CompletableFuture&lt;LinkedHashMap&lt;String, FreelaancelotList&gt;&gt; readability = FleschReadabilityIndex.getReadabilityAsync(projlistmap_10Projs);</span>
+<span class="fc" id="L80">                    LinkedHashMap&lt;String, FreelaancelotList&gt; responseReadability = readability.get();</span>
+
+<span class="fc" id="L82">                    responseProcessed = reverseOrder(responseReadability);</span>
+<span class="fc" id="L83">                }</span>
+
+                else {
+<span class="nc" id="L86">                    CompletableFuture&lt;LinkedHashMap&lt;String, FreelaancelotList&gt;&gt; futureAPIResult = businessLogic.getAPIDataAsync(searchTerm);</span>
+<span class="nc" id="L87">                    response = futureAPIResult.get();</span>
+
+<span class="nc" id="L89">                    responseCache = new HomeController(response);</span>
+
+<span class="nc" id="L91">                    projlistmap_10Projs = ut.first10projects(responseCache.cache);</span>
+
+<span class="nc" id="L93">                    CompletableFuture&lt;LinkedHashMap&lt;String, FreelaancelotList&gt;&gt; readability = FleschReadabilityIndex.getReadabilityAsync(projlistmap_10Projs);</span>
+<span class="nc" id="L94">                    LinkedHashMap&lt;String, FreelaancelotList&gt; responseReadability = readability.get();</span>
+
+<span class="nc" id="L96">                    responseProcessed = reverseOrder(responseReadability);</span>
+
+                }
+
+<span class="fc" id="L100">                return ok(views.html.freelancer.render(responseProcessed));</span>
+            }
+            else
+<span class="nc" id="L103">                return ok(&quot;Maximum Search Hit Reached&quot;).as(&quot;Text/html&quot;);</span>
+        }
+        else {
+<span class="pc bpc" id="L106" title="1 of 2 branches missed.">            if(searchTerm.length() == 0)</span>
+            {
+<span class="fc" id="L108">                response.clear();</span>
+                //sessionValue = request.session().removing(&quot;connected&quot;);
+                //Cookie loginCookie = new Cookie(&quot;user&quot;,user);
+<span class="fc" id="L111">                System.out.println(&quot;Bye!&quot;);</span>
+            }
+<span class="fc" id="L113">            return ok(views.html.freelancerInit.render());</span>
+            //newFreelancer(request);
+            //return ok(views.html.freelance.render(null));
+            //return ok(views.html.freelancerInit.render());
+        }
+        }
+
+    public Result skills(String s) {
+<span class="fc" id="L121">        skills sl = new skills();</span>
+<span class="fc" id="L122">        LinkedHashMap&lt;String, FreelaancelotList&gt; data = sl.getDataSkills(s);</span>
+<span class="fc" id="L123">        return ok(views.html.skills.render(data));</span>
+    }
+
+    public static LinkedHashMap&lt;String, FreelaancelotList&gt; reverseOrder(LinkedHashMap&lt;String, FreelaancelotList&gt; responseReadability) {
+<span class="fc" id="L127">        LinkedHashMap&lt;String, FreelaancelotList&gt; response = new LinkedHashMap&lt;&gt;();</span>
+<span class="fc" id="L128">        List&lt;String&gt; allKeys = new ArrayList&lt;String&gt;(responseReadability.keySet());</span>
+<span class="fc" id="L129">        ArrayList&lt;Freelancelot&gt;  freelancelotArrayList= new ArrayList&lt;Freelancelot&gt;();</span>
+<span class="fc" id="L130">        Freelancelot freelancelotObj = null;</span>
+<span class="fc" id="L131">        Collections.reverse(allKeys);</span>
+
+<span class="fc bfc" id="L133" title="All 2 branches covered.">        for(String keys: allKeys){</span>
+<span class="fc" id="L134">            System.out.println(&quot;Keys &quot;+keys);</span>
+<span class="fc" id="L135">            freelancelotArrayList = responseReadability.get(keys).getProjectList();</span>
+<span class="fc" id="L136">            ArrayList&lt;Freelancelot&gt; listFreelancelot = new ArrayList&lt;&gt;();</span>
+
+<span class="fc bfc" id="L138" title="All 2 branches covered.">            for(Freelancelot fl : freelancelotArrayList) {</span>
+<span class="fc" id="L139">                freelancelotObj = new Freelancelot(fl.getOwner_id(), fl.getDate(), fl.getProject_ID(), fl.getProject_title(), fl.getProject_description(), fl.getProject_type(), fl.getSkills(), &quot;&quot;, fl.getReadability(), fl.getEducationalLevel(), fl.getSeoUrl(), 0, &quot; &quot;);</span>
+<span class="fc" id="L140">                listFreelancelot.add(freelancelotObj);</span>
+
+<span class="fc" id="L142">            }</span>
+
+<span class="fc" id="L144">            FreelaancelotList setListObjs = new FreelaancelotList();</span>
+<span class="fc" id="L145">            setListObjs.setProjectList(listFreelancelot);</span>
+<span class="fc" id="L146">            response.put(keys, setListObjs);</span>
+<span class="fc" id="L147">        }</span>
+<span class="fc" id="L148">        return response;</span>
+    }
+
+    public Result ownerInformation(String ownerId)
+    {
+<span class="nc" id="L153">        return ok(views.html.ownerDetails.render(ownerDetails.getOwnerDetails(ownerId)));</span>
+    }
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
