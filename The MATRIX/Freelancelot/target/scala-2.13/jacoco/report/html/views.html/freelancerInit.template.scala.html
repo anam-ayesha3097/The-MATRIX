@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>freelancerInit.template.scala</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">views.html</a> &gt; <span class="el_source">freelancerInit.template.scala</span></div><h1>freelancerInit.template.scala</h1><pre class="source lang-java linenums">
+package views.html
+
+import _root_.play.twirl.api.TwirlFeatureImports._
+import _root_.play.twirl.api.TwirlHelperImports._
+import _root_.play.twirl.api.Html
+import _root_.play.twirl.api.JavaScript
+import _root_.play.twirl.api.Txt
+import _root_.play.twirl.api.Xml
+import models._
+import controllers._
+import play.api.i18n._
+import views.html._
+import play.api.templates.PlayMagic._
+import java.lang._
+import java.util._
+import play.core.j.PlayMagicForJava._
+import play.mvc._
+import play.api.data.Field
+import play.data._
+import play.core.j.PlayFormsMagicForJava._
+import scala.jdk.CollectionConverters._
+
+<span class="pc" id="L24">object freelancerInit extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template0[play.twirl.api.HtmlFormat.Appendable] {</span>
+
+  /**/
+  def apply():play.twirl.api.HtmlFormat.Appendable = {
+<span class="fc" id="L28">    _display_ {</span>
+      {
+
+
+<span class="fc" id="L32">Seq[Any](format.raw/*4.1*/(&quot;&quot;&quot;&lt;!DOCTYPE html&gt;</span>
+&lt;html lang=&quot;en&quot;&gt;
+
+    &lt;head&gt;
+        &lt;title&gt;FreeLancelot&lt;/title&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+        &lt;link rel=&quot;stylesheet&quot; media=&quot;screen&quot; href='/assets/stylesheets/main.css'&gt;
+        &lt;link rel=&quot;stylesheet&quot; media=&quot;screen&quot; href='/assets/stylesheets/prism.css'&gt;
+        &lt;link rel=&quot;shortcut icon&quot; type=&quot;image/png&quot; href='/assets/images/favicon.png'&gt;
+        &lt;script src='/assets/javascripts/hello.js' type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+        &lt;script src='/assets/javascripts/prism.js' type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+        &lt;section id=&quot;top&quot;&gt;
+    &lt;/section&gt;
+
+        &lt;article&gt;
+            &lt;head&gt;
+                &lt;h1 style= text-align:center;&gt;Welcome to FreeLancelot&lt;/h1&gt;
+            &lt;/head&gt;
+            &lt;center&gt;
+                &lt;body&gt;
+                    &lt;form action =&quot;/freelance&quot; method=&quot;GET&quot;&gt;
+                        &lt;input type=&quot;text&quot; name=&quot;searchTerm&quot; placeholder=&quot;Enter Search Terms&quot;/&gt;
+                        &lt;input type=&quot;submit&quot; value=&quot;Go!&quot; style=&quot;background-color: #1874CD;color: white&quot;&gt;
+                    &lt;/form&gt;
+                    &lt;div&gt;
+
+                &lt;/div&gt;
+                &lt;/body&gt;
+            &lt;/center&gt;
+        &lt;/article&gt;
+
+    &lt;/body&gt;
+
+&lt;/html&gt;&quot;&quot;&quot;))
+      }
+    }
+  }
+
+<span class="fc" id="L73">  def render(): play.twirl.api.HtmlFormat.Appendable = apply()</span>
+
+<span class="nc" id="L75">  def f:(() =&gt; play.twirl.api.HtmlFormat.Appendable) = () =&gt; apply()</span>
+
+<span class="nc" id="L77">  def ref: this.type = this</span>
+
+}
+
+
+              /*
+                  -- GENERATED --
+                  SOURCE: app/views/freelancerInit.scala.html
+                  HASH: b8d0efbacf10905ab30ae086a0b4008e36411e36
+                  MATRIX: 998-&gt;6
+                  LINES: 32-&gt;4
+                  -- GENERATED --
+              */
+          
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

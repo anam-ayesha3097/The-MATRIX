@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OwnerInformation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">models</a> &gt; <span class="el_source">OwnerInformation.java</span></div><h1>OwnerInformation.java</h1><pre class="source lang-java linenums">package models;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
+
+<span class="fc" id="L9">public class OwnerInformation {</span>
+
+    String id;
+    String username;
+    String company;
+    String country;
+    String registrationDate;
+    String limitedAccount;
+    String role;
+    String emailVerified;
+    String primaryCurrency;
+
+
+
+<span class="fc" id="L23">    LinkedHashMap&lt;String, FreelaancelotList&gt; OwnerProjects_active= new LinkedHashMap&lt;String, FreelaancelotList&gt;();</span>
+
+    public LinkedHashMap&lt;String, FreelaancelotList&gt; getOwnerProjects_active() {
+<span class="fc" id="L26">        return OwnerProjects_active;</span>
+    }
+
+    public void setOwnerProjects_active(LinkedHashMap&lt;String, FreelaancelotList&gt; ownerProjects_active) {
+<span class="nc" id="L30">        OwnerProjects_active = ownerProjects_active;</span>
+<span class="nc" id="L31">    }</span>
+
+    public void setId(String id)
+    {
+<span class="fc" id="L35">        this.id=id;</span>
+<span class="fc" id="L36">    }</span>
+
+    public void setUsername(String username)
+    {
+<span class="fc" id="L40">        this.username=username;</span>
+<span class="fc" id="L41">    }</span>
+
+    public void setCompany(String company)
+    {
+<span class="fc" id="L45">        this.company=company;</span>
+<span class="fc" id="L46">    }</span>
+
+    public void setCountry(String country)
+    {
+<span class="fc" id="L50">        this.country=country;</span>
+<span class="fc" id="L51">    }</span>
+
+//    public void setProjectList(List &lt;ProjectInfo&gt; pl)
+//    {
+//        this.projectList=pl;
+//    }
+
+    public String getId()
+    {
+<span class="fc" id="L60">        return this.id;</span>
+    }
+
+    public String getUsername()
+    {
+<span class="fc" id="L65">        return this.username;</span>
+    }
+
+    public String getCompany()
+    {
+<span class="fc" id="L70">        return this.company;</span>
+    }
+
+
+    public String getCountry()
+    {
+<span class="fc" id="L76">        return this.country;</span>
+    }
+
+
+
+
+    public String getRegistrationDate() {
+<span class="fc" id="L83">        return registrationDate;</span>
+    }
+
+    public void setRegistrationDate(String registrationDate) {
+<span class="fc" id="L87">        Date date = new Date(Long.parseLong(registrationDate+&quot;000&quot;));</span>
+
+<span class="fc" id="L89">        String pattern = &quot;MMM-dd-yyyy&quot;;</span>
+
+<span class="fc" id="L91">        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);</span>
+
+<span class="fc" id="L93">        registrationDate = simpleDateFormat.format(date);</span>
+<span class="fc" id="L94">        this.registrationDate = registrationDate;</span>
+<span class="fc" id="L95">    }</span>
+
+    public void setLimitedAccount(String limitedAccount)
+    {
+<span class="fc" id="L99">        this.limitedAccount=limitedAccount;</span>
+<span class="fc" id="L100">    }</span>
+
+    public String getLimitedAccount()
+    {
+<span class="nc" id="L104">        return this.limitedAccount;</span>
+    }
+
+    public void setRole(String role)
+    {
+<span class="fc" id="L109">        this.role=role;</span>
+<span class="fc" id="L110">    }</span>
+    public String getRole()
+    {
+<span class="fc" id="L113">        return this.role;</span>
+    }
+
+    public void setEmailVerified(String emailVerified)
+    {
+<span class="fc" id="L118">        this.emailVerified=emailVerified;</span>
+<span class="fc" id="L119">    }</span>
+
+    public String getEmailVerified()
+    {
+<span class="nc" id="L123">        return this.emailVerified;</span>
+    }
+
+
+    public void setPrimaryCurrency(String primaryCurrency)
+    {
+<span class="fc" id="L129">        this.primaryCurrency=primaryCurrency;</span>
+<span class="fc" id="L130">    }</span>
+    public String getPrimaryCurrency()
+    {
+<span class="fc" id="L133">        return this.primaryCurrency;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

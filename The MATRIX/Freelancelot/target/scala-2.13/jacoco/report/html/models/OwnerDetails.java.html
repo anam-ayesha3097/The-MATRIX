@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OwnerDetails.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">models</a> &gt; <span class="el_source">OwnerDetails.java</span></div><h1>OwnerDetails.java</h1><pre class="source lang-java linenums">package models;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.*;
+
+<span class="fc" id="L10">public class OwnerDetails {</span>
+
+<span class="fc" id="L12">    LinkedHashMap&lt;String, FreelaancelotList&gt; OwnerProjects_active= new LinkedHashMap&lt;String, FreelaancelotList&gt;();</span>
+    public OwnerInformation getOwnerDetails(String ownerId)
+    {
+
+<span class="fc" id="L16">        OwnerInformation ownerInformation = new OwnerInformation();</span>
+        try {
+<span class="fc" id="L18">            URL url = new URL(&quot;https://www.freelancer.com/api/users/0.1/users/&quot;+ownerId+&quot;?avatar=true&amp;display_info=true&amp;country_details=true&amp;jobs=true&amp;portfolio_details=true&amp;preferred_details=true&amp;profile_description=true&amp;qualification_details=true&amp;recommendations=true&amp;responsiveness=true&amp;status=true&amp;&amp;operating_areas=true&amp;compact=true&quot;);</span>
+<span class="fc" id="L19">            HttpURLConnection conn = (HttpURLConnection)url.openConnection();</span>
+<span class="fc" id="L20">            conn.setRequestMethod(&quot;GET&quot;);</span>
+<span class="fc" id="L21">            conn.connect();</span>
+<span class="pc bpc" id="L22" title="1 of 2 branches missed.">            if(conn.getResponseCode() == 200) {</span>
+<span class="fc" id="L23">                Scanner scan = new Scanner(url.openStream());</span>
+<span class="fc" id="L24">                String temp=&quot;&quot;;</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">                while(scan.hasNext()) {</span>
+<span class="fc" id="L26">                    temp = temp + scan.nextLine();</span>
+                }
+<span class="fc" id="L28">                JSONObject json = new JSONObject(temp);</span>
+<span class="fc" id="L29">                JSONObject owner = json.getJSONObject(&quot;result&quot;);</span>
+<span class="fc" id="L30">                ownerInformation.setId(owner.get(&quot;id&quot;).toString());</span>
+<span class="fc" id="L31">                ownerInformation.setUsername(owner.get(&quot;username&quot;).toString());</span>
+
+<span class="fc" id="L33">                ownerInformation.setRegistrationDate(owner.get(&quot;registration_date&quot;).toString());</span>
+
+<span class="fc" id="L35">                ownerInformation.setLimitedAccount(owner.get(&quot;limited_account&quot;).toString());</span>
+
+<span class="fc" id="L37">                ownerInformation.setRole(owner.get(&quot;role&quot;).toString());</span>
+
+<span class="pc bpc" id="L39" title="1 of 2 branches missed.">                if(checkNodeExists(owner,&quot;status&quot;))</span>
+                {
+<span class="fc" id="L41">                    JSONObject status = owner.getJSONObject(&quot;status&quot;);</span>
+<span class="fc" id="L42">                    ownerInformation.setEmailVerified(status.get(&quot;email_verified&quot;).toString());</span>
+<span class="fc" id="L43">                }</span>
+                else
+<span class="nc" id="L45">                    ownerInformation.setEmailVerified(&quot;NA&quot;);</span>
+
+
+<span class="pc bpc" id="L48" title="1 of 2 branches missed.">                if(checkNodeExists(owner,&quot;primary_currency&quot;))</span>
+                {
+<span class="fc" id="L50">                    JSONObject primaryCurrency = owner.getJSONObject(&quot;primary_currency&quot;);</span>
+<span class="fc" id="L51">                    ownerInformation.setPrimaryCurrency((primaryCurrency.get(&quot;name&quot;).toString()));</span>
+
+<span class="fc" id="L53">                }</span>
+                else
+<span class="nc" id="L55">                    ownerInformation.setPrimaryCurrency(&quot;NA&quot;);</span>
+
+
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">                if(checkNodeExists(owner,&quot;public_name&quot;))</span>
+                {
+<span class="pc bpc" id="L60" title="1 of 2 branches missed.">                    if(owner.get(&quot;public_name&quot;).toString().isEmpty())</span>
+<span class="nc" id="L61">                        ownerInformation.setCompany(&quot;NA&quot;);</span>
+                    else
+<span class="fc" id="L63">                        ownerInformation.setCompany(owner.get(&quot;public_name&quot;).toString());</span>
+                }
+                else
+<span class="nc" id="L66">                    ownerInformation.setCompany(&quot;NA&quot;);</span>
+
+<span class="fc" id="L68">                JSONObject location = owner.getJSONObject(&quot;location&quot;);</span>
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">                if(checkNodeExists(location,&quot;country&quot;))</span>
+                {
+<span class="fc" id="L71">                    JSONObject country = location.getJSONObject(&quot;country&quot;);</span>
+
+<span class="pc bpc" id="L73" title="1 of 2 branches missed.">                    if(country.get(&quot;name&quot;).toString().isEmpty())</span>
+<span class="nc" id="L74">                        ownerInformation.setCountry(&quot;NA&quot;);</span>
+                    else
+<span class="fc" id="L76">                        ownerInformation.setCountry(country.get(&quot;name&quot;).toString());</span>
+<span class="fc" id="L77">                }</span>
+                else
+<span class="nc" id="L79">                    ownerInformation.setCountry(&quot;NA&quot;);</span>
+
+            }
+<span class="fc" id="L82">            ownerInformation.OwnerProjects_active = getOwnerProject(ownerId);</span>
+        }
+<span class="pc" id="L84">        catch(Exception e) {}</span>
+
+
+<span class="fc" id="L87">        return ownerInformation;</span>
+    }
+
+    public OwnerInformation getOwnerInformation(String ownerId)
+    {
+<span class="nc" id="L92">        OwnerDetails ownerDetails = new OwnerDetails();</span>
+
+<span class="nc" id="L94">        return ownerDetails.getOwnerDetails(ownerId);</span>
+    }
+
+    public boolean checkNodeExists(JSONObject jObj, String key){
+<span class="fc bfc" id="L98" title="All 2 branches covered.">        if(jObj.has(key))</span>
+<span class="fc" id="L99">            return true;</span>
+        else
+<span class="fc" id="L101">            return false;</span>
+    }
+
+    public LinkedHashMap&lt;String, FreelaancelotList&gt; getOwnerProject(String ownerId ) {
+
+<span class="fc" id="L106">        LinkedHashMap&lt;String, FreelaancelotList&gt; OwnerProjects_active= new LinkedHashMap&lt;String, FreelaancelotList&gt;();</span>
+<span class="fc" id="L107">        Freelancelot proj_det = null;</span>
+        JSONObject result;
+<span class="fc" id="L109">        String preview_description = &quot;&quot;;</span>
+<span class="fc" id="L110">        FreelaancelotList projectList = new FreelaancelotList();</span>
+        try {
+<span class="fc" id="L112">            URL url = new URL(&quot;https://www.freelancer.com/api/projects/0.1/projects/?owners[]=&quot;+ownerId+&quot;&amp;limit=10&amp;job_details=true&amp;compact=true&amp;full_description=true&quot;);</span>
+<span class="fc" id="L113">            HttpURLConnection conn = (HttpURLConnection) url.openConnection();</span>
+<span class="fc" id="L114">            conn.setRequestMethod(&quot;GET&quot;);</span>
+<span class="fc" id="L115">            conn.connect();</span>
+
+<span class="pc bpc" id="L117" title="1 of 2 branches missed.">            if (conn.getResponseCode() == 200) {</span>
+<span class="fc" id="L118">                Scanner sc = new Scanner(url.openStream());</span>
+<span class="fc" id="L119">                String temp = &quot;&quot;;</span>
+<span class="fc bfc" id="L120" title="All 2 branches covered.">                while (sc.hasNext()) {</span>
+<span class="fc" id="L121">                    temp = temp + sc.nextLine();</span>
+                }
+<span class="fc" id="L123">                Utilities ut = new Utilities();</span>
+<span class="fc" id="L124">                JSONObject json = new JSONObject(temp);</span>
+<span class="fc" id="L125">                result = json.getJSONObject(&quot;result&quot;);</span>
+<span class="fc" id="L126">                JSONArray jsonArr = json.getJSONObject(&quot;result&quot;).getJSONArray(&quot;projects&quot;);</span>
+
+<span class="fc" id="L128">                ArrayList&lt;Freelancelot&gt; projects = new ArrayList&lt;Freelancelot&gt;();</span>
+<span class="fc" id="L129">                Map&lt;String, Integer&gt; frequencyMap = new HashMap&lt;String, Integer&gt;();</span>
+<span class="fc bfc" id="L130" title="All 2 branches covered.">                for(int i = 0; i &lt; jsonArr.length(); i++){</span>
+<span class="fc" id="L131">                    Integer project_ID = jsonArr.getJSONObject(i).getInt(&quot;id&quot;);</span>
+<span class="fc" id="L132">                    String project_title = jsonArr.getJSONObject(i).getString(&quot;title&quot;);</span>
+<span class="fc" id="L133">                    String project_Description = jsonArr.getJSONObject(i).getString(&quot;preview_description&quot;);</span>
+<span class="fc" id="L134">                    String owner_ID = String.valueOf(jsonArr.getJSONObject(i).getInt(&quot;owner_id&quot;));</span>
+<span class="fc" id="L135">                    Integer date = jsonArr.getJSONObject(i).getInt(&quot;time_submitted&quot;);</span>
+<span class="fc" id="L136">                    String converted_date = ut.date_converter(date);</span>
+<span class="fc" id="L137">                    String project_type = jsonArr.getJSONObject(i).getString(&quot;type&quot;);</span>
+<span class="fc" id="L138">                    String seoUrl = jsonArr.getJSONObject(i).getString(&quot;seo_url&quot;);</span>
+<span class="fc" id="L139">                    String[] skillarr = seoUrl.split(&quot;/&quot;);</span>
+<span class="fc" id="L140">                    String skills = skillarr[0];</span>
+<span class="fc" id="L141">                    String seoUrl1 = skillarr[1];</span>
+<span class="fc" id="L142">                    preview_description += project_Description;</span>
+<span class="fc" id="L143">                    proj_det = new Freelancelot(owner_ID, converted_date,project_ID, project_title, project_Description, project_type, skills, &quot;stats&quot;, 1L, &quot;&quot;,seoUrl1,0,&quot; &quot;);</span>
+<span class="fc" id="L144">                    projects.add(proj_det);</span>
+                }
+<span class="fc" id="L146">                projectList.setProjectList(projects);</span>
+<span class="fc" id="L147">                OwnerProjects_active.put(ownerId,projectList);</span>
+            }
+<span class="fc" id="L149">            conn.disconnect();</span>
+<span class="fc" id="L150">        } catch (Exception e) {</span>
+<span class="fc" id="L151">            e.printStackTrace();</span>
+<span class="fc" id="L152">        }</span>
+<span class="fc" id="L153">        return OwnerProjects_active;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

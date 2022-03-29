@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ownerDetails.template.scala</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">views.html</a> &gt; <span class="el_source">ownerDetails.template.scala</span></div><h1>ownerDetails.template.scala</h1><pre class="source lang-java linenums">
+package views.html
+
+import _root_.play.twirl.api.TwirlFeatureImports._
+import _root_.play.twirl.api.TwirlHelperImports._
+import _root_.play.twirl.api.Html
+import _root_.play.twirl.api.JavaScript
+import _root_.play.twirl.api.Txt
+import _root_.play.twirl.api.Xml
+import models._
+import controllers._
+import play.api.i18n._
+import views.html._
+import play.api.templates.PlayMagic._
+import java.lang._
+import java.util._
+import play.core.j.PlayMagicForJava._
+import play.mvc._
+import play.api.data.Field
+import play.data._
+import play.core.j.PlayFormsMagicForJava._
+import scala.jdk.CollectionConverters._
+
+<span class="nc" id="L24">object ownerDetails extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[models.OwnerInformation,play.twirl.api.HtmlFormat.Appendable] {</span>
+
+  /**/
+  def apply/*1.2*/(ownerDetail : models.OwnerInformation):play.twirl.api.HtmlFormat.Appendable = {
+<span class="nc" id="L28">    _display_ {</span>
+      {
+
+
+<span class="nc" id="L32">Seq[Any](format.raw/*1.41*/(&quot;&quot;&quot;</span>
+<span class="nc" id="L33">&quot;&quot;&quot;),_display_(/*2.2*/main(&quot;Owner Details&quot;)/*2.23*/{_display_(Seq[Any](format.raw/*2.24*/(&quot;&quot;&quot;</span>
+<span class="nc" id="L34">    &quot;&quot;&quot;),format.raw/*3.5*/(&quot;&quot;&quot;&lt;html&gt;</span>
+        &lt;head&gt;
+            &lt;style&gt;
+<span class="nc" id="L37">                    p &quot;&quot;&quot;),format.raw/*6.23*/(&quot;&quot;&quot;{&quot;&quot;&quot;),format.raw/*6.24*/(&quot;&quot;&quot;text-align: center;&quot;&quot;&quot;),format.raw/*6.43*/(&quot;&quot;&quot;}&quot;&quot;&quot;),format.raw/*6.44*/(&quot;&quot;&quot;</span>
+<span class="nc" id="L38">                    &quot;&quot;&quot;),format.raw/*7.21*/(&quot;&quot;&quot;div &quot;&quot;&quot;),format.raw/*7.25*/(&quot;&quot;&quot;{&quot;&quot;&quot;),format.raw/*7.26*/(&quot;&quot;&quot;text-align: center;&quot;&quot;&quot;),format.raw/*7.45*/(&quot;&quot;&quot;}&quot;&quot;&quot;),format.raw/*7.46*/(&quot;&quot;&quot;</span>
+<span class="nc" id="L39">            &quot;&quot;&quot;),format.raw/*8.13*/(&quot;&quot;&quot;&lt;/style&gt;</span>
+            &lt;title&gt;Owner Details&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;article&gt;
+            &lt;body id=&quot;OwnerDetailsBody&quot;&gt;
+                &lt;div id=&quot;main-div&quot; class=&quot;container&quot;&gt;
+
+                    &lt;div id=&quot;details&quot; class=&quot;projects-main-div&quot;&gt;
+
+                        &lt;div class=&quot;&quot; id=&quot;tableContainerDiv&quot; &gt;
+                            &lt;p style=&quot;color:blue;&quot;&gt; &lt;b&gt;OWNER DETAILS&lt;/b&gt; &lt;/p&gt;
+<span class="nc" id="L50">                            &lt;p style=&quot;color:green;&quot;&gt; &lt;b&gt;Owner Id : &lt;/b&gt; &quot;&quot;&quot;),_display_(/*19.74*/ownerDetail/*19.85*/.getId()),format.raw/*19.93*/(&quot;&quot;&quot; &quot;&quot;&quot;),format.raw/*19.94*/(&quot;&quot;&quot;&lt;/p&gt;</span>
+<span class="nc" id="L51">                            &lt;p style=&quot;color:green;&quot;&gt; &lt;b&gt;Username : &lt;/b&gt; &quot;&quot;&quot;),_display_(/*20.74*/ownerDetail/*20.85*/.getUsername()),format.raw/*20.99*/(&quot;&quot;&quot; &quot;&quot;&quot;),format.raw/*20.100*/(&quot;&quot;&quot;&lt;/p&gt;</span>
+<span class="nc" id="L52">                            &lt;p style=&quot;color:green;&quot;&gt; &lt;b&gt; Company : &lt;/b&gt; &quot;&quot;&quot;),_display_(/*21.74*/ownerDetail/*21.85*/.getCompany()),format.raw/*21.98*/(&quot;&quot;&quot; &quot;&quot;&quot;),format.raw/*21.99*/(&quot;&quot;&quot;&lt;/p&gt;</span>
+<span class="nc" id="L53">                            &lt;p style=&quot;color:green;&quot;&gt; &lt;b&gt; Role : &lt;/b&gt; &quot;&quot;&quot;),_display_(/*22.71*/ownerDetail/*22.82*/.getRole()),format.raw/*22.92*/(&quot;&quot;&quot; &quot;&quot;&quot;),format.raw/*22.93*/(&quot;&quot;&quot;&lt;/p&gt;</span>
+<span class="nc" id="L54">                            &lt;p style=&quot;color:green;&quot;&gt; &lt;b&gt; Primary Currency: &lt;/b&gt; &quot;&quot;&quot;),_display_(/*23.82*/ownerDetail/*23.93*/.getPrimaryCurrency()),format.raw/*23.114*/(&quot;&quot;&quot; &quot;&quot;&quot;),format.raw/*23.115*/(&quot;&quot;&quot;&lt;/p&gt;</span>
+<span class="nc" id="L55">                            &lt;p style=&quot;color:green;&quot;&gt; &lt;b&gt; Registration: &lt;/b&gt; &quot;&quot;&quot;),_display_(/*24.78*/ownerDetail/*24.89*/.getRegistrationDate()),format.raw/*24.111*/(&quot;&quot;&quot; &quot;&quot;&quot;),format.raw/*24.112*/(&quot;&quot;&quot;&lt;/p&gt;</span>
+<span class="nc" id="L56">                            &lt;p style=&quot;color:green;&quot;&gt; &lt;b&gt; Country: &lt;/b&gt; &quot;&quot;&quot;),_display_(/*25.73*/ownerDetail/*25.84*/.getCountry()),format.raw/*25.97*/(&quot;&quot;&quot; &quot;&quot;&quot;),format.raw/*25.98*/(&quot;&quot;&quot;&lt;/p&gt;</span>
+<span class="nc" id="L57">                            &lt;p style=&quot;color:green;&quot;&gt; &lt;b&gt; Limited Account: &lt;/b&gt; &quot;&quot;&quot;),_display_(/*26.81*/ownerDetail/*26.92*/.getLimitedAccount()),format.raw/*26.112*/(&quot;&quot;&quot; &quot;&quot;&quot;),format.raw/*26.113*/(&quot;&quot;&quot;&lt;/p&gt;</span>
+<span class="nc" id="L58">                            &lt;p style=&quot;color:green;&quot;&gt; &lt;b&gt; Email Verified: &lt;/b&gt; &quot;&quot;&quot;),_display_(/*27.80*/ownerDetail/*27.91*/.getEmailVerified()),format.raw/*27.110*/(&quot;&quot;&quot; &quot;&quot;&quot;),format.raw/*27.111*/(&quot;&quot;&quot;&lt;/p&gt;</span>
+                        &lt;/div&gt;
+
+                        &lt;div&gt;
+
+<span class="nc" id="L63">                            &lt;p style=&quot;color:blue;&quot; text-align: center;&gt; &lt;b&gt; Below are the top 10 Projects for owner ID : &quot;&quot;&quot;),_display_(/*32.123*/ownerDetail/*32.134*/.getId()),format.raw/*32.142*/(&quot;&quot;&quot; &quot;&quot;&quot;),format.raw/*32.143*/(&quot;&quot;&quot;&lt;/b&gt;&lt;/p&gt;</span>
+                            &lt;table&gt;
+                                &lt;tr&gt;
+                                    &lt;th style=&quot;font-weight: bold&quot;&gt;Owner_id&lt;/th&gt;
+                                    &lt;th style=&quot;font-weight: bold&quot;&gt;Date&lt;/th&gt;
+                                    &lt;th style=&quot;font-weight: bold&quot;&gt;Title&lt;/th&gt;
+                                    &lt;th style=&quot;font-weight: bold&quot;&gt;Type&lt;/th&gt;
+                                    &lt;th style=&quot;font-weight: bold&quot;&gt;Skills&lt;/th&gt;
+
+                                &lt;/tr&gt;
+<span class="nc" id="L73">                                &quot;&quot;&quot;),_display_(/*42.34*/for(result &lt;- ownerDetail.getOwnerProjects_active().get(ownerDetail.getId()).getProjectList()) yield /*42.128*/ {_display_(Seq[Any](format.raw/*42.130*/(&quot;&quot;&quot;</span>
+                                    &quot;&quot;&quot;),format.raw/*43.37*/(&quot;&quot;&quot;&lt;tr&gt;
+                                        &lt;td&gt;&lt;a href=&quot;&quot;&quot;&quot;),_display_(/*44.55*/routes/*44.61*/.HomeController.ownerInformation(result.getOwner_id())),format.raw/*44.115*/(&quot;&quot;&quot;&quot; target=&quot;_blank&quot;&gt; &quot;&quot;&quot;),_display_(/*44.135*/result/*44.141*/.getOwner_id),format.raw/*44.153*/(&quot;&quot;&quot; &quot;&quot;&quot;),format.raw/*44.154*/(&quot;&quot;&quot;&lt;/a&gt; &lt;/td&gt;
+                                        &lt;td&gt;&quot;&quot;&quot;),_display_(/*45.46*/result/*45.52*/.getDate()),format.raw/*45.62*/(&quot;&quot;&quot;&lt;/td&gt;
+                                        &lt;td&gt;&lt;a href=&quot;https://www.freelancer.com/projects/&quot;&quot;&quot;),_display_(/*46.91*/result/*46.97*/.getProject_ID),format.raw/*46.111*/(&quot;&quot;&quot;/details&quot;&gt;&quot;&quot;&quot;),_display_(/*46.122*/result/*46.128*/.getProject_title()),format.raw/*46.147*/(&quot;&quot;&quot;&lt;/a&gt;&lt;/td&gt;
+                                        &lt;td&gt;&quot;&quot;&quot;),_display_(/*47.46*/result/*47.52*/.getProject_type()),format.raw/*47.70*/(&quot;&quot;&quot;&lt;/td&gt;
+                                        &lt;td&gt;&lt;a href=&quot;&quot;&quot;&quot;),_display_(/*48.55*/routes/*48.61*/.HomeController.skills(result.getSkills())),format.raw/*48.103*/(&quot;&quot;&quot;&quot;&gt;&quot;&quot;&quot;),_display_(/*48.106*/result/*48.112*/.getSkills()),format.raw/*48.124*/(&quot;&quot;&quot;&lt;/a&gt;&lt;/td&gt;
+                                    &lt;/tr&gt;
+<span class="nc" id="L81">                                &quot;&quot;&quot;)))}),format.raw/*50.34*/(&quot;&quot;&quot;</span>
+<span class="nc" id="L82">                            &quot;&quot;&quot;),format.raw/*51.29*/(&quot;&quot;&quot;&lt;/table&gt;</span>
+
+                        &lt;/div&gt;
+
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+            &lt;/body&gt;
+        &lt;/article&gt;
+    &lt;/html&gt;
+&quot;&quot;&quot;)))}))
+      }
+    }
+  }
+
+<span class="nc" id="L97">  def render(ownerDetail:models.OwnerInformation): play.twirl.api.HtmlFormat.Appendable = apply(ownerDetail)</span>
+
+<span class="nc" id="L99">  def f:((models.OwnerInformation) =&gt; play.twirl.api.HtmlFormat.Appendable) = (ownerDetail) =&gt; apply(ownerDetail)</span>
+
+<span class="nc" id="L101">  def ref: this.type = this</span>
+
+}
+
+
+              /*
+                  -- GENERATED --
+                  SOURCE: app/views/ownerDetails.scala.html
+                  HASH: 90653a04f5fd42220b10af6334404080d72c8f8e
+                  MATRIX: 931-&gt;1|1065-&gt;40|1093-&gt;43|1122-&gt;64|1160-&gt;65|1192-&gt;71|1286-&gt;138|1314-&gt;139|1360-&gt;158|1388-&gt;159|1437-&gt;181|1468-&gt;185|1496-&gt;186|1542-&gt;205|1570-&gt;206|1611-&gt;220|2109-&gt;691|2129-&gt;702|2158-&gt;710|2187-&gt;711|2293-&gt;790|2313-&gt;801|2348-&gt;815|2378-&gt;816|2484-&gt;895|2504-&gt;906|2538-&gt;919|2567-&gt;920|2670-&gt;996|2690-&gt;1007|2721-&gt;1017|2750-&gt;1018|2864-&gt;1105|2884-&gt;1116|2927-&gt;1137|2957-&gt;1138|3067-&gt;1221|3087-&gt;1232|3131-&gt;1254|3161-&gt;1255|3266-&gt;1333|3286-&gt;1344|3320-&gt;1357|3349-&gt;1358|3462-&gt;1444|3482-&gt;1455|3524-&gt;1475|3554-&gt;1476|3666-&gt;1561|3686-&gt;1572|3727-&gt;1591|3757-&gt;1592|3980-&gt;1787|4001-&gt;1798|4031-&gt;1806|4061-&gt;1807|4639-&gt;2358|4750-&gt;2452|4791-&gt;2454|4857-&gt;2492|4944-&gt;2552|4959-&gt;2558|5035-&gt;2612|5083-&gt;2632|5099-&gt;2638|5133-&gt;2650|5163-&gt;2651|5247-&gt;2708|5262-&gt;2714|5293-&gt;2724|5417-&gt;2821|5432-&gt;2827|5468-&gt;2841|5507-&gt;2852|5523-&gt;2858|5564-&gt;2877|5647-&gt;2933|5662-&gt;2939|5701-&gt;2957|5789-&gt;3018|5804-&gt;3024|5868-&gt;3066|5899-&gt;3069|5915-&gt;3075|5949-&gt;3087|6067-&gt;3174|6125-&gt;3204
+                  LINES: 27-&gt;1|32-&gt;1|33-&gt;2|33-&gt;2|33-&gt;2|34-&gt;3|37-&gt;6|37-&gt;6|37-&gt;6|37-&gt;6|38-&gt;7|38-&gt;7|38-&gt;7|38-&gt;7|38-&gt;7|39-&gt;8|50-&gt;19|50-&gt;19|50-&gt;19|50-&gt;19|51-&gt;20|51-&gt;20|51-&gt;20|51-&gt;20|52-&gt;21|52-&gt;21|52-&gt;21|52-&gt;21|53-&gt;22|53-&gt;22|53-&gt;22|53-&gt;22|54-&gt;23|54-&gt;23|54-&gt;23|54-&gt;23|55-&gt;24|55-&gt;24|55-&gt;24|55-&gt;24|56-&gt;25|56-&gt;25|56-&gt;25|56-&gt;25|57-&gt;26|57-&gt;26|57-&gt;26|57-&gt;26|58-&gt;27|58-&gt;27|58-&gt;27|58-&gt;27|63-&gt;32|63-&gt;32|63-&gt;32|63-&gt;32|73-&gt;42|73-&gt;42|73-&gt;42|74-&gt;43|75-&gt;44|75-&gt;44|75-&gt;44|75-&gt;44|75-&gt;44|75-&gt;44|75-&gt;44|76-&gt;45|76-&gt;45|76-&gt;45|77-&gt;46|77-&gt;46|77-&gt;46|77-&gt;46|77-&gt;46|77-&gt;46|78-&gt;47|78-&gt;47|78-&gt;47|79-&gt;48|79-&gt;48|79-&gt;48|79-&gt;48|79-&gt;48|79-&gt;48|81-&gt;50|82-&gt;51
+                  -- GENERATED --
+              */
+          
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
