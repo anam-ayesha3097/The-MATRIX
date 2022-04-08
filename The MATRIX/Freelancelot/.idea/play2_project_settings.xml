@@ -20,8 +20,8 @@
         <entry key="root">
           <value>
             <ProjectSettingsEntry>
-              <option name="sourceDir" value="C:\Users\sanke\Downloads\Project\Freelancelot\app" />
-              <option name="confDir" value="C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\app" />
+              <option name="sourceDir" value="C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\app" />
+              <option name="confDir" value="C:\SOEN Project Repo\The-MATRIX\The MATRIX\Freelancelot\app" />
               <option name="templateImports">
                 <list>
                   <option value="_root_.play.twirl.api.TwirlFeatureImports._" />
@@ -51,7 +51,7 @@
                   <option value="play.libs.F" />
                 </list>
               </option>
-              <option name="uri" value="/C:/Integrated%20soen/MatrixCopy/The%20MATRIX/Freelancelot" />
+              <option name="uri" value="/C:/SOEN%20Project%20Repo/The-MATRIX/The%20MATRIX/Freelancelot" />
             </ProjectSettingsEntry>
           </value>
         </entry>

@@ -3,28 +3,52 @@
 import scala.Int;
 
 import java.util.ArrayList;
-
-<span class="fc" id="L7">public class FreelaancelotList {</span>
-<span class="fc" id="L8">    private ArrayList &lt;Freelancelot&gt; ProjectList = new ArrayList&lt;Freelancelot&gt;();</span>
-
+/**
+ * Freelancelot List  to get the Entire List of the Freelancelot Class
+ *
+ * @author Raahul John and Vikyath
+ * @version 1.0
+ */
+<span class="fc" id="L12">public class FreelaancelotList {</span>
+<span class="fc" id="L13">    private ArrayList &lt;Freelancelot&gt; ProjectList = new ArrayList&lt;Freelancelot&gt;();</span>
+    /**
+     * Sets the Freelancelot Project List
+     * @param  projectList Arraylist of Freelancelot
+     * @author Raahul John and Vikyath
+     */
     public void setProjectList(ArrayList&lt;Freelancelot&gt; projectList) {
-<span class="fc" id="L11">        ProjectList = projectList;</span>
-<span class="fc" id="L12">    }</span>
-
+<span class="fc" id="L20">        ProjectList = projectList;</span>
+<span class="fc" id="L21">    }</span>
+    /**
+     * Gets the Freelancelot Project List
+     * @return the Arraylist of Freelancelot
+     * @author Raahul John and Vikyath
+     */
     public ArrayList&lt;Freelancelot&gt; getProjectList() {
-<span class="fc" id="L15">        return ProjectList;</span>
+<span class="fc" id="L28">        return ProjectList;</span>
     }
 
+
+
+    /**
+     * Gets Average Readability of the Search Term
+     * @param searchTerm String job searcehd
+     * @author Anam Ayesh Shaikh
+     */
     public Integer getAvgReadability(String searchTerm) {
-<span class="fc" id="L19">        Integer avgReadability = 0;</span>
-<span class="fc" id="L20">        avgReadability = FleschReadabilityIndex.getAvgFleschIndex(searchTerm);</span>
-<span class="fc" id="L21">        return avgReadability;</span>
+<span class="fc" id="L39">        Integer avgReadability = 0;</span>
+<span class="fc" id="L40">        avgReadability = FleschReadabilityIndex.getAvgFleschIndex(searchTerm);</span>
+<span class="fc" id="L41">        return avgReadability;</span>
     }
-
+    /**
+     * Gets Average Educational Level of the Search Term
+     * @param searchTerm String job searcehd
+     * @author Anam Ayesh Shaikh
+     */
     public String getAvgEducationalLevel(String searchTerm) {
-<span class="fc" id="L25">        String avgEducationalLevel = null;</span>
-<span class="fc" id="L26">        avgEducationalLevel = FleschReadabilityIndex.getAvgEducationLevel(searchTerm);</span>
-<span class="fc" id="L27">        return avgEducationalLevel;</span>
+<span class="fc" id="L49">        String avgEducationalLevel = null;</span>
+<span class="fc" id="L50">        avgEducationalLevel = FleschReadabilityIndex.getAvgEducationLevel(searchTerm);</span>
+<span class="fc" id="L51">        return avgEducationalLevel;</span>
     }
  }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

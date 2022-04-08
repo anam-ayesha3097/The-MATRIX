@@ -3,6 +3,8 @@ package models;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
 
 import static java.util.stream.Collectors.toMap;
 /**
@@ -81,5 +83,37 @@ public class Utilities {
             projlistmap_10Projs.put(i, frlistobj);
         }
         return projlistmap_10Projs;
+    }
+
+    /**
+     * Generates the Response in Reverse Order
+     * @param responseReadability Response of the API
+     * @return Inverted Response of the API
+     * @author Anam Ayesha Shaikh
+     */
+    public CompletionStage<LinkedHashMap<String, FreelaancelotList>> reverseOrder(LinkedHashMap<String, FreelaancelotList> responseReadability) {
+        LinkedHashMap<String, FreelaancelotList> response= new LinkedHashMap<>();
+        CompletionStage<LinkedHashMap<String, FreelaancelotList>> reversedresponse = CompletableFuture.supplyAsync(LinkedHashMap::new);
+        List<String> allKeys = new ArrayList<String>(responseReadability.keySet());
+        ArrayList<Freelancelot>  freelancelotArrayList= new ArrayList<Freelancelot>();
+        Freelancelot freelancelotObj = null;
+        Collections.reverse(allKeys);
+
+        for(String keys: allKeys){
+            freelancelotArrayList = responseReadability.get(keys).getProjectList();
+            ArrayList<Freelancelot> listFreelancelot = new ArrayList<>();
+
+            for(Freelancelot fl : freelancelotArrayList) {
+                freelancelotObj = new Freelancelot(fl.getOwner_id(), fl.getDate(), fl.getProject_ID(), fl.getProject_title(), fl.getProject_description(), fl.getProject_type(), fl.getSkills(), "", fl.getReadability(), fl.getEducationalLevel(), fl.getSeoUrl(), 0, " ");
+                listFreelancelot.add(freelancelotObj);
+
+            }
+
+            FreelaancelotList setListObjs = new FreelaancelotList();
+            setListObjs.setProjectList(listFreelancelot);
+            response.put(keys, setListObjs);
+            reversedresponse = CompletableFuture.supplyAsync(()-> response);
+        }
+        return reversedresponse;
     }
 }

@@ -3,60 +3,118 @@
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
 
 import static java.util.stream.Collectors.toMap;
-
-<span class="fc" id="L9">public class Utilities {</span>
+/**
+ * Utilities Class for the Freelancelot Models Similar to Java.Util
+ *
+ * @author Sankeerth Koduri
+ * @version 1.0
+ */
+<span class="fc" id="L16">public class Utilities {</span>
     // public long sortedfrequencyMap;
 
+
+
+    /**
+     * Converts the date from miliseconds to the actual value
+     * @param date Date in Integer i.e in Milisecond
+     * @return Date in Format ddMMyyyy hh:mm:ss
+     * @author Sankeerth Koduri
+     */
     public static String date_converter(Integer date) {
-<span class="fc" id="L13">        String milsec = Integer.toString(date) + &quot;000&quot;;</span>
-<span class="fc" id="L14">        long miliSec = Long.valueOf(milsec);</span>
-<span class="fc" id="L15">        DateFormat obj = new SimpleDateFormat(&quot;dd MMM yyyy HH:mm:ss&quot;);</span>
-<span class="fc" id="L16">        Date res = new Date(miliSec);</span>
-<span class="fc" id="L17">        return obj.format(res);</span>
+<span class="fc" id="L28">        String milsec = Integer.toString(date) + &quot;000&quot;;</span>
+<span class="fc" id="L29">        long miliSec = Long.valueOf(milsec);</span>
+<span class="fc" id="L30">        DateFormat obj = new SimpleDateFormat(&quot;dd MMM yyyy HH:mm:ss&quot;);</span>
+<span class="fc" id="L31">        Date res = new Date(miliSec);</span>
+<span class="fc" id="L32">        return obj.format(res);</span>
     }
 
+    /**
+     * Calcuates the Word Frequency Count
+     * @param s String
+     * @return LinkedHashMap of String and Integer
+     * @author Sankeerth Koduri
+     */
     public LinkedHashMap&lt;String, Integer&gt; wordFrequencyCounter(String s) {
-<span class="fc" id="L21">        String[] words = s.replaceAll(&quot;^[.,\\s]+&quot;, &quot;&quot;).split(&quot;[.,\\s]+&quot;);</span>
+<span class="fc" id="L42">        String[] words = s.replaceAll(&quot;^[.,\\s]+&quot;, &quot;&quot;).split(&quot;[.,\\s]+&quot;);</span>
 
-<span class="fc" id="L23">        Map&lt;String, Integer&gt; frequency = new HashMap&lt;String, Integer&gt;();</span>
-<span class="fc bfc" id="L24" title="All 2 branches covered.">        for (String word : words) {</span>
-<span class="fc" id="L25">            Integer count = frequency.get(word);</span>
-<span class="fc bfc" id="L26" title="All 2 branches covered.">            count = (count == null) ? 1 : ++count;</span>
-<span class="fc" id="L27">            frequency.put(word, count);</span>
+<span class="fc" id="L44">        Map&lt;String, Integer&gt; frequency = new HashMap&lt;String, Integer&gt;();</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        for (String word : words) {</span>
+<span class="fc" id="L46">            Integer count = frequency.get(word);</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">            count = (count == null) ? 1 : ++count;</span>
+<span class="fc" id="L48">            frequency.put(word, count);</span>
         }
-<span class="fc" id="L29">        LinkedHashMap&lt;String, Integer&gt; sortedfrequency = new LinkedHashMap&lt;String, Integer&gt;();</span>
-<span class="fc" id="L30">        sortedfrequency = frequency</span>
-<span class="fc" id="L31">                .entrySet()</span>
-<span class="fc" id="L32">                .stream()</span>
-<span class="fc" id="L33">                .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))</span>
-<span class="fc" id="L34">                .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -&gt; e2, LinkedHashMap::new));</span>
-<span class="fc" id="L35">        return sortedfrequency;</span>
+<span class="fc" id="L50">        LinkedHashMap&lt;String, Integer&gt; sortedfrequency = new LinkedHashMap&lt;String, Integer&gt;();</span>
+<span class="fc" id="L51">        sortedfrequency = frequency</span>
+<span class="fc" id="L52">                .entrySet()</span>
+<span class="fc" id="L53">                .stream()</span>
+<span class="fc" id="L54">                .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))</span>
+<span class="fc" id="L55">                .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -&gt; e2, LinkedHashMap::new));</span>
+<span class="fc" id="L56">        return sortedfrequency;</span>
     }
-
+    /**
+     * Returns first ten projects from the 250 API response
+     * @param projlistmap LinkedHashMap Response of API
+     * @return 10 Projects from the 250 API Response
+     * @author Sankeerth Koduri
+     */
     public LinkedHashMap&lt;String, FreelaancelotList&gt; first10projects(LinkedHashMap&lt;String, FreelaancelotList&gt; projlistmap) {
-<span class="fc" id="L39">        LinkedHashMap&lt;String, FreelaancelotList&gt; projlistmap_10Projs = new LinkedHashMap&lt;String, FreelaancelotList&gt;();</span>
-<span class="fc bfc" id="L40" title="All 2 branches covered.">        for (String i : projlistmap.keySet()) {</span>
-<span class="fc" id="L41">            FreelaancelotList value = projlistmap.get(i);</span>
-<span class="fc" id="L42">            ArrayList&lt;Freelancelot&gt; entireprojectList = value.getProjectList();</span>
-<span class="fc" id="L43">            ArrayList&lt;Freelancelot&gt; tempList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L65">        LinkedHashMap&lt;String, FreelaancelotList&gt; projlistmap_10Projs = new LinkedHashMap&lt;String, FreelaancelotList&gt;();</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        for (String i : projlistmap.keySet()) {</span>
+<span class="fc" id="L67">            FreelaancelotList value = projlistmap.get(i);</span>
+<span class="fc" id="L68">            ArrayList&lt;Freelancelot&gt; entireprojectList = value.getProjectList();</span>
+<span class="fc" id="L69">            ArrayList&lt;Freelancelot&gt; tempList = new ArrayList&lt;&gt;();</span>
 
-<span class="fc" id="L45">            int counter = 1;</span>
-<span class="pc bpc" id="L46" title="1 of 2 branches missed.">            for (Freelancelot proj : entireprojectList) {</span>
-<span class="fc bfc" id="L47" title="All 2 branches covered.">                if (counter &lt;= 10) {</span>
-<span class="fc" id="L48">                    tempList.add(proj);</span>
+<span class="fc" id="L71">            int counter = 1;</span>
+<span class="pc bpc" id="L72" title="1 of 2 branches missed.">            for (Freelancelot proj : entireprojectList) {</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">                if (counter &lt;= 10) {</span>
+<span class="fc" id="L74">                    tempList.add(proj);</span>
                 } else {
                     break;
                 }
-<span class="fc" id="L52">                counter++;</span>
-<span class="fc" id="L53">            }</span>
+<span class="fc" id="L78">                counter++;</span>
+<span class="fc" id="L79">            }</span>
 
-<span class="fc" id="L55">            FreelaancelotList frlistobj = new FreelaancelotList();</span>
-<span class="fc" id="L56">            frlistobj.setProjectList(tempList);</span>
-<span class="fc" id="L57">            projlistmap_10Projs.put(i, frlistobj);</span>
-<span class="fc" id="L58">        }</span>
-<span class="fc" id="L59">        return projlistmap_10Projs;</span>
+<span class="fc" id="L81">            FreelaancelotList frlistobj = new FreelaancelotList();</span>
+<span class="fc" id="L82">            frlistobj.setProjectList(tempList);</span>
+<span class="fc" id="L83">            projlistmap_10Projs.put(i, frlistobj);</span>
+<span class="fc" id="L84">        }</span>
+<span class="fc" id="L85">        return projlistmap_10Projs;</span>
+    }
+
+    /**
+     * Generates the Response in Reverse Order
+     * @param responseReadability Response of the API
+     * @return Inverted Response of the API
+     * @author Anam Ayesha Shaikh
+     */
+    public CompletionStage&lt;LinkedHashMap&lt;String, FreelaancelotList&gt;&gt; reverseOrder(LinkedHashMap&lt;String, FreelaancelotList&gt; responseReadability) {
+<span class="fc" id="L95">        LinkedHashMap&lt;String, FreelaancelotList&gt; response= new LinkedHashMap&lt;&gt;();</span>
+<span class="fc" id="L96">        CompletionStage&lt;LinkedHashMap&lt;String, FreelaancelotList&gt;&gt; reversedresponse = CompletableFuture.supplyAsync(LinkedHashMap::new);</span>
+<span class="fc" id="L97">        List&lt;String&gt; allKeys = new ArrayList&lt;String&gt;(responseReadability.keySet());</span>
+<span class="fc" id="L98">        ArrayList&lt;Freelancelot&gt;  freelancelotArrayList= new ArrayList&lt;Freelancelot&gt;();</span>
+<span class="fc" id="L99">        Freelancelot freelancelotObj = null;</span>
+<span class="fc" id="L100">        Collections.reverse(allKeys);</span>
+
+<span class="fc bfc" id="L102" title="All 2 branches covered.">        for(String keys: allKeys){</span>
+<span class="fc" id="L103">            freelancelotArrayList = responseReadability.get(keys).getProjectList();</span>
+<span class="fc" id="L104">            ArrayList&lt;Freelancelot&gt; listFreelancelot = new ArrayList&lt;&gt;();</span>
+
+<span class="fc bfc" id="L106" title="All 2 branches covered.">            for(Freelancelot fl : freelancelotArrayList) {</span>
+<span class="fc" id="L107">                freelancelotObj = new Freelancelot(fl.getOwner_id(), fl.getDate(), fl.getProject_ID(), fl.getProject_title(), fl.getProject_description(), fl.getProject_type(), fl.getSkills(), &quot;&quot;, fl.getReadability(), fl.getEducationalLevel(), fl.getSeoUrl(), 0, &quot; &quot;);</span>
+<span class="fc" id="L108">                listFreelancelot.add(freelancelotObj);</span>
+
+<span class="fc" id="L110">            }</span>
+
+<span class="fc" id="L112">            FreelaancelotList setListObjs = new FreelaancelotList();</span>
+<span class="fc" id="L113">            setListObjs.setProjectList(listFreelancelot);</span>
+<span class="fc" id="L114">            response.put(keys, setListObjs);</span>
+<span class="fc" id="L115">            reversedresponse = CompletableFuture.supplyAsync(()-&gt; response);</span>
+<span class="fc" id="L116">        }</span>
+<span class="fc" id="L117">        return reversedresponse;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

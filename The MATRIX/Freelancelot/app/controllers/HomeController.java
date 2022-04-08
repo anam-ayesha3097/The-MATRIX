@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-
+import java.util.concurrent.CompletionStage;
 
 /**
  * This is the Main controller contains an action to handle HTTP requests
@@ -42,46 +42,15 @@ public class HomeController extends Controller {
         this.cache = cache;
     }
 
-
-    public Result index() {
-        return ok(views.html.index.render());
-    }
-
-
-    /**
-     * Calculates the Global Word Statistics
-     * @param search Search Term Job Searched
-     * @return Renders the Word Statistice Page
-     * @author Sankeerth Koduri
-     */
-    public Result projectWordStats(String search)
-    {
-            Utilities ut = new Utilities();
-            return ok(views.html.projectwordstats.render(ut.wordFrequencyCounter(search)));
-    }
-    /**
-     * Calculates the Individual Word Statistics
-     * @param search Search Term Job Searched
-     * @return Renders the Word Statistice Page
-     * @author Sankeerth Koduri
-     */
-    public Result wordStats(String search)
-     {
-         WordStats ws = new WordStats();
-         return ok(views.html.wordstats.render(ws.GlobalStats(response.get(search))));
-    }
-
-
     /**
      * Calls the Freelancelot API and displays the values in the views
      * @param searchTerm Job Searched
      * @return Renders Freelancelot Job Search Page with the Jobs output
      * @author Anam Ayesha Shaikh and Sankeerth Korduri
      */
-    public Result freelancer(String searchTerm) throws ExecutionException, InterruptedException {
+    public CompletionStage<Result> freelancer(String searchTerm) throws ExecutionException, InterruptedException {
         LinkedHashMap<String, FreelaancelotList> projlistmap_10Projs = new LinkedHashMap<String, FreelaancelotList>();
-        LinkedHashMap<String, FreelaancelotList> responseProcessed = new LinkedHashMap<>();
-
+        CompletionStage<LinkedHashMap<String, FreelaancelotList>> responseProcessed = CompletableFuture.supplyAsync(LinkedHashMap::new);
         int flag = 1;
         HomeController responseCache = null;
         BusinessLogic businessLogic = new BusinessLogic();
@@ -106,7 +75,7 @@ public class HomeController extends Controller {
                     CompletableFuture<LinkedHashMap<String, FreelaancelotList>> readability = FleschReadabilityIndex.getReadabilityAsync(projlistmap_10Projs);
                     LinkedHashMap<String, FreelaancelotList> responseReadability = readability.get();
 
-                    responseProcessed = reverseOrder(responseReadability);
+                    responseProcessed = ut.reverseOrder(responseReadability);
                 }
 
                 else {
@@ -120,14 +89,17 @@ public class HomeController extends Controller {
                     CompletableFuture<LinkedHashMap<String, FreelaancelotList>> readability = FleschReadabilityIndex.getReadabilityAsync(projlistmap_10Projs);
                     LinkedHashMap<String, FreelaancelotList> responseReadability = readability.get();
 
-                    responseProcessed = reverseOrder(responseReadability);
+                    responseProcessed = ut.reverseOrder(responseReadability);
 
                 }
 
-                return ok(views.html.freelancer.render(responseProcessed));
+                return responseProcessed.thenApply((map) -> ok(views.html.freelancer.render(map)));
+                //return ok(views.html.freelancer.render(responseProcessed));
             }
-            else
-                return ok("Maximum Search Hit Reached").as("Text/html");
+            else {
+                CompletionStage<Result> response = CompletableFuture.supplyAsync(() -> ok("Maximum Search Hit Reached").as("Text/html"));
+                return response;
+            }
         }
         else {
             if(searchTerm.length() == 0)
@@ -135,14 +107,39 @@ public class HomeController extends Controller {
                 response.clear();
                 //sessionValue = request.session().removing("connected");
                 //Cookie loginCookie = new Cookie("user",user);
-                System.out.println("Bye!");
             }
-            return ok(views.html.freelancerInit.render());
+            CompletionStage<Result> response = CompletableFuture.supplyAsync(() -> ok(views.html.freelancerInit.render()));
+            return  response;
             //newFreelancer(request);
             //return ok(views.html.freelance.render(null));
             //return ok(views.html.freelancerInit.render());
         }
-        }
+    }
+
+    /**
+     * Calculates the Global Word Statistics
+     * @param search Search Term Job Searched
+     * @return Renders the Word Statistics Page
+     * @author Sankeerth Koduri
+     */
+
+    public CompletionStage<Result> projectWordStats(String search)
+    {
+        WordStats ws = new WordStats();
+        return ws.IndividualStats(search);
+    }
+    /**
+     * Calculates the Individual Word Statistics
+     * @param search Search Term Job Searched
+     * @return Renders the Word Stats Page
+     * @author Sankeerth Koduri
+     */
+    public CompletionStage<Result> wordStats(String search)
+     {
+         WordStats ws = new WordStats();
+         return ws.GlobalStats(response.get(search));
+    }
+
     /**
      * Displays the top 10 related skills of the job seacrhed
      * @param s String which takes the job searched term
@@ -154,36 +151,7 @@ public class HomeController extends Controller {
         LinkedHashMap<String, FreelaancelotList> data = sl.getDataSkills(s);
         return ok(views.html.skills.render(data));
     }
-    /**
-     * Generates the Response in Reverse Order
-     * @param responseReadability Response of the API
-     * @return Inverted Response of the API
-     * @author Anam Ayesha Shaikh
-     */
-    public static LinkedHashMap<String, FreelaancelotList> reverseOrder(LinkedHashMap<String, FreelaancelotList> responseReadability) {
-        LinkedHashMap<String, FreelaancelotList> response = new LinkedHashMap<>();
-        List<String> allKeys = new ArrayList<String>(responseReadability.keySet());
-        ArrayList<Freelancelot>  freelancelotArrayList= new ArrayList<Freelancelot>();
-        Freelancelot freelancelotObj = null;
-        Collections.reverse(allKeys);
 
-        for(String keys: allKeys){
-            System.out.println("Keys "+keys);
-            freelancelotArrayList = responseReadability.get(keys).getProjectList();
-            ArrayList<Freelancelot> listFreelancelot = new ArrayList<>();
-
-            for(Freelancelot fl : freelancelotArrayList) {
-                freelancelotObj = new Freelancelot(fl.getOwner_id(), fl.getDate(), fl.getProject_ID(), fl.getProject_title(), fl.getProject_description(), fl.getProject_type(), fl.getSkills(), "", fl.getReadability(), fl.getEducationalLevel(), fl.getSeoUrl(), 0, " ");
-                listFreelancelot.add(freelancelotObj);
-
-            }
-
-            FreelaancelotList setListObjs = new FreelaancelotList();
-            setListObjs.setProjectList(listFreelancelot);
-            response.put(keys, setListObjs);
-        }
-        return response;
-    }
     /**
      * Generates the Response in Reverse Order
      * @param ownerId Owner ID

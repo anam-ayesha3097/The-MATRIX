@@ -79,7 +79,6 @@ public class BusinessLogic {
                     String seoUrl = jsonArr.getJSONObject(i).getString("seo_url");
                     String[] skillarr = seoUrl.split("/");
                     String skills = skillarr[0];
-                    System.out.println("Skills "+skills);
                     String seoUrl1 = "";
                     if(skillarr.length > 1)
                         seoUrl1 = skillarr[1];

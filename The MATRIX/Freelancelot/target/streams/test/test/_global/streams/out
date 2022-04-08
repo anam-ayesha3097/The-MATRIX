@@ -1,62 +1,62 @@
-[0m[[0m[0mdebug[0m] [0m[0mjavaOptions: Vector(-Djacoco-agent.destfile=C:\Users\sanke\Downloads\Project\Freelancelot\target\scala-2.13\jacoco\data\jacoco.exec)[0m
+[0m[[0m[0mdebug[0m] [0m[0mjavaOptions: Vector(-Djacoco-agent.destfile=C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\jacoco\data\jacoco.exec)[0m
 [0m[[0m[0mdebug[0m] [0m[0mForking tests - parallelism = false[0m
 [0m[[0m[0mdebug[0m] [0m[0mCreate a single-thread test executor[0m
 [0m[[0m[0mdebug[0m] [0m[0mRunner for com.novocode.junit.JUnitFramework produced 7 initial tasks for 7 tests.[0m
 [0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(controllers.HomeControllerTest, sbt.ForkMain$AnnotatedFingerscan@6effe465, false, [SuiteSelector])[0m
 [0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestskills[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestskills[0m finished, took 10.894 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestskills[0m finished, took 5.69 sec[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestIndex[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestIndex[0m finished, took 0.455 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestIndex[0m finished, took 0.545 sec[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestFreelance[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestFreelance[0m finished, took 4.166 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestprojectWordStats[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestprojectWordStats[0m finished, took 0.172 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestFreelance[0m finished, took 1.846 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestWordStatsIndividual[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestWordStatsIndividual[0m finished, took 0.19 sec[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestWordStats[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestWordStats[0m finished, took 0.203 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 5 total, 15.906s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestWordStats[0m finished, took 0.238 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 5 total, 8.519s[0m[0m
 [0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 5 events.[0m
-[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.utilitiestest, sbt.ForkMain$AnnotatedFingerscan@7039a6f, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.utilitiestest, sbt.ForkMain$AnnotatedFingerscan@26e904ab, false, [SuiteSelector])[0m
 [0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest models.[33mutilitiestest[0m.[36mwordFrequencyCountertest[0m started[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest models.[33mutilitiestest[0m.[36mwordFrequencyCountertest[0m finished, took 0.0 sec[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest models.[33mutilitiestest[0m.[36mdataconvertortest[0m started[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest models.[33mutilitiestest[0m.[36mdataconvertortest[0m finished, took 0.0 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 2 total, 0.015s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 2 total, 0.002s[0m[0m
 [0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 2 events.[0m
-[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.BusinessLogicTest, sbt.ForkMain$AnnotatedFingerscan@7be1cb19, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.BusinessLogicTest, sbt.ForkMain$AnnotatedFingerscan@425787b7, false, [SuiteSelector])[0m
 [0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest models.[33mBusinessLogicTest[0m.[36mgetskillsdatatest[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mBusinessLogicTest[0m.[36mgetskillsdatatest[0m finished, took 2.866 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mBusinessLogicTest[0m.[36mgetskillsdatatest[0m finished, took 0.446 sec[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest models.[33mBusinessLogicTest[0m.[36mtestBusniesslogic[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mBusinessLogicTest[0m.[36mtestBusniesslogic[0m finished, took 5.525 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 2 total, 8.391s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mBusinessLogicTest[0m.[36mtestBusniesslogic[0m finished, took 0.85 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 2 total, 1.297s[0m[0m
 [0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 2 events.[0m
-[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.ownerdetailsTest, sbt.ForkMain$AnnotatedFingerscan@5b788bc8, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.ownerdetailsTest, sbt.ForkMain$AnnotatedFingerscan@4a54c2cd, false, [SuiteSelector])[0m
 [0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerdetailsTest[0m.[36mcheckNodeExistsTest[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerdetailsTest[0m.[36mcheckNodeExistsTest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerdetailsTest[0m.[36mcheckNodeExistsTest[0m finished, took 0.001 sec[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerdetailsTest[0m.[36mgetOwnerDetailsTest[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerdetailsTest[0m.[36mgetOwnerDetailsTest[0m finished, took 4.26 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerdetailsTest[0m.[36mgetOwnerDetailsTest[0m finished, took 0.597 sec[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerdetailsTest[0m.[36mgetOwnerProjectTest[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerdetailsTest[0m.[36mgetOwnerProjectTest[0m finished, took 1.816 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 3 total, 6.076s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerdetailsTest[0m.[36mgetOwnerProjectTest[0m finished, took 0.232 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 3 total, 0.83s[0m[0m
 [0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 3 events.[0m
-[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.FreelancelotListTest, sbt.ForkMain$AnnotatedFingerscan@7eeafaee, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.FreelancelotListTest, sbt.ForkMain$AnnotatedFingerscan@433ca40a, false, [SuiteSelector])[0m
 [0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest models.[33mFreelancelotListTest[0m.[36mgetdatatest[0m started[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest models.[33mFreelancelotListTest[0m.[36mgetdatatest[0m finished, took 0.0 sec[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest models.[33mFreelancelotListTest[0m.[36mgettersSettersTest[0m started[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest models.[33mFreelancelotListTest[0m.[36mgettersSettersTest[0m finished, took 0.0 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 2 total, 0.0s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 2 total, 0.002s[0m[0m
 [0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 2 events.[0m
-[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.wordstatstest, sbt.ForkMain$AnnotatedFingerscan@3119fede, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.wordstatstest, sbt.ForkMain$AnnotatedFingerscan@9bc1af1, false, [SuiteSelector])[0m
 [0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest models.[33mwordstatstest[0m.[36mStatsTest[0m started[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest models.[33mwordstatstest[0m.[36mStatsTest[0m finished, took 0.0 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 0.0s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 0.001s[0m[0m
 [0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 1 events.[0m
-[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.ownerinformationtest, sbt.ForkMain$AnnotatedFingerscan@11a9f61f, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.ownerinformationtest, sbt.ForkMain$AnnotatedFingerscan@44807c70, false, [SuiteSelector])[0m
 [0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetCountrytest[0m started[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetCountrytest[0m finished, took 0.0 sec[0m
@@ -71,12 +71,12 @@
 [0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36msetIdtest[0m started[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36msetIdtest[0m finished, took 0.0 sec[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetOwnerProjects_activetest[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetOwnerProjects_activetest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetOwnerProjects_activetest[0m finished, took 0.001 sec[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetidtest[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetidtest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetidtest[0m finished, took 0.002 sec[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetRoletest[0m started[0m
 [0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetRoletest[0m finished, took 0.0 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 9 total, 0.0s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 9 total, 0.006s[0m[0m
 [0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 9 events.[0m
 [0m[[0m[0mdebug[0m] [0m[0mSummary for JUnit not available.[0m
 [0m[[0m[0minfo[0m] [0m[0mPassed: Total 24, Failed 0, Errors 0, Passed 24[0m
