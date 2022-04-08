@@ -1,16 +1,11 @@
-2022-03-28 15:18:47,744 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-6 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2022-04-07 21:40:11,589 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-10 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
 
-2022-03-28 15:18:47,792 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-6 - Application started (Dev) (no global state)
-2022-03-28 15:41:24,898 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-24 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.csrf.CSRFFilter
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-
-2022-03-28 15:41:24,908 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-24 - Application started (Dev) (no global state)
-2022-03-29 11:54:00,575 [WARN] from play.filters.hosts.AllowedHostsFilter in application-akka.actor.default-dispatcher-45 - Host not allowed: 10.0.0.152
-2022-03-29 11:54:00,741 [WARN] from play.filters.hosts.AllowedHostsFilter in application-akka.actor.default-dispatcher-45 - Host not allowed: 10.0.0.152:9000
+2022-04-07 21:40:11,695 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-10 - Application started (Dev) (no global state)
+2022-04-07 21:44:43,341 [INFO] from play.api.internal.libs.concurrent.CoordinatedShutdownSupport in pool-12-thread-3 - Starting synchronous coordinated shutdown with ServerStoppedReason reason and 35000 milliseconds timeout
+2022-04-07 21:44:43,349 [INFO] from play.core.server.AkkaHttpServer in pool-12-thread-3 - Stopping Akka HTTP server...
+2022-04-07 21:44:43,379 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-27 - Terminating server binding for /0:0:0:0:0:0:0:0:9000
+2022-04-07 21:44:43,575 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-27 - Running provided shutdown stop hooks

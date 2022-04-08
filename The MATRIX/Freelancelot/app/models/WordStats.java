@@ -1,5 +1,9 @@
 package models;
+import static play.mvc.Results.ok;
+import play.mvc.Result;
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
 
 /**
  * Calculates Global and Individual Word Stats
@@ -8,32 +12,34 @@ import java.util.*;
  * @version 1.0
  */
 public class WordStats {
+
     /**
      * Calculates Global Word Stats
      * @param listobjs Freelance Class Object
      * @return Global Statistics
      * @author Sankeerth Koduri
      */
-    public LinkedHashMap<String, Integer> GlobalStats(FreelaancelotList listobjs) {
+    public CompletionStage<Result> GlobalStats(FreelaancelotList listobjs) {
         Utilities ut = new Utilities();
-        System.out.println("Global Objs " + listobjs.getProjectList());
         ArrayList<Freelancelot> freeobjs = listobjs.getProjectList();
         String description = "";
         for (Freelancelot i : freeobjs) {
             description += i.getProject_description();
         }
-        return ut.wordFrequencyCounter(description);
+        String finalDescription = description;
+        CompletionStage<Result> futureResultMap = CompletableFuture.supplyAsync(
+                () -> ut.wordFrequencyCounter(finalDescription)
+        ).thenApply((mapOfWordFrequencies) -> ok(
+                views.html.wordstats.render(mapOfWordFrequencies)));
+        return futureResultMap;
     }
-//    public LinkedHashMap<String, Integer> GlobalStats1(HashMap<String, FreelaancelotList> projlistmap)
-//    {
-//        String description = "";
-//        for (FreelaancelotList value: projlistmap.values()) {
-//            ArrayList<Freelancelot> freeobjs = value.getProjectList();
-//            for(Freelancelot i:freeobjs)
-//            {
-//                description += i.getProject_description();
-//            }
-//        }
-//        return wordFrequencyCounter(description);
-//    }
+
+    public CompletionStage<Result> InduvidualStats(String description){
+        Utilities ut = new Utilities();
+        CompletionStage<Result> futureResultMap = CompletableFuture.supplyAsync(
+                () -> ut.wordFrequencyCounter(description)
+        ).thenApply((mapOfWordFrequencies) -> ok(
+                views.html.projectwordstats.render(mapOfWordFrequencies)));
+        return futureResultMap;
+    }
 }

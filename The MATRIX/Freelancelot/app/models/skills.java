@@ -42,7 +42,6 @@ public class skills {
         }
         string += "\"";
         FreelaancelotList projectList = new FreelaancelotList();
-        System.out.println(searchTerm);
         try {
             URL url = new URL("https://www.freelancer.com/api/projects/0.1/projects/active?job_details=true&limit=10&preview_description=true&query="+ string);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -55,7 +54,6 @@ public class skills {
                 while (sc.hasNext()) {
                     temp = temp + sc.nextLine();
                 }
-                System.out.println("Temp Skills "+temp);
                 JSONObject json = new JSONObject(temp);
                 result = json.getJSONObject("result");
                 JSONArray jsonArr = json.getJSONObject("result").getJSONArray("projects");
