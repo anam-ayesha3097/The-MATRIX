@@ -46,7 +46,6 @@ public class FleschReadabilityIndex {
 
         for(Iterator<Map.Entry<String, FreelaancelotList>> iterator = projsSearched.entrySet().iterator(); iterator.hasNext();){
             Map.Entry<String, FreelaancelotList> entries = iterator.next();
-            System.out.println("Search Term : "+entries.getKey());
             ArrayList<Freelancelot> freelancelotArrayList =  entries.getValue().getProjectList();
 
             List<String> listPrevDesc = freelancelotArrayList.stream()
@@ -58,10 +57,8 @@ public class FleschReadabilityIndex {
             averageFlesch = fleschIndexInt.stream().reduce(0, Integer::sum);
             averageFlesch = averageFlesch / 10;
             averageFlesch(averageFlesch, entries.getKey());
-            System.out.println("Avaerage Flesch for "+entries.getKey() +" is" +averageFlesch);
             averageEducationalLevel = calculateEductionalLevel(averageFlesch);
             averageEducationalLevel(averageEducationalLevel,entries.getKey());
-            System.out.println("Avaerage Educational Level  "+entries.getKey() +" is" +averageEducationalLevel);
             List<String> educationalLevel = fleschIndex.stream().map(fi -> calculateEductionalLevel(fi)).collect(Collectors.toList());
 
             index = 0;
@@ -78,7 +75,6 @@ public class FleschReadabilityIndex {
 
             for(Iterator<Map.Entry<String, FreelaancelotList>> iterator1 = projsWithReadability.entrySet().iterator(); iterator1.hasNext();){
                 Map.Entry<String, FreelaancelotList> entries1 = iterator1.next();
-                System.out.println("Response Readability "+entries1.getKey());
                 ArrayList<Freelancelot> freelancelotArrayList1 =  entries1.getValue().getProjectList();
                 for(Freelancelot fl : freelancelotArrayList1)
                     fl.display();
@@ -313,7 +309,6 @@ public class FleschReadabilityIndex {
         fleschIndex = 206.835 - 84.6 * syllableCount/wordCount  - 1.015 * wordCount/sentenceCount ;
         fleschIndexValue = Math.round(fleschIndex);
         //System.out.println("Flesch Index " +fleschIndex);
-        System.out.println("Flesch Index " +fleschIndexValue);
         return fleschIndexValue;
     }
     /**
@@ -353,7 +348,6 @@ public class FleschReadabilityIndex {
      * @author Anam Ayesha Shaikh
      */
     public static void averageFlesch(Integer avgFleshIndex, String searchTerm){
-        System.out.println("Inside Put Avg FI");
         averageFleschIndex.put(searchTerm,avgFleshIndex);
     }
 
@@ -363,7 +357,6 @@ public class FleschReadabilityIndex {
      * @author Anam Ayesha Shaikh
      */
     public static void averageEducationalLevel(String avgEducationalLevel, String searchTerm){
-        System.out.println("Inside Put Avg EducationalLevel");
         averageEducationalLevel.put(searchTerm,avgEducationalLevel);
     }
 
@@ -376,7 +369,6 @@ public class FleschReadabilityIndex {
      * @author Anam Ayesha Shaikh
      */
     public static Integer getAvgFleschIndex(String searchTerm){
-        System.out.println("Inside Get Avg Flesch Index ");
         Integer averageFIndex = 0;
         for(Iterator<Map.Entry<String, Integer>> iterator = averageFleschIndex.entrySet().iterator(); iterator.hasNext();) {
             Map.Entry<String, Integer> entries = iterator.next();
@@ -393,7 +385,6 @@ public class FleschReadabilityIndex {
      * @author Anam Ayesha Shaikh
      */
     public static String getAvgEducationLevel(String searchTerm){
-        System.out.println("Inside Get Avg Educational Level");
         String avgEducationalLevel = null;
         for(Iterator<Map.Entry<String, String>> iterator = averageEducationalLevel.entrySet().iterator(); iterator.hasNext();) {
             Map.Entry<String,String> entries = iterator.next();

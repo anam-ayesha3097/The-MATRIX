@@ -7,18 +7,21 @@ import javax.inject.Inject;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.CompletionStage;
 
 /**
- * This controller contains an action to handle HTTP requests
+ * This is the Main controller contains an action to handle HTTP requests
  * to the application's home page.
+ * @author Sankeerth Koduri Anam Ayesha Shaikh Raahul John Vikyath
+ * @version 1.0
  */
 
 
 public class HomeController extends Controller {
-<span class="fc" id="L18">    LinkedHashMap&lt;String, FreelaancelotList&gt; response = new LinkedHashMap&lt;&gt;();</span>
-<span class="fc" id="L19">    int flagCount = 0;</span>
+<span class="fc" id="L21">    LinkedHashMap&lt;String, FreelaancelotList&gt; response = new LinkedHashMap&lt;&gt;();</span>
+<span class="fc" id="L22">    int flagCount = 0;</span>
     private LinkedHashMap&lt;String, FreelaancelotList&gt; cache;
-<span class="fc" id="L21">    OwnerDetails ownerDetails = new OwnerDetails();</span>
+<span class="fc" id="L24">    OwnerDetails ownerDetails = new OwnerDetails();</span>
     /**
      * An action that renders an HTML page with a welcome message.
      * The configuration in the &lt;code&gt;routes&lt;/code&gt; file means that
@@ -26,131 +29,138 @@ public class HomeController extends Controller {
      * &lt;code&gt;GET&lt;/code&gt; request with a path of &lt;code&gt;/&lt;/code&gt;.
      */
 
-<span class="fc" id="L29">    public HomeController(){</span>
-<span class="fc" id="L30">        System.out.println(&quot;Default Home Controller&quot;);</span>
-<span class="fc" id="L31">    }</span>
+<span class="fc" id="L32">    public HomeController(){</span>
+<span class="fc" id="L33">        System.out.println(&quot;Default Home Controller&quot;);</span>
+<span class="fc" id="L34">    }</span>
+    /**
+     * Constructor Initializes the Cache
+     * @param cache Canche Object
+     * @author Sankeerth Koduri
+     */
     @Inject
-<span class="fc" id="L33">    public HomeController( LinkedHashMap&lt;String, FreelaancelotList&gt; cache) {</span>
-<span class="fc" id="L34">        this.cache = cache;</span>
-<span class="fc" id="L35">    }</span>
+<span class="fc" id="L41">    public HomeController( LinkedHashMap&lt;String, FreelaancelotList&gt; cache) {</span>
+<span class="fc" id="L42">        this.cache = cache;</span>
+<span class="fc" id="L43">    }</span>
 
+    /**
+     * Calls the Freelancelot API and displays the values in the views
+     * @param searchTerm Job Searched
+     * @return Renders Freelancelot Job Search Page with the Jobs output
+     * @author Anam Ayesha Shaikh and Sankeerth Korduri
+     */
+    public CompletionStage&lt;Result&gt; freelancer(String searchTerm) throws ExecutionException, InterruptedException {
+<span class="fc" id="L52">        LinkedHashMap&lt;String, FreelaancelotList&gt; projlistmap_10Projs = new LinkedHashMap&lt;String, FreelaancelotList&gt;();</span>
+<span class="fc" id="L53">        CompletionStage&lt;LinkedHashMap&lt;String, FreelaancelotList&gt;&gt; responseProcessed = CompletableFuture.supplyAsync(LinkedHashMap::new);</span>
+<span class="fc" id="L54">        int flag = 1;</span>
+<span class="fc" id="L55">        HomeController responseCache = null;</span>
+<span class="fc" id="L56">        BusinessLogic businessLogic = new BusinessLogic();</span>
+<span class="fc" id="L57">        Utilities ut = new Utilities();</span>
 
-    public Result index() {
-<span class="nc" id="L39">        return ok(views.html.index.render());</span>
-    }
+<span class="fc bfc" id="L59" title="All 2 branches covered.">        if(searchTerm.length() != 0 ) {</span>
+<span class="fc" id="L60">            flagCount += 1;</span>
+<span class="pc bpc" id="L61" title="1 of 2 branches missed.">            if(flagCount &lt;= 10 ){</span>
+<span class="fc" id="L62">                System.out.println(&quot;Flag Count &quot;+flagCount);</span>
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">                if (flag == 1) {</span>
+<span class="fc" id="L64">                    CompletableFuture&lt;LinkedHashMap&lt;String, FreelaancelotList&gt;&gt; futureAPIResult = businessLogic.getAPIDataAsync(searchTerm);</span>
+<span class="fc" id="L65">                    response = futureAPIResult.get();</span>
 
-    public Result projectWordStats(String search)
-    {
-<span class="fc" id="L44">            Utilities ut = new Utilities();</span>
-<span class="fc" id="L45">            return ok(views.html.projectwordstats.render(ut.wordFrequencyCounter(search)));</span>
-    }
-
-    public Result wordStats(String search)
-     {
-<span class="nc" id="L50">         WordStats ws = new WordStats();</span>
-<span class="nc" id="L51">         return ok(views.html.wordstats.render(ws.GlobalStats(response.get(search))));</span>
-    }
-
-    public Result freelancer(String searchTerm) throws ExecutionException, InterruptedException {
-<span class="fc" id="L55">        LinkedHashMap&lt;String, FreelaancelotList&gt; projlistmap_10Projs = new LinkedHashMap&lt;String, FreelaancelotList&gt;();</span>
-<span class="fc" id="L56">        LinkedHashMap&lt;String, FreelaancelotList&gt; responseProcessed = new LinkedHashMap&lt;&gt;();</span>
-
-<span class="fc" id="L58">        int flag = 1;</span>
-<span class="fc" id="L59">        HomeController responseCache = null;</span>
-<span class="fc" id="L60">        BusinessLogic businessLogic = new BusinessLogic();</span>
-<span class="fc" id="L61">        Utilities ut = new Utilities();</span>
-
-<span class="fc bfc" id="L63" title="All 2 branches covered.">        if(searchTerm.length() != 0 ) {</span>
-<span class="fc" id="L64">            flagCount += 1;</span>
-<span class="pc bpc" id="L65" title="1 of 2 branches missed.">            if(flagCount &lt;= 10 ){</span>
-<span class="fc" id="L66">                System.out.println(&quot;Flag Count &quot;+flagCount);</span>
-<span class="pc bpc" id="L67" title="1 of 2 branches missed.">                if (flag == 1) {</span>
-<span class="fc" id="L68">                    CompletableFuture&lt;LinkedHashMap&lt;String, FreelaancelotList&gt;&gt; futureAPIResult = businessLogic.getAPIDataAsync(searchTerm);</span>
-<span class="fc" id="L69">                    response = futureAPIResult.get();</span>
-
-<span class="fc" id="L71">                    responseCache = new HomeController(response);</span>
-<span class="fc" id="L72">                    flag += 1;</span>
+<span class="fc" id="L67">                    responseCache = new HomeController(response);</span>
+<span class="fc" id="L68">                    flag += 1;</span>
 
                 }
 
-<span class="pc bpc" id="L76" title="2 of 4 branches missed.">                if (responseCache != null &amp;&amp; responseCache.cache.containsKey(searchTerm)) {</span>
+<span class="pc bpc" id="L72" title="2 of 4 branches missed.">                if (responseCache != null &amp;&amp; responseCache.cache.containsKey(searchTerm)) {</span>
 
-<span class="fc" id="L78">                    projlistmap_10Projs = ut.first10projects(responseCache.cache);</span>
-<span class="fc" id="L79">                    CompletableFuture&lt;LinkedHashMap&lt;String, FreelaancelotList&gt;&gt; readability = FleschReadabilityIndex.getReadabilityAsync(projlistmap_10Projs);</span>
-<span class="fc" id="L80">                    LinkedHashMap&lt;String, FreelaancelotList&gt; responseReadability = readability.get();</span>
+<span class="fc" id="L74">                    projlistmap_10Projs = ut.first10projects(responseCache.cache);</span>
+<span class="fc" id="L75">                    CompletableFuture&lt;LinkedHashMap&lt;String, FreelaancelotList&gt;&gt; readability = FleschReadabilityIndex.getReadabilityAsync(projlistmap_10Projs);</span>
+<span class="fc" id="L76">                    LinkedHashMap&lt;String, FreelaancelotList&gt; responseReadability = readability.get();</span>
 
-<span class="fc" id="L82">                    responseProcessed = reverseOrder(responseReadability);</span>
-<span class="fc" id="L83">                }</span>
+<span class="fc" id="L78">                    responseProcessed = ut.reverseOrder(responseReadability);</span>
+<span class="fc" id="L79">                }</span>
 
                 else {
-<span class="nc" id="L86">                    CompletableFuture&lt;LinkedHashMap&lt;String, FreelaancelotList&gt;&gt; futureAPIResult = businessLogic.getAPIDataAsync(searchTerm);</span>
-<span class="nc" id="L87">                    response = futureAPIResult.get();</span>
+<span class="nc" id="L82">                    CompletableFuture&lt;LinkedHashMap&lt;String, FreelaancelotList&gt;&gt; futureAPIResult = businessLogic.getAPIDataAsync(searchTerm);</span>
+<span class="nc" id="L83">                    response = futureAPIResult.get();</span>
 
-<span class="nc" id="L89">                    responseCache = new HomeController(response);</span>
+<span class="nc" id="L85">                    responseCache = new HomeController(response);</span>
 
-<span class="nc" id="L91">                    projlistmap_10Projs = ut.first10projects(responseCache.cache);</span>
+<span class="nc" id="L87">                    projlistmap_10Projs = ut.first10projects(responseCache.cache);</span>
 
-<span class="nc" id="L93">                    CompletableFuture&lt;LinkedHashMap&lt;String, FreelaancelotList&gt;&gt; readability = FleschReadabilityIndex.getReadabilityAsync(projlistmap_10Projs);</span>
-<span class="nc" id="L94">                    LinkedHashMap&lt;String, FreelaancelotList&gt; responseReadability = readability.get();</span>
+<span class="nc" id="L89">                    CompletableFuture&lt;LinkedHashMap&lt;String, FreelaancelotList&gt;&gt; readability = FleschReadabilityIndex.getReadabilityAsync(projlistmap_10Projs);</span>
+<span class="nc" id="L90">                    LinkedHashMap&lt;String, FreelaancelotList&gt; responseReadability = readability.get();</span>
 
-<span class="nc" id="L96">                    responseProcessed = reverseOrder(responseReadability);</span>
+<span class="nc" id="L92">                    responseProcessed = ut.reverseOrder(responseReadability);</span>
 
                 }
 
-<span class="fc" id="L100">                return ok(views.html.freelancer.render(responseProcessed));</span>
+<span class="fc" id="L96">                return responseProcessed.thenApply((map) -&gt; ok(views.html.freelancer.render(map)));</span>
+                //return ok(views.html.freelancer.render(responseProcessed));
             }
-            else
-<span class="nc" id="L103">                return ok(&quot;Maximum Search Hit Reached&quot;).as(&quot;Text/html&quot;);</span>
+            else {
+<span class="nc" id="L100">                CompletionStage&lt;Result&gt; response = CompletableFuture.supplyAsync(() -&gt; ok(&quot;Maximum Search Hit Reached&quot;).as(&quot;Text/html&quot;));</span>
+<span class="nc" id="L101">                return response;</span>
+            }
         }
         else {
-<span class="pc bpc" id="L106" title="1 of 2 branches missed.">            if(searchTerm.length() == 0)</span>
+<span class="pc bpc" id="L105" title="1 of 2 branches missed.">            if(searchTerm.length() == 0)</span>
             {
-<span class="fc" id="L108">                response.clear();</span>
+<span class="fc" id="L107">                response.clear();</span>
                 //sessionValue = request.session().removing(&quot;connected&quot;);
                 //Cookie loginCookie = new Cookie(&quot;user&quot;,user);
-<span class="fc" id="L111">                System.out.println(&quot;Bye!&quot;);</span>
             }
-<span class="fc" id="L113">            return ok(views.html.freelancerInit.render());</span>
+<span class="fc" id="L111">            CompletionStage&lt;Result&gt; response = CompletableFuture.supplyAsync(() -&gt; ok(views.html.freelancerInit.render()));</span>
+<span class="fc" id="L112">            return  response;</span>
             //newFreelancer(request);
             //return ok(views.html.freelance.render(null));
             //return ok(views.html.freelancerInit.render());
         }
-        }
+    }
 
+    /**
+     * Calculates the Global Word Statistics
+     * @param search Search Term Job Searched
+     * @return Renders the Word Statistics Page
+     * @author Sankeerth Koduri
+     */
+
+    public CompletionStage&lt;Result&gt; projectWordStats(String search)
+    {
+<span class="fc" id="L128">        WordStats ws = new WordStats();</span>
+<span class="fc" id="L129">        return ws.InduvidualStats(search);</span>
+    }
+    /**
+     * Calculates the Individual Word Statistics
+     * @param search Search Term Job Searched
+     * @return Renders the Word Stats Page
+     * @author Sankeerth Koduri
+     */
+    public CompletionStage&lt;Result&gt; wordStats(String search)
+     {
+<span class="fc" id="L139">         WordStats ws = new WordStats();</span>
+<span class="nc" id="L140">         return ws.GlobalStats(response.get(search));</span>
+    }
+
+    /**
+     * Displays the top 10 related skills of the job seacrhed
+     * @param s String which takes the job searched term
+     * @return Renders the skills HTML page
+     * @author Raahul John
+     */
     public Result skills(String s) {
-<span class="fc" id="L121">        skills sl = new skills();</span>
-<span class="fc" id="L122">        LinkedHashMap&lt;String, FreelaancelotList&gt; data = sl.getDataSkills(s);</span>
-<span class="fc" id="L123">        return ok(views.html.skills.render(data));</span>
+<span class="fc" id="L150">        skills sl = new skills();</span>
+<span class="fc" id="L151">        LinkedHashMap&lt;String, FreelaancelotList&gt; data = sl.getDataSkills(s);</span>
+<span class="fc" id="L152">        return ok(views.html.skills.render(data));</span>
     }
 
-    public static LinkedHashMap&lt;String, FreelaancelotList&gt; reverseOrder(LinkedHashMap&lt;String, FreelaancelotList&gt; responseReadability) {
-<span class="fc" id="L127">        LinkedHashMap&lt;String, FreelaancelotList&gt; response = new LinkedHashMap&lt;&gt;();</span>
-<span class="fc" id="L128">        List&lt;String&gt; allKeys = new ArrayList&lt;String&gt;(responseReadability.keySet());</span>
-<span class="fc" id="L129">        ArrayList&lt;Freelancelot&gt;  freelancelotArrayList= new ArrayList&lt;Freelancelot&gt;();</span>
-<span class="fc" id="L130">        Freelancelot freelancelotObj = null;</span>
-<span class="fc" id="L131">        Collections.reverse(allKeys);</span>
-
-<span class="fc bfc" id="L133" title="All 2 branches covered.">        for(String keys: allKeys){</span>
-<span class="fc" id="L134">            System.out.println(&quot;Keys &quot;+keys);</span>
-<span class="fc" id="L135">            freelancelotArrayList = responseReadability.get(keys).getProjectList();</span>
-<span class="fc" id="L136">            ArrayList&lt;Freelancelot&gt; listFreelancelot = new ArrayList&lt;&gt;();</span>
-
-<span class="fc bfc" id="L138" title="All 2 branches covered.">            for(Freelancelot fl : freelancelotArrayList) {</span>
-<span class="fc" id="L139">                freelancelotObj = new Freelancelot(fl.getOwner_id(), fl.getDate(), fl.getProject_ID(), fl.getProject_title(), fl.getProject_description(), fl.getProject_type(), fl.getSkills(), &quot;&quot;, fl.getReadability(), fl.getEducationalLevel(), fl.getSeoUrl(), 0, &quot; &quot;);</span>
-<span class="fc" id="L140">                listFreelancelot.add(freelancelotObj);</span>
-
-<span class="fc" id="L142">            }</span>
-
-<span class="fc" id="L144">            FreelaancelotList setListObjs = new FreelaancelotList();</span>
-<span class="fc" id="L145">            setListObjs.setProjectList(listFreelancelot);</span>
-<span class="fc" id="L146">            response.put(keys, setListObjs);</span>
-<span class="fc" id="L147">        }</span>
-<span class="fc" id="L148">        return response;</span>
-    }
-
+    /**
+     * Generates the Response in Reverse Order
+     * @param ownerId Owner ID
+     * @return Displays Owner Information
+     * @author Vikyath
+     */
     public Result ownerInformation(String ownerId)
     {
-<span class="nc" id="L153">        return ok(views.html.ownerDetails.render(ownerDetails.getOwnerDetails(ownerId)));</span>
+<span class="nc" id="L163">        return ok(views.html.ownerDetails.render(ownerDetails.getOwnerDetails(ownerId)));</span>
     }
 
 }
