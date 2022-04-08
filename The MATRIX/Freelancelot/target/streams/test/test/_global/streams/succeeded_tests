@@ -1,0 +1,9 @@
+#Successful Tests
+#Mon Mar 28 15:14:22 EDT 2022
+controllers.HomeControllerTest=1648494848071
+models.BusinessLogicTest=1648494856478
+models.ownerdetailsTest=1648494862569
+models.utilitiestest=1648494848102
+models.ownerinformationtest=1648494862585
+models.FreelancelotListTest=1648494862569
+models.wordstatstest=1648494862569

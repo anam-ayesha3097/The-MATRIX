@@ -1,0 +1,16 @@
+2022-03-28 15:18:47,744 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-6 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-03-28 15:18:47,792 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-6 - Application started (Dev) (no global state)
+2022-03-28 15:41:24,898 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-24 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2022-03-28 15:41:24,908 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-24 - Application started (Dev) (no global state)
+2022-03-29 11:54:00,575 [WARN] from play.filters.hosts.AllowedHostsFilter in application-akka.actor.default-dispatcher-45 - Host not allowed: 10.0.0.152
+2022-03-29 11:54:00,741 [WARN] from play.filters.hosts.AllowedHostsFilter in application-akka.actor.default-dispatcher-45 - Host not allowed: 10.0.0.152:9000
