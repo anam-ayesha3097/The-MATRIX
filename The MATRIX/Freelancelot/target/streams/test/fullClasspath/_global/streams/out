@@ -1,37 +1,54 @@
-[0m[[0m[0minfo[0m] [0m[0mInstrumenting 34 classes to C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\jacoco\instrumented-classes[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting products: C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes[0m
+[0m[[0m[0minfo[0m] [0m[0mInstrumenting 51 classes to C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\jacoco\instrumented-classes[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting products: C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes[0m
 [0m[[0m[0mdebug[0m] [0m[0mFound jacoco agent: Vector()[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\controllers\HomeController.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\controllers\javascript\ReverseAssets.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\controllers\javascript\ReverseHomeController.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\controllers\ReverseAssets.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\controllers\ReverseHomeController.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\controllers\routes$javascript.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\controllers\routes.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\models\BusinessLogic.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\models\FleschReadabilityIndex.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\models\FreelaancelotList.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\models\Freelancelot.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\models\OwnerDetails.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\models\OwnerInformation.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\models\skills.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\models\Utilities.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\models\WordStats.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\router\Routes$$anonfun$routes$1.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\router\Routes.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\router\RoutesPrefix$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\router\RoutesPrefix.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\views\html\freelancer$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\views\html\freelancer.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\views\html\freelancerInit$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\views\html\freelancerInit.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\views\html\main$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\views\html\main.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\views\html\ownerDetails$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\views\html\ownerDetails.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\views\html\projectwordstats$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\views\html\projectwordstats.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\views\html\skills$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\views\html\skills.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\views\html\wordstats$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\classes\views\html\wordstats.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\actors\FleschReadabilityIndexActor$callFleschReadability.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\actors\FleschReadabilityIndexActor.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\actors\FreelancelotActor$callFreelancelotAPI.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\actors\FreelancelotActor$Tick.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\actors\FreelancelotActor.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\actors\ownerDetailsActor.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\actors\skillActor.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\actors\SupervisorActor$ActorException.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\actors\SupervisorActor.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\actors\wordStatsActor.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\controllers\HomeController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\controllers\javascript\ReverseAssets.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\controllers\javascript\ReverseHomeController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\controllers\ReverseAssets.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\controllers\ReverseHomeController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\controllers\routes$javascript.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\controllers\routes.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\models\FleschReadabilityIndex.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\models\OwnerDetails.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\models\OwnerInformation.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\models\SearchResults.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\models\skills.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\models\Utilities.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\models\WordStats.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\Module.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\router\Routes$$anonfun$routes$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\router\Routes.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\router\RoutesPrefix$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\router\RoutesPrefix.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\service\FreelaancelotList.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\service\Freelancelot.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\service\FreelancelotService.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\service\FreelancelotServiceImpl.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\views\html\free$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\views\html\free.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\views\html\freelancerInit$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\views\html\freelancerInit.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\views\html\index$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\views\html\index.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\views\html\main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\views\html\main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\views\html\myHTMLPage$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\views\html\myHTMLPage.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\views\html\ownerDetails$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\views\html\ownerDetails.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\views\html\projectwordstats$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\views\html\projectwordstats.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\views\html\skills$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\views\html\skills.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\views\html\wordstats$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0minstrumenting C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\classes\views\html\wordstats.class[0m

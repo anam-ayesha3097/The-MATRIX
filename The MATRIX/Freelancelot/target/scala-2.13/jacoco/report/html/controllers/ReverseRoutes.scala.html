@@ -7,71 +7,81 @@ import play.api.mvc.Call
 import _root_.controllers.Assets.Asset
 import _root_.play.libs.F
 
-// @LINE:8
+// @LINE:6
 package controllers {
 
-  // @LINE:8
+  // @LINE:6
 <span class="fc" id="L14">  class ReverseHomeController(_prefix: =&gt; String) {</span>
     def _defaultPrefix: String = {
 <span class="pc bpc" id="L16" title="1 of 2 branches missed.">      if (_prefix.endsWith(&quot;/&quot;)) &quot;&quot; else &quot;/&quot;</span>
     }
 
   
-    // @LINE:13
+    // @LINE:11
     def skills(s:String): Call = {
       
 <span class="fc" id="L23">      Call(&quot;GET&quot;, _prefix + { _defaultPrefix } + &quot;skills&quot; + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind(&quot;s&quot;, s)))))</span>
     }
   
-    // @LINE:9
-<span class="nc" id="L27">    def projectWordStats(searchTerm:String = &quot;&quot;): Call = {</span>
+    // @LINE:7
+    def sayHello(name:String): Call = {
       
-<span class="pc bpc" id="L29" title="4 of 6 branches missed.">      Call(&quot;GET&quot;, _prefix + { _defaultPrefix } + &quot;IndvWordStats&quot; + play.core.routing.queryString(List(if(searchTerm == &quot;&quot;) None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind(&quot;searchTerm&quot;, searchTerm)))))</span>
+<span class="nc" id="L29">      Call(&quot;GET&quot;, _prefix + { _defaultPrefix } + &quot;myName&quot; + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind(&quot;name&quot;, name)))))</span>
     }
   
-    // @LINE:8
-<span class="nc" id="L33">    def freelancer(searchTerm:String = &quot;&quot;): Call = {</span>
-    
-<span class="nc" id="L35">      (searchTerm: @unchecked) match {</span>
+    // @LINE:6
+<span class="nc" id="L33">    def freelancelot(searchTerm:String = &quot;&quot;): Call = {</span>
       
-        // @LINE:8
-        case (searchTerm)  =&gt;
-          
-<span class="nc bnc" id="L40" title="All 6 branches missed.">          Call(&quot;GET&quot;, _prefix + { _defaultPrefix } + &quot;freelance&quot; + play.core.routing.queryString(List(if(searchTerm == &quot;&quot;) None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind(&quot;searchTerm&quot;, searchTerm)))))</span>
+<span class="nc bnc" id="L35" title="All 6 branches missed.">      Call(&quot;GET&quot;, _prefix + { _defaultPrefix } + &quot;freelancelot&quot; + play.core.routing.queryString(List(if(searchTerm == &quot;&quot;) None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind(&quot;searchTerm&quot;, searchTerm)))))</span>
+    }
+  
+    // @LINE:9
+    def projectWordStats(searchTerm:String): Call = {
       
-      }
-    
+<span class="fc" id="L41">      Call(&quot;GET&quot;, _prefix + { _defaultPrefix } + &quot;IndvWordStats/&quot; + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind(&quot;searchTerm&quot;, searchTerm)))</span>
     }
   
     // @LINE:10
-<span class="nc" id="L47">    def wordStats(searchTerm:String = &quot;&quot;): Call = {</span>
+<span class="nc" id="L45">    def wordStats(searchTerm:String = &quot;&quot;): Call = {</span>
       
-<span class="pc bpc" id="L49" title="4 of 6 branches missed.">      Call(&quot;GET&quot;, _prefix + { _defaultPrefix } + &quot;wordstats&quot; + play.core.routing.queryString(List(if(searchTerm == &quot;&quot;) None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind(&quot;searchTerm&quot;, searchTerm)))))</span>
+<span class="pc bpc" id="L47" title="4 of 6 branches missed.">      Call(&quot;GET&quot;, _prefix + { _defaultPrefix } + &quot;wordstats&quot; + play.core.routing.queryString(List(if(searchTerm == &quot;&quot;) None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind(&quot;searchTerm&quot;, searchTerm)))))</span>
+    }
+  
+    // @LINE:8
+    def ws(searchTerm:String): Call = {
+      
+<span class="fc" id="L53">      Call(&quot;GET&quot;, _prefix + { _defaultPrefix } + &quot;ws&quot; + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind(&quot;searchTerm&quot;, searchTerm)))))</span>
+    }
+  
+    // @LINE:12
+    def ownerInformation(ownerId:String): Call = {
+      
+<span class="fc" id="L59">      Call(&quot;GET&quot;, _prefix + { _defaultPrefix } + &quot;ownerInformation/&quot; + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind(&quot;ownerId&quot;, ownerId)))</span>
+    }
+  
+  }
+
+  // @LINE:14
+<span class="fc" id="L65">  class ReverseAssets(_prefix: =&gt; String) {</span>
+    def _defaultPrefix: String = {
+<span class="pc bpc" id="L67" title="1 of 2 branches missed.">      if (_prefix.endsWith(&quot;/&quot;)) &quot;&quot; else &quot;/&quot;</span>
+    }
+
+  
+    // @LINE:14
+    def versioned(file:Asset): Call = {
+<span class="fc bfc" id="L73" title="All 2 branches covered.">      implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map((&quot;path&quot;, &quot;/public&quot;))); _rrc</span>
+<span class="fc" id="L74">      Call(&quot;GET&quot;, _prefix + { _defaultPrefix } + &quot;assets/&quot; + implicitly[play.api.mvc.PathBindable[Asset]].unbind(&quot;file&quot;, file))</span>
     }
   
     // @LINE:15
-    def ownerInformation(ownerId:String): Call = {
-      
-<span class="fc" id="L55">      Call(&quot;GET&quot;, _prefix + { _defaultPrefix } + &quot;ownerInformation/&quot; + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind(&quot;ownerId&quot;, ownerId)))</span>
-    }
-  
-  }
-
-  // @LINE:12
-<span class="fc" id="L61">  class ReverseAssets(_prefix: =&gt; String) {</span>
-    def _defaultPrefix: String = {
-<span class="pc bpc" id="L63" title="1 of 2 branches missed.">      if (_prefix.endsWith(&quot;/&quot;)) &quot;&quot; else &quot;/&quot;</span>
-    }
-
-  
-    // @LINE:12
-    def versioned(file:Asset): Call = {
-<span class="fc bfc" id="L69" title="All 2 branches covered.">      implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map((&quot;path&quot;, &quot;/public&quot;))); _rrc</span>
-<span class="fc" id="L70">      Call(&quot;GET&quot;, _prefix + { _defaultPrefix } + &quot;assets/&quot; + implicitly[play.api.mvc.PathBindable[Asset]].unbind(&quot;file&quot;, file))</span>
+    def at(file:String): Call = {
+<span class="pc bpc" id="L79" title="1 of 2 branches missed.">      implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map((&quot;path&quot;, &quot;/public&quot;))); _rrc</span>
+<span class="fc" id="L80">      Call(&quot;GET&quot;, _prefix + { _defaultPrefix } + &quot;assets/&quot; + implicitly[play.api.mvc.PathBindable[String]].unbind(&quot;file&quot;, file))</span>
     }
   
   }
 
 
-<span class="fc" id="L76">}</span>
+<span class="fc" id="L86">}</span>
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -10,8 +10,6 @@
         <link rel="stylesheet" media="screen" href='/assets/stylesheets/main.css'>
         <link rel="stylesheet" media="screen" href='/assets/stylesheets/prism.css'>
         <link rel="shortcut icon" type="image/png" href='/assets/images/favicon.png'>
-        <script src='/assets/javascripts/hello.js' type="text/javascript"></script>
-        <script src='/assets/javascripts/prism.js' type="text/javascript"></script>
     </head>
 
     <body>
@@ -24,8 +22,23 @@
             </head>
             <center>
                 <body>
-                    <form action ="/freelance" method="GET">
+                    <form action ="/freelancelot" method="GET">
                         <input type="text" name="searchTerm" placeholder="Enter Search Terms"/>
+                        <input type = "hidden" id= "sessionID" name="sessionID" value="" MAXLENGTH=16 SIZE=16>
+                        <script>
+                        function randomNumber(len) {
+                            var randomNumber;
+                            var n = '';
+
+                            for (var count = 0; count < len; count++) {
+                                randomNumber = Math.floor(Math.random() * 10);
+                                n += randomNumber.toString();
+                            }
+                            return n;
+                        }
+
+                        document.getElementById("sessionID").value = randomNumber(9);
+                       </script>
                         <input type="submit" value="Go!" style="background-color: #1874CD;color: white">
                     </form>
                     <div>

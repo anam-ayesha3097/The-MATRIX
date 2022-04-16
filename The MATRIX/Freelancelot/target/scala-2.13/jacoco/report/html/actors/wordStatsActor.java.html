@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>wordStatsActor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">actors</a> &gt; <span class="el_source">wordStatsActor.java</span></div><h1>wordStatsActor.java</h1><pre class="source lang-java linenums">package actors;
+
+import akka.actor.AbstractActor;
+import akka.actor.Props;
+import models.WordStats;
+import service.FreelaancelotList;
+import models.WordStats.*;
+
+import java.util.LinkedHashMap;
+
+/**
+ * Word Stats Actor Individual and Global Stats
+ * @author Sankeerth Koduri
+ */
+<span class="fc" id="L15">public class wordStatsActor extends AbstractActor {</span>
+<span class="fc" id="L16">    public static Props getProps(){return Props.create(wordStatsActor.class);}</span>
+
+    /**
+     * Creates Receive Methods of the Word Stats
+     * @author Sankeerth Koduri
+     */
+    @Override
+    public Receive createReceive() {
+
+<span class="fc" id="L25">        return receiveBuilder()</span>
+<span class="fc" id="L26">                .match(FreelaancelotList.class , desc -&gt;{</span>
+                    LinkedHashMap&lt;String , Integer&gt; statResult = WordStats.GlobalStats(desc);
+                    System.out.println(&quot;StatsResult&quot; + statResult );
+                    sender().tell(statResult , self());
+                })
+<span class="fc" id="L31">                .match(String.class , desc1 -&gt; {</span>
+                    LinkedHashMap&lt;String, Integer&gt; IndvstatResult = WordStats.IndividualStats(desc1);
+                    System.out.println(&quot;StatsResult&quot; + IndvstatResult);
+                    sender().tell(IndvstatResult, self());
+                })
+<span class="fc" id="L36">                .build();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

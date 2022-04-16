@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FreelancelotActor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">actors</a> &gt; <span class="el_source">FreelancelotActor.java</span></div><h1>FreelancelotActor.java</h1><pre class="source lang-java linenums">package actors;
+
+import akka.actor.*;
+import akka.actor.typed.Behavior;
+import akka.actor.typed.javadsl.Behaviors;
+import models.SearchResults;
+import scala.concurrent.duration.Duration;
+import service.FreelaancelotList;
+import service.Freelancelot;
+import service.FreelancelotService;
+import service.FreelancelotServiceImpl;
+
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.Set;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+/**
+ * Actor Class for Freelancelot API
+ * @extends AbstractActor
+ * @author Anam Ayesha Shaikh Sankeerth Koduri
+ */
+public class FreelancelotActor extends AbstractActorWithTimers {
+    ActorRef senderActor;
+<span class="fc" id="L25">    private FreelancelotService freelancelotService = FreelancelotServiceImpl.getInstance();</span>
+
+    /**
+     * Creates the Freelancelot Actor
+     * @author Anam Ayesha Shaikh Sankeerth Koduri
+     */
+    static public Props getProps() {
+<span class="fc" id="L32">        return Props.create(FreelancelotActor.class, FreelancelotActor::new);</span>
+    }
+
+<span class="fc" id="L35">    public FreelancelotActor() {</span>
+<span class="fc" id="L36">        this.senderActor = sender();</span>
+<span class="fc" id="L37">    }</span>
+
+    /**
+     * Message Class to call the actor after 5secs interval
+     * @author Anam Ayesha Shaikh Sankeerth Koduri
+     */
+<span class="fc" id="L43">    public static class Tick{</span>
+
+    }
+
+    /**
+     * Message Class to call Freelance API
+     * @author Anam Ayesha Shaikh Sankeerth Koduri
+     */
+    public static class callFreelancelotAPI {
+        private String searchTerm;
+
+<span class="fc" id="L54">        public callFreelancelotAPI(String searchTerm) {</span>
+<span class="fc" id="L55">            this.searchTerm = searchTerm;</span>
+<span class="fc" id="L56">        }</span>
+    }
+
+    /**
+     * Pre-start Method for Tick Message
+     * @author Anam Ayesha Shaikh Sankeerth Koduri
+     */
+    @Override
+    public void preStart() {
+<span class="fc" id="L65">        getTimers().startPeriodicTimer(&quot;Timer&quot;, new Tick(), Duration.create(5, TimeUnit.SECONDS));</span>
+<span class="fc" id="L66">    }</span>
+
+    /**
+     * Receives the Message for the Freelanclot Actor
+     * @author Anam Ayesha Shaikh Sankeerth Koduri
+     */
+    @Override
+    public Receive createReceive() {
+<span class="fc" id="L74">        return receiveBuilder().match(callFreelancelotAPI.class, this::callAPI).build();</span>
+    }
+
+    /**
+     * Calls the Freelancelot API Logic
+     * @param object CallFreelancelotAPI object
+     * @author Anam Ayesha Shaikh Sankeerth Koduri
+     */
+    public void callAPI(callFreelancelotAPI object) {
+        //System.out.println(&quot;Call API&quot;);
+<span class="fc" id="L84">        ActorRef senderActor = sender();</span>
+       // ActorRef supervisorActor = context().actorOf(SupervisorActor.getProps(), &quot;supervisingActor&quot;);
+<span class="fc" id="L86">        SearchResults searchResults = null;</span>
+        try {
+<span class="fc" id="L88">             searchResults = new SearchResults(object.searchTerm, fetchProjects(object.searchTerm));</span>
+<span class="nc" id="L89">        } catch (ExecutionException e) {</span>
+<span class="nc" id="L90">            e.printStackTrace();</span>
+<span class="nc" id="L91">        } catch (InterruptedException e) {</span>
+<span class="nc" id="L92">            e.printStackTrace();</span>
+<span class="pc" id="L93">        }</span>
+<span class="fc" id="L94">        senderActor.tell(searchResults.getProjects(), self());</span>
+<span class="fc" id="L95">    }</span>
+
+    /**
+     * Queries the Freelancele API
+     * @param keyword Project Search Term
+     * @author Anam Ayesha Shaikh Sankeerth Koduri
+     */
+    private LinkedHashMap&lt;String, FreelaancelotList&gt; fetchProjects(String keyword) throws ExecutionException, InterruptedException {
+<span class="pc bpc" id="L103" title="1 of 2 branches missed.">        if (freelancelotService == null) {</span>
+<span class="nc" id="L104">            return null;</span>
+        } else {
+            //System.out.println(&quot;Inside Fetch Projects Query API&quot;);
+<span class="fc" id="L107">            return freelancelotService.queryApi(keyword);</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

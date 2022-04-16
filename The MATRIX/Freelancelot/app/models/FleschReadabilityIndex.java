@@ -1,11 +1,12 @@
 package models;
 
-import scala.Int;
-
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import service.FreelaancelotList;
+import service.Freelancelot;
+
 /**
  * Calculates the Flesch Readability Index of each Project with Education Level and its Average
  * @author Anam Ayesha Shaikh
@@ -14,6 +15,7 @@ import java.util.stream.Stream;
 public class FleschReadabilityIndex {
     static LinkedHashMap<String, Integer> averageFleschIndex = new LinkedHashMap<>();
     static LinkedHashMap<String, String> averageEducationalLevel = new LinkedHashMap<>();
+    static LinkedHashMap<String,FreelaancelotList> projsWithReadability = new LinkedHashMap<>();
     /**
      * Gets the Data from Preview Description using Completable Future as Asynchronous Non-Blocking Code
      * @param projsSearched LinkedHashMap of <Search Term ,Freelancelot>
@@ -22,6 +24,7 @@ public class FleschReadabilityIndex {
      */
 
     public static CompletableFuture<LinkedHashMap<String, FreelaancelotList>> getReadabilityAsync(LinkedHashMap<String,FreelaancelotList> projsSearched) {
+        //System.out.println("Inside getReadability Async");
         //CompletableFuture<LinkedHashMap<String, FreelancelotList>> resultAPI = new CompletableFuture<>();
         return CompletableFuture.supplyAsync(() -> getPreviewDescription(projsSearched));
     }
@@ -35,7 +38,8 @@ public class FleschReadabilityIndex {
      * @author Anam Ayesha Shaikh
      */
     public static LinkedHashMap<String, FreelaancelotList> getPreviewDescription(LinkedHashMap<String,FreelaancelotList> projsSearched){
-        LinkedHashMap<String,FreelaancelotList> projsWithReadability = new LinkedHashMap<>();
+        //System.out.println("Inside Flesch Readability Main Logic");
+
         LinkedHashMap<String,FreelaancelotList> prev = new LinkedHashMap<>();
         int index = 0;
         Freelancelot freelancelotObj = null;
@@ -76,8 +80,8 @@ public class FleschReadabilityIndex {
             for(Iterator<Map.Entry<String, FreelaancelotList>> iterator1 = projsWithReadability.entrySet().iterator(); iterator1.hasNext();){
                 Map.Entry<String, FreelaancelotList> entries1 = iterator1.next();
                 ArrayList<Freelancelot> freelancelotArrayList1 =  entries1.getValue().getProjectList();
-                for(Freelancelot fl : freelancelotArrayList1)
-                    fl.display();
+                //for(Freelancelot fl : freelancelotArrayList1)
+                    //fl.display();
             }
         }
         return projsWithReadability;

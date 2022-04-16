@@ -1,10 +1,9 @@
 package models;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashMap;
-import java.util.List;
+import service.*;
 
 public class OwnerInformation {
 
@@ -21,6 +20,7 @@ public class OwnerInformation {
 
 
     LinkedHashMap<String, FreelaancelotList> OwnerProjects_active= new LinkedHashMap<String, FreelaancelotList>();
+
 
     public LinkedHashMap<String, FreelaancelotList> getOwnerProjects_active() {
         return OwnerProjects_active;

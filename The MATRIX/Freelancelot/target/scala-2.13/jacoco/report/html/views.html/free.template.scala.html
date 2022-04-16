@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>free.template.scala</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">views.html</a> &gt; <span class="el_source">free.template.scala</span></div><h1>free.template.scala</h1><pre class="source lang-java linenums">
+package views.html
+
+import _root_.play.twirl.api.TwirlFeatureImports._
+import _root_.play.twirl.api.TwirlHelperImports._
+import _root_.play.twirl.api.Html
+import _root_.play.twirl.api.JavaScript
+import _root_.play.twirl.api.Txt
+import _root_.play.twirl.api.Xml
+import models._
+import controllers._
+import play.api.i18n._
+import views.html._
+import play.api.templates.PlayMagic._
+import java.lang._
+import java.util._
+import play.core.j.PlayMagicForJava._
+import play.mvc._
+import play.api.data.Field
+import play.data._
+import play.core.j.PlayFormsMagicForJava._
+import scala.jdk.CollectionConverters._
+/*1.2*/import service.FreelaancelotList
+
+<span class="pc" id="L25">object free extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[play.mvc.Http.Request,String,Map[String, FreelaancelotList],play.twirl.api.HtmlFormat.Appendable] {</span>
+
+  /**/
+  def apply/*2.2*/(request: play.mvc.Http.Request, keyWord: String, searchForm : Map[String,FreelaancelotList]):play.twirl.api.HtmlFormat.Appendable = {
+<span class="fc" id="L29">    _display_ {</span>
+      {
+
+
+<span class="fc" id="L33">Seq[Any](format.raw/*2.95*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L34">&quot;&quot;&quot;),format.raw/*3.1*/(&quot;&quot;&quot;&lt;!DOCTYPE html&gt;</span>
+<span class="fc" id="L35">&quot;&quot;&quot;),_display_(/*4.2*/main(&quot;Freelancelot&quot;)/*4.22*/ {_display_(Seq[Any](format.raw/*4.24*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L36">    &quot;&quot;&quot;),format.raw/*5.5*/(&quot;&quot;&quot;&lt;html&gt;</span>
+        &lt;article&gt;
+            &lt;head&gt;
+                &lt;title&gt;Freelancelot&lt;/title&gt;
+                &lt;script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'&gt;&lt;/script&gt;
+<span class="fc" id="L41">                &lt;script type='text/javascript' src='&quot;&quot;&quot;),_display_(/*10.54*/routes/*10.60*/.Assets.at(&quot;javascripts/index.js&quot;)),format.raw/*10.94*/(&quot;&quot;&quot;'&gt;&lt;/script&gt;</span>
+                &lt;script&gt;
+                        init()
+                        var webSocket;
+<span class="fc" id="L45">                        function init() &quot;&quot;&quot;),format.raw/*14.41*/(&quot;&quot;&quot;{&quot;&quot;&quot;),format.raw/*14.42*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L46">                            &quot;&quot;&quot;),format.raw/*15.29*/(&quot;&quot;&quot;initWebSocket();</span>
+
+<span class="fc" id="L48">                        &quot;&quot;&quot;),format.raw/*17.25*/(&quot;&quot;&quot;}&quot;&quot;&quot;),format.raw/*17.26*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L49">                        &quot;&quot;&quot;),format.raw/*18.25*/(&quot;&quot;&quot;async function initWebSocket() &quot;&quot;&quot;),format.raw/*18.56*/(&quot;&quot;&quot;{&quot;&quot;&quot;),format.raw/*18.57*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L50">                            &quot;&quot;&quot;),_display_(/*19.30*/for( (keyword, searchValue) &lt;- searchForm ) yield /*19.73*/{_display_(Seq[Any](format.raw/*19.74*/(&quot;&quot;&quot;</span>
+                            &quot;&quot;&quot;),_display_(/*20.30*/if(request.session().get(keyword+ &quot;-result&quot;).isPresent() || keyword==keyWord)/*20.107*/{_display_(Seq[Any](format.raw/*20.108*/(&quot;&quot;&quot;
+                            &quot;&quot;&quot;),format.raw/*21.29*/(&quot;&quot;&quot;webSocket = new WebSocket(&quot;&quot;&quot;&quot;),_display_(/*21.57*/routes/*21.63*/.HomeController.ws(keyWord:String).webSocketURL(request)),format.raw/*21.119*/(&quot;&quot;&quot;&quot;);
+                            console.log(&quot;WebSocket -&gt; &quot;,webSocket)
+                            webSocket.onopen = onOpen;
+                            &quot;&quot;&quot;)))}),format.raw/*24.30*/(&quot;&quot;&quot;
+<span class="fc" id="L56">                            &quot;&quot;&quot;)))}),format.raw/*25.30*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L57">                        &quot;&quot;&quot;),format.raw/*26.25*/(&quot;&quot;&quot;}&quot;&quot;&quot;),format.raw/*26.26*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L58">                        &quot;&quot;&quot;),format.raw/*27.25*/(&quot;&quot;&quot;async function onOpen(evt) &quot;&quot;&quot;),format.raw/*27.52*/(&quot;&quot;&quot;{&quot;&quot;&quot;),format.raw/*27.53*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L59">                            &quot;&quot;&quot;),format.raw/*28.29*/(&quot;&quot;&quot;writeToScreen(&quot;CONNECTED&quot;);</span>
+<span class="fc" id="L60">                        &quot;&quot;&quot;),format.raw/*29.25*/(&quot;&quot;&quot;}&quot;&quot;&quot;),format.raw/*29.26*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L61">                &quot;&quot;&quot;),format.raw/*30.17*/(&quot;&quot;&quot;&lt;/script&gt;</span>
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;center&gt;
+                &lt;div class =&quot;main&quot;&gt;
+                    &lt;h1&gt;Welcome to FreeLancelot&lt;/h1&gt;
+                    &lt;main class =&quot;main-class&quot;&gt;
+                    &lt;div class = &quot;search-Form&quot; id = &quot;searchForm&quot;&gt;
+                        &lt;form action =&quot;/freelancelot&quot; method=&quot;GET&quot;&gt;
+                        &lt;input type=&quot;text&quot; name=&quot;searchTerm&quot; placeholder=&quot;Enter Search Terms&quot;/&gt;
+                        &lt;input type=&quot;submit&quot; value=&quot;Go!&quot; style=&quot;background-color: #1874CD;color: white&quot;&gt;
+                &lt;/form&gt;
+            &lt;/div&gt;
+                    &lt;/main&gt;
+                &lt;/div&gt;
+                    &lt;div class=&quot;search-body&quot;&gt;
+<span class="pc bpc" id="L77" title="1 of 2 branches missed.">                    &quot;&quot;&quot;),_display_(/*46.22*/if(searchForm != null)/*46.44*/ {_display_(Seq[Any](format.raw/*46.46*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L78">                        &quot;&quot;&quot;),_display_(/*47.26*/for((searchterm,searchvalue) &lt;- searchForm) yield /*47.69*/{_display_(Seq[Any](format.raw/*47.70*/(&quot;&quot;&quot;</span>
+                            &quot;&quot;&quot;),format.raw/*48.29*/(&quot;&quot;&quot;&lt;p style = &quot;font-weight: bold&quot; &gt;Job Search : &quot;&quot;&quot;),_display_(/*48.75*/searchterm),format.raw/*48.85*/(&quot;&quot;&quot;  &quot;&quot;&quot;),format.raw/*48.87*/(&quot;&quot;&quot;Flesh Reading Ease Index:  &quot;&quot;&quot;),_display_(/*48.115*/searchvalue/*48.126*/.getAvgReadability(searchterm)),format.raw/*48.156*/(&quot;&quot;&quot;  &quot;&quot;&quot;),format.raw/*48.158*/(&quot;&quot;&quot;FKLG: &quot;&quot;&quot;),_display_(/*48.165*/searchvalue/*48.176*/.getAvgEducationalLevel(searchterm)),format.raw/*48.211*/(&quot;&quot;&quot; &quot;&quot;&quot;),format.raw/*48.212*/(&quot;&quot;&quot;&lt;/p&gt;
+                            &lt;a href=&quot;&quot;&quot;&quot;),_display_(/*49.39*/routes/*49.45*/.HomeController.wordStats(searchterm)),format.raw/*49.82*/(&quot;&quot;&quot;&quot; &gt;Global Stats&lt;/a&gt;
+                            &lt;table&gt;
+                                &lt;tr&gt;
+                                    &lt;th style=&quot;font-weight: bold&quot;&gt;Owner_id&lt;/th&gt;
+                                    &lt;th style=&quot;font-weight: bold&quot;&gt;Date&lt;/th&gt;
+                                    &lt;th style=&quot;font-weight: bold&quot;&gt;Title&lt;/th&gt;
+                                    &lt;th style=&quot;font-weight: bold&quot;&gt;Type&lt;/th&gt;
+                                    &lt;th style=&quot;font-weight: bold&quot;&gt;Skills&lt;/th&gt;
+                                    &lt;th style=&quot;font-weight: bold&quot;&gt;Stats&lt;/th&gt;
+                                    &lt;th style=&quot;font-weight: bold&quot;&gt;Readability&lt;/th&gt;
+                                    &lt;th style=&quot;font-weight: bold&quot;&gt;Education Level&lt;/th&gt;
+                                &lt;/tr&gt;
+                                &quot;&quot;&quot;),_display_(/*61.34*/for(result &lt;- searchvalue.getProjectList()) yield /*61.77*/ {_display_(Seq[Any](format.raw/*61.79*/(&quot;&quot;&quot;
+                                    &quot;&quot;&quot;),format.raw/*62.37*/(&quot;&quot;&quot;&lt;tr&gt;
+                                        &lt;td&gt;&lt;a href=&quot;&quot;&quot;&quot;),_display_(/*63.55*/routes/*63.61*/.HomeController.ownerInformation(result.getOwner_id())),format.raw/*63.115*/(&quot;&quot;&quot;&quot; target=&quot;_blank&quot;&gt; &quot;&quot;&quot;),_display_(/*63.135*/result/*63.141*/.getOwner_id),format.raw/*63.153*/(&quot;&quot;&quot; &quot;&quot;&quot;),format.raw/*63.154*/(&quot;&quot;&quot;&lt;/a&gt; &lt;/td&gt;
+                                        &lt;td&gt;&quot;&quot;&quot;),_display_(/*64.46*/result/*64.52*/.getDate()),format.raw/*64.62*/(&quot;&quot;&quot;&lt;/td&gt;
+                                        &lt;td&gt;&lt;a href=&quot;https://www.freelancer.com/projects/&quot;&quot;&quot;),_display_(/*65.91*/result/*65.97*/.getProject_ID),format.raw/*65.111*/(&quot;&quot;&quot;/details&quot;&gt;&quot;&quot;&quot;),_display_(/*65.122*/result/*65.128*/.getProject_title()),format.raw/*65.147*/(&quot;&quot;&quot;&lt;/a&gt;&lt;/td&gt;
+                                        &lt;td&gt;&quot;&quot;&quot;),_display_(/*66.46*/result/*66.52*/.getProject_type()),format.raw/*66.70*/(&quot;&quot;&quot;&lt;/td&gt;
+                                        &lt;td&gt;&lt;a href=&quot;&quot;&quot;&quot;),_display_(/*67.55*/routes/*67.61*/.HomeController.skills(result.getSkills())),format.raw/*67.103*/(&quot;&quot;&quot;&quot;&gt;&quot;&quot;&quot;),_display_(/*67.106*/result/*67.112*/.getSkills()),format.raw/*67.124*/(&quot;&quot;&quot;&lt;/a&gt;&lt;/td&gt;
+                                        &lt;td&gt;&lt;a href=&quot;&quot;&quot;&quot;),_display_(/*68.55*/routes/*68.61*/.HomeController.projectWordStats(result.getProject_description())),format.raw/*68.126*/(&quot;&quot;&quot;&quot;&gt;Stats&lt;/a&gt;&lt;/td&gt;
+                                        &lt;td&gt;&quot;&quot;&quot;),_display_(/*69.46*/result/*69.52*/.getReadability()),format.raw/*69.69*/(&quot;&quot;&quot;&lt;/td&gt;
+                                        &lt;td&gt;&quot;&quot;&quot;),_display_(/*70.46*/result/*70.52*/.getEducationalLevel()),format.raw/*70.74*/(&quot;&quot;&quot;&lt;/td&gt;
+                                    &lt;/tr&gt;
+                                &quot;&quot;&quot;)))}),format.raw/*72.34*/(&quot;&quot;&quot;
+                            &quot;&quot;&quot;),format.raw/*73.29*/(&quot;&quot;&quot;&lt;/table&gt;
+<span class="fc" id="L105">                        &quot;&quot;&quot;)))}),format.raw/*74.26*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L106">                    &quot;&quot;&quot;)))}),format.raw/*75.22*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L107">                    &quot;&quot;&quot;),format.raw/*76.21*/(&quot;&quot;&quot;&lt;/div&gt;</span>
+                &lt;/center&gt;
+                &lt;br&gt;&lt;br&gt;&lt;br&gt;
+<span class="fc" id="L110">                &lt;script src=&quot;&quot;&quot;&quot;),_display_(/*79.31*/routes/*79.37*/.Assets.versioned(&quot;javascripts/search.js&quot;)),format.raw/*79.79*/(&quot;&quot;&quot;&quot;&gt;&lt;/script&gt;</span>
+            &lt;/body&gt;
+        &lt;/article&gt;
+    &lt;/html&gt;
+&quot;&quot;&quot;)))}))
+      }
+    }
+  }
+
+<span class="fc" id="L119">  def render(request:play.mvc.Http.Request,keyWord:String,searchForm:Map[String, FreelaancelotList]): play.twirl.api.HtmlFormat.Appendable = apply(request,keyWord,searchForm)</span>
+
+<span class="nc" id="L121">  def f:((play.mvc.Http.Request,String,Map[String, FreelaancelotList]) =&gt; play.twirl.api.HtmlFormat.Appendable) = (request,keyWord,searchForm) =&gt; apply(request,keyWord,searchForm)</span>
+
+<span class="nc" id="L123">  def ref: this.type = this</span>
+
+}
+
+
+              /*
+                  -- GENERATED --
+                  SOURCE: app/views/free.scala.html
+                  HASH: b413b9584fc295c2a47da51f93d633034ca3dcb6
+                  MATRIX: 610-&gt;1|999-&gt;36|1187-&gt;129|1215-&gt;131|1258-&gt;149|1286-&gt;169|1325-&gt;171|1357-&gt;177|1637-&gt;430|1652-&gt;436|1707-&gt;470|1886-&gt;621|1915-&gt;622|1973-&gt;652|2045-&gt;696|2074-&gt;697|2128-&gt;723|2187-&gt;754|2216-&gt;755|2274-&gt;786|2333-&gt;829|2372-&gt;830|2430-&gt;861|2517-&gt;938|2557-&gt;939|2615-&gt;969|2670-&gt;997|2685-&gt;1003|2763-&gt;1059|2952-&gt;1217|3014-&gt;1248|3068-&gt;1274|3097-&gt;1275|3151-&gt;1301|3206-&gt;1328|3235-&gt;1329|3293-&gt;1359|3374-&gt;1412|3403-&gt;1413|3449-&gt;1431|4198-&gt;2153|4229-&gt;2175|4269-&gt;2177|4323-&gt;2204|4382-&gt;2247|4421-&gt;2248|4479-&gt;2278|4552-&gt;2324|4583-&gt;2334|4613-&gt;2336|4669-&gt;2364|4690-&gt;2375|4742-&gt;2405|4773-&gt;2407|4808-&gt;2414|4829-&gt;2425|4886-&gt;2460|4916-&gt;2461|4987-&gt;2505|5002-&gt;2511|5060-&gt;2548|5897-&gt;3358|5956-&gt;3401|5996-&gt;3403|6062-&gt;3441|6149-&gt;3501|6164-&gt;3507|6240-&gt;3561|6288-&gt;3581|6304-&gt;3587|6338-&gt;3599|6368-&gt;3600|6452-&gt;3657|6467-&gt;3663|6498-&gt;3673|6622-&gt;3770|6637-&gt;3776|6673-&gt;3790|6712-&gt;3801|6728-&gt;3807|6769-&gt;3826|6852-&gt;3882|6867-&gt;3888|6906-&gt;3906|6994-&gt;3967|7009-&gt;3973|7073-&gt;4015|7104-&gt;4018|7120-&gt;4024|7154-&gt;4036|7246-&gt;4101|7261-&gt;4107|7348-&gt;4172|7438-&gt;4235|7453-&gt;4241|7491-&gt;4258|7570-&gt;4310|7585-&gt;4316|7628-&gt;4338|7742-&gt;4421|7800-&gt;4451|7866-&gt;4486|7920-&gt;4509|7970-&gt;4531|8092-&gt;4626|8107-&gt;4632|8170-&gt;4674
+                  LINES: 23-&gt;1|28-&gt;2|33-&gt;2|34-&gt;3|35-&gt;4|35-&gt;4|35-&gt;4|36-&gt;5|41-&gt;10|41-&gt;10|41-&gt;10|45-&gt;14|45-&gt;14|46-&gt;15|48-&gt;17|48-&gt;17|49-&gt;18|49-&gt;18|49-&gt;18|50-&gt;19|50-&gt;19|50-&gt;19|51-&gt;20|51-&gt;20|51-&gt;20|52-&gt;21|52-&gt;21|52-&gt;21|52-&gt;21|55-&gt;24|56-&gt;25|57-&gt;26|57-&gt;26|58-&gt;27|58-&gt;27|58-&gt;27|59-&gt;28|60-&gt;29|60-&gt;29|61-&gt;30|77-&gt;46|77-&gt;46|77-&gt;46|78-&gt;47|78-&gt;47|78-&gt;47|79-&gt;48|79-&gt;48|79-&gt;48|79-&gt;48|79-&gt;48|79-&gt;48|79-&gt;48|79-&gt;48|79-&gt;48|79-&gt;48|79-&gt;48|79-&gt;48|80-&gt;49|80-&gt;49|80-&gt;49|92-&gt;61|92-&gt;61|92-&gt;61|93-&gt;62|94-&gt;63|94-&gt;63|94-&gt;63|94-&gt;63|94-&gt;63|94-&gt;63|94-&gt;63|95-&gt;64|95-&gt;64|95-&gt;64|96-&gt;65|96-&gt;65|96-&gt;65|96-&gt;65|96-&gt;65|96-&gt;65|97-&gt;66|97-&gt;66|97-&gt;66|98-&gt;67|98-&gt;67|98-&gt;67|98-&gt;67|98-&gt;67|98-&gt;67|99-&gt;68|99-&gt;68|99-&gt;68|100-&gt;69|100-&gt;69|100-&gt;69|101-&gt;70|101-&gt;70|101-&gt;70|103-&gt;72|104-&gt;73|105-&gt;74|106-&gt;75|107-&gt;76|110-&gt;79|110-&gt;79|110-&gt;79
+                  -- GENERATED --
+              */
+          
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

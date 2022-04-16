@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Freelancelot.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">service</a> &gt; <span class="el_source">Freelancelot.java</span></div><h1>Freelancelot.java</h1><pre class="source lang-java linenums">package service;
+
+/**
+ * Freelanelot Structure for storing the JSON Structure
+ * @author Raahul John Vikyath
+ * @version 1.0
+ */
+
+public class Freelancelot {
+
+    private String owner_id;
+    private String date;
+    private Integer project_ID;
+    private String project_title;
+    private String project_description;
+    private String project_type;
+    private String skills;
+    private String stats;
+    private Long readability;
+    private String seoUrl;
+    private String educationalLevel;
+    private Integer averageReadability;
+    private String averageEducationalLevel;
+    /**
+     * Default Constructor of Freelancelot
+     * @author Raahul John Vikyath
+     */
+    public Freelancelot()
+<span class="fc" id="L29">    {</span>
+
+<span class="fc" id="L31">    }</span>
+
+    /**
+     * Constructor of Freelancelot to set the Freelancelot Data Structure
+     * @author Raahul John Vikyath
+     */
+
+<span class="fc" id="L38">    public Freelancelot(String owner_id, String date, Integer project_ID, String project_title , String project_description, String project_type, String skills, String stats, Long readability, String educationalLevel , String seoUrl, Integer averageReadability, String averageEducationalLevel){</span>
+<span class="fc" id="L39">        this.owner_id = owner_id;</span>
+<span class="fc" id="L40">        this.date = date;</span>
+<span class="fc" id="L41">        this.project_title = project_title;</span>
+<span class="fc" id="L42">        this.project_ID = project_ID;</span>
+<span class="fc" id="L43">        this.project_description = project_description;</span>
+<span class="fc" id="L44">        this.project_type = project_type;</span>
+<span class="fc" id="L45">        this.skills = skills;</span>
+<span class="fc" id="L46">        this.stats = stats;</span>
+<span class="fc" id="L47">        this.readability = readability;</span>
+<span class="fc" id="L48">        this.educationalLevel = educationalLevel;</span>
+<span class="fc" id="L49">        this.seoUrl =seoUrl;</span>
+<span class="fc" id="L50">        this.averageEducationalLevel = averageEducationalLevel;</span>
+<span class="fc" id="L51">        this.averageReadability = averageReadability;</span>
+<span class="fc" id="L52">    }</span>
+
+    public String getOwner_id() {
+<span class="fc" id="L55">        return this.owner_id;</span>
+    }
+
+    public String getDate() {
+<span class="fc" id="L59">        return this.date;</span>
+    }
+
+    public String getProject_description() {
+<span class="fc" id="L63">        return this.project_description;</span>
+    }
+
+    public String getProject_type() {
+<span class="fc" id="L67">        return this.project_type;</span>
+    }
+
+    public String getSkills() {
+<span class="fc" id="L71">        return this.skills;</span>
+    }
+
+    public Long getReadability() {
+<span class="fc" id="L75">        return this.readability;</span>
+    }
+
+    public String getProject_title() {
+<span class="fc" id="L79">        return this.project_title;</span>
+    }
+
+<span class="fc" id="L82">    public Integer getProject_ID(){return this.project_ID;}</span>
+
+    public String getEducationalLevel() {
+<span class="fc" id="L85">        return this.educationalLevel;</span>
+    }
+
+    public String getSeoUrl() {
+<span class="fc" id="L89">        return this.seoUrl;</span>
+    }
+
+    public Integer getAverageReadability() {
+<span class="fc" id="L93">        return this.averageReadability;</span>
+    }
+
+    public String getAverageEducationalLevel() {
+<span class="fc" id="L97">        return this.averageEducationalLevel;</span>
+    }
+
+    public void setOwner_id(String owner_id) {
+<span class="fc" id="L101">        this.owner_id = owner_id;</span>
+<span class="fc" id="L102">    }</span>
+
+    public void setDate(String date) {
+<span class="fc" id="L105">        this.date = date;</span>
+<span class="fc" id="L106">    }</span>
+
+    public void setSkills(String skills) {
+<span class="fc" id="L109">        this.skills = skills;</span>
+<span class="fc" id="L110">    }</span>
+
+    public void setReadability(Long readability) {
+<span class="fc" id="L113">        this.readability = readability;</span>
+<span class="fc" id="L114">    }</span>
+
+    public void setStats(String stats) {
+<span class="fc" id="L117">        this.stats = stats;</span>
+<span class="fc" id="L118">    }</span>
+
+    public void setProject_description(String project_description) {
+<span class="fc" id="L121">        this.project_description = project_description;</span>
+<span class="fc" id="L122">    }</span>
+
+    public void setEducationalLevel(String educationalLevel) {
+<span class="fc" id="L125">        this.educationalLevel = educationalLevel;</span>
+<span class="fc" id="L126">    }</span>
+
+    public void setSeoUrl(String seoUrl) {
+<span class="fc" id="L129">        this.seoUrl = seoUrl;</span>
+<span class="fc" id="L130">    }</span>
+
+    public void setAverageEducationalLevel(String averageEducationalLevel) {
+<span class="fc" id="L133">        this.averageEducationalLevel = averageEducationalLevel;</span>
+<span class="fc" id="L134">    }</span>
+
+    public void setAverageReadability(Integer averageReadability) {
+<span class="fc" id="L137">        this.averageReadability = averageReadability;</span>
+<span class="fc" id="L138">    }</span>
+
+    public String toString()
+    {
+<span class="fc" id="L142">        return &quot;[Owner ID:&quot; +getOwner_id()+</span>
+<span class="fc" id="L143">                    &quot;\nDate: &quot; +getDate()+</span>
+<span class="fc" id="L144">                    &quot;\nProject Description : &quot; +getProject_description()+</span>
+<span class="fc" id="L145">                    &quot;\nProject Type: &quot; +getProject_type() + &quot;]\n&quot;;</span>
+    }
+
+    public void display() {
+<span class="fc" id="L149">        System.out.println(&quot;Owner ID: &quot; +getOwner_id()+ &quot; Date: &quot; +getDate()+ &quot; Project Title : &quot; +getProject_title()+ &quot; Project Type: &quot; +getProject_type() +&quot; Flesch Index: &quot; +getReadability() +&quot; Educational Level: &quot;+getEducationalLevel());</span>
+<span class="fc" id="L150">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

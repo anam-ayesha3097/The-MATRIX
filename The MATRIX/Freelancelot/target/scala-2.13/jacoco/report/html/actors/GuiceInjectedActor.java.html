@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GuiceInjectedActor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">actors</a> &gt; <span class="el_source">GuiceInjectedActor.java</span></div><h1>GuiceInjectedActor.java</h1><pre class="source lang-java linenums">package actors;
+
+import akka.actor.Actor;
+import akka.actor.IndirectActorProducer;
+import com.google.inject.Injector;
+
+/**
+ * Create an actor that supports Guice dependency injection
+ */
+public class GuiceInjectedActor implements IndirectActorProducer {
+
+    private final Injector injector;
+    private final Class&lt;? extends Actor&gt; actorClass;
+
+    /**
+     * Constructor
+     * @param injector Guice injector
+     * @param actorClass actor to be created
+     */
+<span class="nc" id="L20">    public GuiceInjectedActor(Injector injector, Class&lt;? extends Actor&gt; actorClass) {</span>
+<span class="nc" id="L21">        this.injector = injector;</span>
+<span class="nc" id="L22">        this.actorClass = actorClass;</span>
+<span class="nc" id="L23">    }</span>
+
+    /**
+     * Get the actor class
+     * @return actor class
+     */
+    @Override
+    public Class&lt;? extends Actor&gt; actorClass() {
+<span class="nc" id="L31">        return actorClass;</span>
+    }
+
+    /**
+     * Creating the actor using Guice
+     * @return Actor actor created
+     */
+    @Override
+    public Actor produce() {
+<span class="nc" id="L40">        return injector.getInstance(actorClass);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

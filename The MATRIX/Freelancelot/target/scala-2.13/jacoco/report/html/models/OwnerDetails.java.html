@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OwnerDetails.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">models</a> &gt; <span class="el_source">OwnerDetails.java</span></div><h1>OwnerDetails.java</h1><pre class="source lang-java linenums">package models;
 
+import akka.actor.AbstractActor;
+import akka.actor.Props;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.*;
+import service.*;
 /**
  * Gets the information about the employee from the Freelancer API
  *
  * @author Vikyath
  * @version 1.0
  */
-<span class="fc" id="L15">public class OwnerDetails {</span>
+<span class="fc" id="L18">public class OwnerDetails {</span>
 
-<span class="fc" id="L17">    LinkedHashMap&lt;String, FreelaancelotList&gt; OwnerProjects_active= new LinkedHashMap&lt;String, FreelaancelotList&gt;();</span>
+<span class="fc" id="L20">    LinkedHashMap&lt;String, FreelaancelotList&gt; OwnerProjects_active= new LinkedHashMap&lt;String, FreelaancelotList&gt;();</span>
     /**
      * Displays the information about the employee when invoked
      *
@@ -23,81 +26,81 @@ import java.util.*;
      * @author Vikyath
      */
 
-    public OwnerInformation getOwnerDetails(String ownerId)
+    public static OwnerInformation getOwnerDetails(String ownerId)
     {
 
-<span class="fc" id="L29">        OwnerInformation ownerInformation = new OwnerInformation();</span>
+<span class="fc" id="L32">        OwnerInformation ownerInformation = new OwnerInformation();</span>
         try {
-<span class="fc" id="L31">            URL url = new URL(&quot;https://www.freelancer.com/api/users/0.1/users/&quot;+ownerId+&quot;?avatar=true&amp;display_info=true&amp;country_details=true&amp;jobs=true&amp;portfolio_details=true&amp;preferred_details=true&amp;profile_description=true&amp;qualification_details=true&amp;recommendations=true&amp;responsiveness=true&amp;status=true&amp;&amp;operating_areas=true&amp;compact=true&quot;);</span>
-<span class="fc" id="L32">            HttpURLConnection conn = (HttpURLConnection)url.openConnection();</span>
-<span class="fc" id="L33">            conn.setRequestMethod(&quot;GET&quot;);</span>
-<span class="fc" id="L34">            conn.connect();</span>
-<span class="pc bpc" id="L35" title="1 of 2 branches missed.">            if(conn.getResponseCode() == 200) {</span>
-<span class="fc" id="L36">                Scanner scan = new Scanner(url.openStream());</span>
-<span class="fc" id="L37">                String temp=&quot;&quot;;</span>
-<span class="fc bfc" id="L38" title="All 2 branches covered.">                while(scan.hasNext()) {</span>
-<span class="fc" id="L39">                    temp = temp + scan.nextLine();</span>
+<span class="fc" id="L34">            URL url = new URL(&quot;https://www.freelancer.com/api/users/0.1/users/&quot;+ownerId+&quot;?avatar=true&amp;display_info=true&amp;country_details=true&amp;jobs=true&amp;portfolio_details=true&amp;preferred_details=true&amp;profile_description=true&amp;qualification_details=true&amp;recommendations=true&amp;responsiveness=true&amp;status=true&amp;&amp;operating_areas=true&amp;compact=true&quot;);</span>
+<span class="fc" id="L35">            HttpURLConnection conn = (HttpURLConnection)url.openConnection();</span>
+<span class="fc" id="L36">            conn.setRequestMethod(&quot;GET&quot;);</span>
+<span class="fc" id="L37">            conn.connect();</span>
+<span class="pc bpc" id="L38" title="1 of 2 branches missed.">            if(conn.getResponseCode() == 200) {</span>
+<span class="fc" id="L39">                Scanner scan = new Scanner(url.openStream());</span>
+<span class="fc" id="L40">                String temp=&quot;&quot;;</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">                while(scan.hasNext()) {</span>
+<span class="fc" id="L42">                    temp = temp + scan.nextLine();</span>
                 }
-<span class="fc" id="L41">                JSONObject json = new JSONObject(temp);</span>
-<span class="fc" id="L42">                JSONObject owner = json.getJSONObject(&quot;result&quot;);</span>
-<span class="fc" id="L43">                ownerInformation.setId(owner.get(&quot;id&quot;).toString());</span>
-<span class="fc" id="L44">                ownerInformation.setUsername(owner.get(&quot;username&quot;).toString());</span>
+<span class="fc" id="L44">                JSONObject json = new JSONObject(temp);</span>
+<span class="fc" id="L45">                JSONObject owner = json.getJSONObject(&quot;result&quot;);</span>
+<span class="fc" id="L46">                ownerInformation.setId(owner.get(&quot;id&quot;).toString());</span>
+<span class="fc" id="L47">                ownerInformation.setUsername(owner.get(&quot;username&quot;).toString());</span>
 
-<span class="fc" id="L46">                ownerInformation.setRegistrationDate(owner.get(&quot;registration_date&quot;).toString());</span>
+<span class="fc" id="L49">                ownerInformation.setRegistrationDate(owner.get(&quot;registration_date&quot;).toString());</span>
 
-<span class="fc" id="L48">                ownerInformation.setLimitedAccount(owner.get(&quot;limited_account&quot;).toString());</span>
+<span class="fc" id="L51">                ownerInformation.setLimitedAccount(owner.get(&quot;limited_account&quot;).toString());</span>
 
-<span class="fc" id="L50">                ownerInformation.setRole(owner.get(&quot;role&quot;).toString());</span>
+<span class="fc" id="L53">                ownerInformation.setRole(owner.get(&quot;role&quot;).toString());</span>
 
-<span class="pc bpc" id="L52" title="1 of 2 branches missed.">                if(checkNodeExists(owner,&quot;status&quot;))</span>
+<span class="pc bpc" id="L55" title="1 of 2 branches missed.">                if(checkNodeExists(owner,&quot;status&quot;))</span>
                 {
-<span class="fc" id="L54">                    JSONObject status = owner.getJSONObject(&quot;status&quot;);</span>
-<span class="fc" id="L55">                    ownerInformation.setEmailVerified(status.get(&quot;email_verified&quot;).toString());</span>
-<span class="fc" id="L56">                }</span>
+<span class="fc" id="L57">                    JSONObject status = owner.getJSONObject(&quot;status&quot;);</span>
+<span class="fc" id="L58">                    ownerInformation.setEmailVerified(status.get(&quot;email_verified&quot;).toString());</span>
+<span class="fc" id="L59">                }</span>
                 else
-<span class="nc" id="L58">                    ownerInformation.setEmailVerified(&quot;NA&quot;);</span>
+<span class="nc" id="L61">                    ownerInformation.setEmailVerified(&quot;NA&quot;);</span>
 
 
-<span class="pc bpc" id="L61" title="1 of 2 branches missed.">                if(checkNodeExists(owner,&quot;primary_currency&quot;))</span>
+<span class="pc bpc" id="L64" title="1 of 2 branches missed.">                if(checkNodeExists(owner,&quot;primary_currency&quot;))</span>
                 {
-<span class="fc" id="L63">                    JSONObject primaryCurrency = owner.getJSONObject(&quot;primary_currency&quot;);</span>
-<span class="fc" id="L64">                    ownerInformation.setPrimaryCurrency((primaryCurrency.get(&quot;name&quot;).toString()));</span>
+<span class="fc" id="L66">                    JSONObject primaryCurrency = owner.getJSONObject(&quot;primary_currency&quot;);</span>
+<span class="fc" id="L67">                    ownerInformation.setPrimaryCurrency((primaryCurrency.get(&quot;name&quot;).toString()));</span>
 
-<span class="fc" id="L66">                }</span>
+<span class="fc" id="L69">                }</span>
                 else
-<span class="nc" id="L68">                    ownerInformation.setPrimaryCurrency(&quot;NA&quot;);</span>
+<span class="nc" id="L71">                    ownerInformation.setPrimaryCurrency(&quot;NA&quot;);</span>
 
 
-<span class="pc bpc" id="L71" title="1 of 2 branches missed.">                if(checkNodeExists(owner,&quot;public_name&quot;))</span>
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">                if(checkNodeExists(owner,&quot;public_name&quot;))</span>
                 {
-<span class="pc bpc" id="L73" title="1 of 2 branches missed.">                    if(owner.get(&quot;public_name&quot;).toString().isEmpty())</span>
-<span class="nc" id="L74">                        ownerInformation.setCompany(&quot;NA&quot;);</span>
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">                    if(owner.get(&quot;public_name&quot;).toString().isEmpty())</span>
+<span class="nc" id="L77">                        ownerInformation.setCompany(&quot;NA&quot;);</span>
                     else
-<span class="fc" id="L76">                        ownerInformation.setCompany(owner.get(&quot;public_name&quot;).toString());</span>
+<span class="fc" id="L79">                        ownerInformation.setCompany(owner.get(&quot;public_name&quot;).toString());</span>
                 }
                 else
-<span class="nc" id="L79">                    ownerInformation.setCompany(&quot;NA&quot;);</span>
+<span class="nc" id="L82">                    ownerInformation.setCompany(&quot;NA&quot;);</span>
 
-<span class="fc" id="L81">                JSONObject location = owner.getJSONObject(&quot;location&quot;);</span>
-<span class="pc bpc" id="L82" title="1 of 2 branches missed.">                if(checkNodeExists(location,&quot;country&quot;))</span>
+<span class="fc" id="L84">                JSONObject location = owner.getJSONObject(&quot;location&quot;);</span>
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">                if(checkNodeExists(location,&quot;country&quot;))</span>
                 {
-<span class="fc" id="L84">                    JSONObject country = location.getJSONObject(&quot;country&quot;);</span>
+<span class="fc" id="L87">                    JSONObject country = location.getJSONObject(&quot;country&quot;);</span>
 
-<span class="pc bpc" id="L86" title="1 of 2 branches missed.">                    if(country.get(&quot;name&quot;).toString().isEmpty())</span>
-<span class="nc" id="L87">                        ownerInformation.setCountry(&quot;NA&quot;);</span>
+<span class="pc bpc" id="L89" title="1 of 2 branches missed.">                    if(country.get(&quot;name&quot;).toString().isEmpty())</span>
+<span class="nc" id="L90">                        ownerInformation.setCountry(&quot;NA&quot;);</span>
                     else
-<span class="fc" id="L89">                        ownerInformation.setCountry(country.get(&quot;name&quot;).toString());</span>
-<span class="fc" id="L90">                }</span>
+<span class="fc" id="L92">                        ownerInformation.setCountry(country.get(&quot;name&quot;).toString());</span>
+<span class="fc" id="L93">                }</span>
                 else
-<span class="nc" id="L92">                    ownerInformation.setCountry(&quot;NA&quot;);</span>
+<span class="nc" id="L95">                    ownerInformation.setCountry(&quot;NA&quot;);</span>
 
             }
-<span class="fc" id="L95">            ownerInformation.OwnerProjects_active = getOwnerProject(ownerId);</span>
+<span class="fc" id="L98">            ownerInformation.OwnerProjects_active = getOwnerProject(ownerId);</span>
         }
-<span class="pc" id="L97">        catch(Exception e) {}</span>
+<span class="pc" id="L100">        catch(Exception e) {}</span>
 
 
-<span class="fc" id="L100">        return ownerInformation;</span>
+<span class="fc" id="L103">        return ownerInformation;</span>
     }
     /**
      * Gets the Owner Information
@@ -107,9 +110,9 @@ import java.util.*;
      */
     public OwnerInformation getOwnerInformation(String ownerId)
     {
-<span class="nc" id="L110">        OwnerDetails ownerDetails = new OwnerDetails();</span>
+<span class="fc" id="L113">        OwnerDetails ownerDetails = new OwnerDetails();</span>
 
-<span class="nc" id="L112">        return ownerDetails.getOwnerDetails(ownerId);</span>
+<span class="fc" id="L115">        return ownerDetails.getOwnerDetails(ownerId);</span>
     }
     /**
      * Checks if the Nodes Exists
@@ -118,64 +121,65 @@ import java.util.*;
      * @return boolen true/false
      * @author Vikyath
      */
-    public boolean checkNodeExists(JSONObject jObj, String key){
-<span class="fc bfc" id="L122" title="All 2 branches covered.">        if(jObj.has(key))</span>
-<span class="fc" id="L123">            return true;</span>
+    public static boolean checkNodeExists(JSONObject jObj, String key){
+<span class="fc bfc" id="L125" title="All 2 branches covered.">        if(jObj.has(key))</span>
+<span class="fc" id="L126">            return true;</span>
         else
-<span class="fc" id="L125">            return false;</span>
+<span class="fc" id="L128">            return false;</span>
     }
 
-    public LinkedHashMap&lt;String, FreelaancelotList&gt; getOwnerProject(String ownerId ) {
+    public static LinkedHashMap&lt;String, FreelaancelotList&gt; getOwnerProject(String ownerId) {
 
-<span class="fc" id="L130">        LinkedHashMap&lt;String, FreelaancelotList&gt; OwnerProjects_active= new LinkedHashMap&lt;String, FreelaancelotList&gt;();</span>
-<span class="fc" id="L131">        Freelancelot proj_det = null;</span>
+<span class="fc" id="L133">        LinkedHashMap&lt;String, FreelaancelotList&gt; OwnerProjects_active= new LinkedHashMap&lt;String, FreelaancelotList&gt;();</span>
+<span class="fc" id="L134">        Freelancelot proj_det = null;</span>
         JSONObject result;
-<span class="fc" id="L133">        String preview_description = &quot;&quot;;</span>
-<span class="fc" id="L134">        FreelaancelotList projectList = new FreelaancelotList();</span>
+<span class="fc" id="L136">        String preview_description = &quot;&quot;;</span>
+<span class="fc" id="L137">        FreelaancelotList projectList = new FreelaancelotList();</span>
         try {
-<span class="fc" id="L136">            URL url = new URL(&quot;https://www.freelancer.com/api/projects/0.1/projects/?owners[]=&quot;+ownerId+&quot;&amp;limit=10&amp;job_details=true&amp;compact=true&amp;full_description=true&quot;);</span>
-<span class="fc" id="L137">            HttpURLConnection conn = (HttpURLConnection) url.openConnection();</span>
-<span class="fc" id="L138">            conn.setRequestMethod(&quot;GET&quot;);</span>
-<span class="fc" id="L139">            conn.connect();</span>
+<span class="fc" id="L139">            URL url = new URL(&quot;https://www.freelancer.com/api/projects/0.1/projects/?owners[]=&quot;+ownerId+&quot;&amp;limit=10&amp;job_details=true&amp;compact=true&amp;full_description=true&quot;);</span>
+<span class="fc" id="L140">            HttpURLConnection conn = (HttpURLConnection) url.openConnection();</span>
+<span class="fc" id="L141">            conn.setRequestMethod(&quot;GET&quot;);</span>
+<span class="fc" id="L142">            conn.connect();</span>
 
-<span class="pc bpc" id="L141" title="1 of 2 branches missed.">            if (conn.getResponseCode() == 200) {</span>
-<span class="fc" id="L142">                Scanner sc = new Scanner(url.openStream());</span>
-<span class="fc" id="L143">                String temp = &quot;&quot;;</span>
-<span class="fc bfc" id="L144" title="All 2 branches covered.">                while (sc.hasNext()) {</span>
-<span class="fc" id="L145">                    temp = temp + sc.nextLine();</span>
+<span class="pc bpc" id="L144" title="1 of 2 branches missed.">            if (conn.getResponseCode() == 200) {</span>
+<span class="fc" id="L145">                Scanner sc = new Scanner(url.openStream());</span>
+<span class="fc" id="L146">                String temp = &quot;&quot;;</span>
+<span class="fc bfc" id="L147" title="All 2 branches covered.">                while (sc.hasNext()) {</span>
+<span class="fc" id="L148">                    temp = temp + sc.nextLine();</span>
                 }
-<span class="fc" id="L147">                Utilities ut = new Utilities();</span>
-<span class="fc" id="L148">                JSONObject json = new JSONObject(temp);</span>
-<span class="fc" id="L149">                result = json.getJSONObject(&quot;result&quot;);</span>
-<span class="fc" id="L150">                JSONArray jsonArr = json.getJSONObject(&quot;result&quot;).getJSONArray(&quot;projects&quot;);</span>
+<span class="fc" id="L150">                Utilities ut = new Utilities();</span>
+<span class="fc" id="L151">                JSONObject json = new JSONObject(temp);</span>
+<span class="fc" id="L152">                result = json.getJSONObject(&quot;result&quot;);</span>
+<span class="fc" id="L153">                JSONArray jsonArr = json.getJSONObject(&quot;result&quot;).getJSONArray(&quot;projects&quot;);</span>
 
-<span class="fc" id="L152">                ArrayList&lt;Freelancelot&gt; projects = new ArrayList&lt;Freelancelot&gt;();</span>
-<span class="fc" id="L153">                Map&lt;String, Integer&gt; frequencyMap = new HashMap&lt;String, Integer&gt;();</span>
-<span class="fc bfc" id="L154" title="All 2 branches covered.">                for(int i = 0; i &lt; jsonArr.length(); i++){</span>
-<span class="fc" id="L155">                    Integer project_ID = jsonArr.getJSONObject(i).getInt(&quot;id&quot;);</span>
-<span class="fc" id="L156">                    String project_title = jsonArr.getJSONObject(i).getString(&quot;title&quot;);</span>
-<span class="fc" id="L157">                    String project_Description = jsonArr.getJSONObject(i).getString(&quot;preview_description&quot;);</span>
-<span class="fc" id="L158">                    String owner_ID = String.valueOf(jsonArr.getJSONObject(i).getInt(&quot;owner_id&quot;));</span>
-<span class="fc" id="L159">                    Integer date = jsonArr.getJSONObject(i).getInt(&quot;time_submitted&quot;);</span>
-<span class="fc" id="L160">                    String converted_date = ut.date_converter(date);</span>
-<span class="fc" id="L161">                    String project_type = jsonArr.getJSONObject(i).getString(&quot;type&quot;);</span>
-<span class="fc" id="L162">                    String seoUrl = jsonArr.getJSONObject(i).getString(&quot;seo_url&quot;);</span>
-<span class="fc" id="L163">                    String[] skillarr = seoUrl.split(&quot;/&quot;);</span>
-<span class="fc" id="L164">                    String skills = skillarr[0];</span>
-<span class="fc" id="L165">                    String seoUrl1 = skillarr[1];</span>
-<span class="fc" id="L166">                    preview_description += project_Description;</span>
-<span class="fc" id="L167">                    proj_det = new Freelancelot(owner_ID, converted_date,project_ID, project_title, project_Description, project_type, skills, &quot;stats&quot;, 1L, &quot;&quot;,seoUrl1,0,&quot; &quot;);</span>
-<span class="fc" id="L168">                    projects.add(proj_det);</span>
+<span class="fc" id="L155">                ArrayList&lt;Freelancelot&gt; projects = new ArrayList&lt;Freelancelot&gt;();</span>
+<span class="fc" id="L156">                Map&lt;String, Integer&gt; frequencyMap = new HashMap&lt;String, Integer&gt;();</span>
+<span class="fc bfc" id="L157" title="All 2 branches covered.">                for(int i = 0; i &lt; jsonArr.length(); i++){</span>
+<span class="fc" id="L158">                    Integer project_ID = jsonArr.getJSONObject(i).getInt(&quot;id&quot;);</span>
+<span class="fc" id="L159">                    String project_title = jsonArr.getJSONObject(i).getString(&quot;title&quot;);</span>
+<span class="fc" id="L160">                    String project_Description = jsonArr.getJSONObject(i).getString(&quot;preview_description&quot;);</span>
+<span class="fc" id="L161">                    String owner_ID = String.valueOf(jsonArr.getJSONObject(i).getInt(&quot;owner_id&quot;));</span>
+<span class="fc" id="L162">                    Integer date = jsonArr.getJSONObject(i).getInt(&quot;time_submitted&quot;);</span>
+<span class="fc" id="L163">                    String converted_date = ut.date_converter(date);</span>
+<span class="fc" id="L164">                    String project_type = jsonArr.getJSONObject(i).getString(&quot;type&quot;);</span>
+<span class="fc" id="L165">                    String seoUrl = jsonArr.getJSONObject(i).getString(&quot;seo_url&quot;);</span>
+<span class="fc" id="L166">                    String[] skillarr = seoUrl.split(&quot;/&quot;);</span>
+<span class="fc" id="L167">                    String skills = skillarr[0];</span>
+<span class="fc" id="L168">                    String seoUrl1 = skillarr[1];</span>
+<span class="fc" id="L169">                    preview_description += project_Description;</span>
+<span class="fc" id="L170">                    proj_det = new Freelancelot(owner_ID, converted_date,project_ID, project_title, project_Description, project_type, skills, &quot;stats&quot;, 1L, &quot;&quot;,seoUrl1,0,&quot; &quot;);</span>
+<span class="fc" id="L171">                    projects.add(proj_det);</span>
                 }
-<span class="fc" id="L170">                projectList.setProjectList(projects);</span>
-<span class="fc" id="L171">                OwnerProjects_active.put(ownerId,projectList);</span>
+<span class="fc" id="L173">                projectList.setProjectList(projects);</span>
+<span class="fc" id="L174">                OwnerProjects_active.put(ownerId,projectList);</span>
             }
-<span class="fc" id="L173">            conn.disconnect();</span>
-<span class="fc" id="L174">        } catch (Exception e) {</span>
-<span class="fc" id="L175">            e.printStackTrace();</span>
-<span class="fc" id="L176">        }</span>
-<span class="fc" id="L177">        return OwnerProjects_active;</span>
+<span class="fc" id="L176">            conn.disconnect();</span>
+<span class="fc" id="L177">        } catch (Exception e) {</span>
+<span class="fc" id="L178">            e.printStackTrace();</span>
+<span class="fc" id="L179">        }</span>
+<span class="fc" id="L180">        return OwnerProjects_active;</span>
     }
+
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

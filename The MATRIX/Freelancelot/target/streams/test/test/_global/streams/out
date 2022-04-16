@@ -1,90 +1,211 @@
-[0m[[0m[0mdebug[0m] [0m[0mjavaOptions: Vector(-Djacoco-agent.destfile=C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\jacoco\data\jacoco.exec)[0m
+[0m[[0m[0mdebug[0m] [0m[0mjavaOptions: Vector(-Djacoco-agent.destfile=C:\Users\sanke\Downloads\FreelancelotWebSocketActors\FreelancelotWebSocket\target\scala-2.13\jacoco\data\jacoco.exec)[0m
 [0m[[0m[0mdebug[0m] [0m[0mForking tests - parallelism = false[0m
 [0m[[0m[0mdebug[0m] [0m[0mCreate a single-thread test executor[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunner for com.novocode.junit.JUnitFramework produced 7 initial tasks for 7 tests.[0m
-[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(controllers.HomeControllerTest, sbt.ForkMain$AnnotatedFingerscan@6effe465, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunner for com.novocode.junit.JUnitFramework produced 14 initial tasks for 14 tests.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(actors.wordStatsActorTest, sbt.ForkMain$AnnotatedFingerscan@69222c14, false, [SuiteSelector])[0m
 [0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestskills[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestskills[0m finished, took 5.69 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestIndex[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestIndex[0m finished, took 0.545 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestFreelance[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestFreelance[0m finished, took 1.846 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestWordStatsIndividual[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestWordStatsIndividual[0m finished, took 0.19 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestWordStats[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestWordStats[0m finished, took 0.238 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 5 total, 8.519s[0m[0m
-[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 5 events.[0m
-[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.utilitiestest, sbt.ForkMain$AnnotatedFingerscan@26e904ab, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mutilitiestest[0m.[36mwordFrequencyCountertest[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mutilitiestest[0m.[36mwordFrequencyCountertest[0m finished, took 0.0 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mutilitiestest[0m.[36mdataconvertortest[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mutilitiestest[0m.[36mdataconvertortest[0m finished, took 0.0 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 2 total, 0.002s[0m[0m
-[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 2 events.[0m
-[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.BusinessLogicTest, sbt.ForkMain$AnnotatedFingerscan@425787b7, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mBusinessLogicTest[0m.[36mgetskillsdatatest[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mBusinessLogicTest[0m.[36mgetskillsdatatest[0m finished, took 0.446 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mBusinessLogicTest[0m.[36mtestBusniesslogic[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mBusinessLogicTest[0m.[36mtestBusniesslogic[0m finished, took 0.85 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 2 total, 1.297s[0m[0m
-[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 2 events.[0m
-[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.ownerdetailsTest, sbt.ForkMain$AnnotatedFingerscan@4a54c2cd, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerdetailsTest[0m.[36mcheckNodeExistsTest[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerdetailsTest[0m.[36mcheckNodeExistsTest[0m finished, took 0.001 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerdetailsTest[0m.[36mgetOwnerDetailsTest[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerdetailsTest[0m.[36mgetOwnerDetailsTest[0m finished, took 0.597 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerdetailsTest[0m.[36mgetOwnerProjectTest[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerdetailsTest[0m.[36mgetOwnerProjectTest[0m finished, took 0.232 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 3 total, 0.83s[0m[0m
-[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 3 events.[0m
-[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.FreelancelotListTest, sbt.ForkMain$AnnotatedFingerscan@433ca40a, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mFreelancelotListTest[0m.[36mgetdatatest[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mFreelancelotListTest[0m.[36mgetdatatest[0m finished, took 0.0 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mFreelancelotListTest[0m.[36mgettersSettersTest[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mFreelancelotListTest[0m.[36mgettersSettersTest[0m finished, took 0.0 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 2 total, 0.002s[0m[0m
-[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 2 events.[0m
-[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.wordstatstest, sbt.ForkMain$AnnotatedFingerscan@9bc1af1, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mwordstatstest[0m.[36mStatsTest[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mwordstatstest[0m.[36mStatsTest[0m finished, took 0.0 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 0.001s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest actors.[33mwordStatsActorTest[0m.[36mtestIt[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest actors.[33mwordStatsActorTest[0m.[36mtestIt[0m finished, took 0.86 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 3.601s[0m[0m
 [0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 1 events.[0m
-[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.ownerinformationtest, sbt.ForkMain$AnnotatedFingerscan@44807c70, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(actors.fleschReadabilityActorTest, sbt.ForkMain$AnnotatedFingerscan@606d8acf, false, [SuiteSelector])[0m
 [0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetCountrytest[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetCountrytest[0m finished, took 0.0 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetUsernametest[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetUsernametest[0m finished, took 0.0 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetPrimaryCurrencytest[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetPrimaryCurrencytest[0m finished, took 0.0 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetCompanytest[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetCompanytest[0m finished, took 0.0 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetRegistrationDatetest[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetRegistrationDatetest[0m finished, took 0.0 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36msetIdtest[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36msetIdtest[0m finished, took 0.0 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetOwnerProjects_activetest[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetOwnerProjects_activetest[0m finished, took 0.001 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetidtest[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetidtest[0m finished, took 0.002 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetRoletest[0m started[0m
-[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerinformationtest[0m.[36mgetRoletest[0m finished, took 0.0 sec[0m
-[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 9 total, 0.006s[0m[0m
-[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 9 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest actors.[33mfleschReadabilityActorTest[0m.[36mtestIt[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest actors.[33mfleschReadabilityActorTest[0m.[36mtestIt[0m finished, took 0.076 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 0.163s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 1 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(actors.ownerDetailsActorTest, sbt.ForkMain$AnnotatedFingerscan@782830e, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest actors.[33mownerDetailsActorTest[0m.[36mtestIt[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest actors.[33mownerDetailsActorTest[0m.[36mtestIt[0m finished, took 0.071 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 0.17s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 1 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(actors.skillsActorTest, sbt.ForkMain$AnnotatedFingerscan@470e2030, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest actors.[33mskillsActorTest[0m.[36mtestIt[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest actors.[33mskillsActorTest[0m.[36mtestIt[0m finished, took 0.088 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 0.141s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 1 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.ownerInformationTest, sbt.ForkMain$AnnotatedFingerscan@3fb4f649, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerInformationTest[0m.[36mgetCountrytest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerInformationTest[0m.[36mgetCountrytest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerInformationTest[0m.[36mgetUsernametest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerInformationTest[0m.[36mgetUsernametest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerInformationTest[0m.[36mgetPrimaryCurrencytest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerInformationTest[0m.[36mgetPrimaryCurrencytest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerInformationTest[0m.[36mgetCompanytest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerInformationTest[0m.[36mgetCompanytest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerInformationTest[0m.[36mgetRegistrationDatetest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerInformationTest[0m.[36mgetRegistrationDatetest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerInformationTest[0m.[36msetOwnerProjects_activeTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerInformationTest[0m.[36msetOwnerProjects_activeTest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerInformationTest[0m.[36mgetLimitedAccountTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerInformationTest[0m.[36mgetLimitedAccountTest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerInformationTest[0m.[36msetIdtest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerInformationTest[0m.[36msetIdtest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerInformationTest[0m.[36mgetOwnerProjects_activetest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerInformationTest[0m.[36mgetOwnerProjects_activetest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerInformationTest[0m.[36mgetEmailVerifiedTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerInformationTest[0m.[36mgetEmailVerifiedTest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerInformationTest[0m.[36mgetidtest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerInformationTest[0m.[36mgetidtest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerInformationTest[0m.[36mgetRoletest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerInformationTest[0m.[36mgetRoletest[0m finished, took 0.007 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 12 total, 0.008s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 12 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.utilitiesTest, sbt.ForkMain$AnnotatedFingerscan@33833882, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mutilitiesTest[0m.[36mwordFrequencyCountertest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mutilitiesTest[0m.[36mwordFrequencyCountertest[0m finished, took 0.012 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mutilitiesTest[0m.[36mfirst10projects[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mutilitiesTest[0m.[36mfirst10projects[0m finished, took 0.001 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mutilitiesTest[0m.[36mdataconvertortest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mutilitiesTest[0m.[36mdataconvertortest[0m finished, took 0.001 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 3 total, 0.014s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 3 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(controllers.HomeControllerTest, sbt.ForkMain$AnnotatedFingerscan@200a570f, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestSkillPage[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestSkillPage[0m finished, took 5.732 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestLandingPage[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestLandingPage[0m finished, took 0.25 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mIndividualStats[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mIndividualStats[0m finished, took 0.21 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestFreelance[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestFreelance[0m finished, took 3.236 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestWordStats[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestWordStats[0m finished, took 0.162 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestOwnerInformationPage[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestOwnerInformationPage[0m finished, took 1.074 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 6 total, 10.668s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 6 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.freelancelotListTest, sbt.ForkMain$AnnotatedFingerscan@16b3fc9e, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotListTest[0m.[36mgetAvgReadabilitytest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotListTest[0m.[36mgetAvgReadabilitytest[0m finished, took 0.002 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotListTest[0m.[36mgetdatatest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotListTest[0m.[36mgetdatatest[0m finished, took 0.001 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotListTest[0m.[36mgetAvgEducationalLeveltest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotListTest[0m.[36mgetAvgEducationalLeveltest[0m finished, took 0.001 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 3 total, 0.004s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 3 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.ownerDetailsTest, sbt.ForkMain$AnnotatedFingerscan@e2d56bf, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerDetailsTest[0m.[36mcheckNodeExistsTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerDetailsTest[0m.[36mcheckNodeExistsTest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerDetailsTest[0m.[36mgetOwnerInformationTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerDetailsTest[0m.[36mgetOwnerInformationTest[0m finished, took 0.968 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerDetailsTest[0m.[36mgetOwnerDetailsTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerDetailsTest[0m.[36mgetOwnerDetailsTest[0m finished, took 0.951 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerDetailsTest[0m.[36mgetOwnerProjectTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mownerDetailsTest[0m.[36mgetOwnerProjectTest[0m finished, took 0.241 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 4 total, 2.163s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 4 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.skillsTest, sbt.ForkMain$AnnotatedFingerscan@244038d0, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mskillsTest[0m.[36mgetskillsdatatest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mskillsTest[0m.[36mgetskillsdatatest[0m finished, took 0.598 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 0.598s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 1 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.fleschReadabilityIndexTest, sbt.ForkMain$AnnotatedFingerscan@5680a178, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfleschReadabilityIndexTest[0m.[36maverageFleschTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfleschReadabilityIndexTest[0m.[36maverageFleschTest[0m finished, took 0.001 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfleschReadabilityIndexTest[0m.[36mgetAvgFleschIndexTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfleschReadabilityIndexTest[0m.[36mgetAvgFleschIndexTest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfleschReadabilityIndexTest[0m.[36mcountSyllableTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfleschReadabilityIndexTest[0m.[36mcountSyllableTest[0m finished, took 0.001 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfleschReadabilityIndexTest[0m.[36maverageEducationalLevelTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfleschReadabilityIndexTest[0m.[36maverageEducationalLevelTest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfleschReadabilityIndexTest[0m.[36mgetAvgEducationLevelTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfleschReadabilityIndexTest[0m.[36mgetAvgEducationLevelTest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfleschReadabilityIndexTest[0m.[36mcheckSyllableTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfleschReadabilityIndexTest[0m.[36mcheckSyllableTest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfleschReadabilityIndexTest[0m.[36mcalculateEductionalLevelTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfleschReadabilityIndexTest[0m.[36mcalculateEductionalLevelTest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfleschReadabilityIndexTest[0m.[36mgetReadabilityAsyncTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfleschReadabilityIndexTest[0m.[36mgetReadabilityAsyncTest[0m finished, took 0.008 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfleschReadabilityIndexTest[0m.[36mcalculateFleschIndexTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfleschReadabilityIndexTest[0m.[36mcalculateFleschIndexTest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfleschReadabilityIndexTest[0m.[36mgetPreviewDescriptionTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfleschReadabilityIndexTest[0m.[36mgetPreviewDescriptionTest[0m finished, took 0.004 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfleschReadabilityIndexTest[0m.[36mcheckEndingsTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfleschReadabilityIndexTest[0m.[36mcheckEndingsTest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfleschReadabilityIndexTest[0m.[36mprocessPrevDescTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfleschReadabilityIndexTest[0m.[36mprocessPrevDescTest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 12 total, 0.016s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 12 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.freelancelotTest, sbt.ForkMain$AnnotatedFingerscan@5fdef03a, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36mgetSeoUrltest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36mgetSeoUrltest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36mgetAverageEducationalLevelTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36mgetAverageEducationalLevelTest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36msetAverageEducationalLevel[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36msetAverageEducationalLevel[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36msetAverageReadabilityTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36msetAverageReadabilityTest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36msetReadabilityTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36msetReadabilityTest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36msetSeoUrlTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36msetSeoUrlTest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36mgetProject_IDtest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36mgetProject_IDtest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36msetStatstest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36msetStatstest[0m finished, took 0.003 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36msetDatetest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36msetDatetest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36msetEducationalLevelTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36msetEducationalLevelTest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36msetOwner_idTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36msetOwner_idTest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36msetProject_descriptiontest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36msetProject_descriptiontest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36mgetSkillstest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36mgetSkillstest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36mdisplaytest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36mdisplaytest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36mgetAverageReadabilitytest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36mgetAverageReadabilitytest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36msetSkillstest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mfreelancelotTest[0m.[36msetSkillstest[0m finished, took 0.002 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 16 total, 0.006s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 16 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.searchResultTest, sbt.ForkMain$AnnotatedFingerscan@3b22cdd0, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33msearchResultTest[0m.[36mgetKeywordTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33msearchResultTest[0m.[36mgetKeywordTest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33msearchResultTest[0m.[36mgetProjectTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33msearchResultTest[0m.[36mgetProjectTest[0m finished, took 0.001 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33msearchResultTest[0m.[36msetProjectsTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33msearchResultTest[0m.[36msetProjectsTest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33msearchResultTest[0m.[36msetKeywordTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33msearchResultTest[0m.[36msetKeywordTest[0m finished, took 0.0 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 4 total, 0.003s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 4 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(models.wordStatsTest, sbt.ForkMain$AnnotatedFingerscan@1e81f4dc, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mwordStatsTest[0m.[36mStatsTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mwordStatsTest[0m.[36mStatsTest[0m finished, took 0.001 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mwordStatsTest[0m.[36mIndvStatsTest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest models.[33mwordStatsTest[0m.[36mIndvStatsTest[0m finished, took 0.001 sec[0m
+[0m[[0m[0mdebug[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 2 total, 0.002s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 2 events.[0m
 [0m[[0m[0mdebug[0m] [0m[0mSummary for JUnit not available.[0m
-[0m[[0m[0minfo[0m] [0m[0mPassed: Total 24, Failed 0, Errors 0, Passed 24[0m
+[0m[[0m[0minfo[0m] [0m[0mPassed: Total 67, Failed 0, Errors 0, Passed 67[0m
 [0m[[0m[0mdebug[0m] [0m[0mPassed tests:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	models.ownerInformationTest[0m
+[0m[[0m[0mdebug[0m] [0m[0m	models.utilitiesTest[0m
 [0m[[0m[0mdebug[0m] [0m[0m	controllers.HomeControllerTest[0m
-[0m[[0m[0mdebug[0m] [0m[0m	models.utilitiestest[0m
-[0m[[0m[0mdebug[0m] [0m[0m	models.BusinessLogicTest[0m
-[0m[[0m[0mdebug[0m] [0m[0m	models.ownerdetailsTest[0m
-[0m[[0m[0mdebug[0m] [0m[0m	models.FreelancelotListTest[0m
-[0m[[0m[0mdebug[0m] [0m[0m	models.wordstatstest[0m
-[0m[[0m[0mdebug[0m] [0m[0m	models.ownerinformationtest[0m
+[0m[[0m[0mdebug[0m] [0m[0m	models.freelancelotListTest[0m
+[0m[[0m[0mdebug[0m] [0m[0m	actors.wordStatsActorTest[0m
+[0m[[0m[0mdebug[0m] [0m[0m	actors.fleschReadabilityActorTest[0m
+[0m[[0m[0mdebug[0m] [0m[0m	actors.ownerDetailsActorTest[0m
+[0m[[0m[0mdebug[0m] [0m[0m	models.ownerDetailsTest[0m
+[0m[[0m[0mdebug[0m] [0m[0m	models.skillsTest[0m
+[0m[[0m[0mdebug[0m] [0m[0m	models.fleschReadabilityIndexTest[0m
+[0m[[0m[0mdebug[0m] [0m[0m	models.freelancelotTest[0m
+[0m[[0m[0mdebug[0m] [0m[0m	models.searchResultTest[0m
+[0m[[0m[0mdebug[0m] [0m[0m	models.wordStatsTest[0m
+[0m[[0m[0mdebug[0m] [0m[0m	actors.skillsActorTest[0m

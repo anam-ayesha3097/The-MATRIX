@@ -38,8 +38,6 @@ import scala.jdk.CollectionConverters._
         &lt;link rel=&quot;stylesheet&quot; media=&quot;screen&quot; href='/assets/stylesheets/main.css'&gt;
         &lt;link rel=&quot;stylesheet&quot; media=&quot;screen&quot; href='/assets/stylesheets/prism.css'&gt;
         &lt;link rel=&quot;shortcut icon&quot; type=&quot;image/png&quot; href='/assets/images/favicon.png'&gt;
-        &lt;script src='/assets/javascripts/hello.js' type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-        &lt;script src='/assets/javascripts/prism.js' type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
     &lt;/head&gt;
 
     &lt;body&gt;
@@ -52,7 +50,7 @@ import scala.jdk.CollectionConverters._
             &lt;/head&gt;
             &lt;center&gt;
                 &lt;body&gt;
-                    &lt;form action =&quot;/freelance&quot; method=&quot;GET&quot;&gt;
+                    &lt;form action =&quot;/freelancelot&quot; method=&quot;GET&quot;&gt;
                         &lt;input type=&quot;text&quot; name=&quot;searchTerm&quot; placeholder=&quot;Enter Search Terms&quot;/&gt;
                         &lt;input type=&quot;submit&quot; value=&quot;Go!&quot; style=&quot;background-color: #1874CD;color: white&quot;&gt;
                     &lt;/form&gt;
@@ -70,11 +68,11 @@ import scala.jdk.CollectionConverters._
     }
   }
 
-<span class="fc" id="L73">  def render(): play.twirl.api.HtmlFormat.Appendable = apply()</span>
+<span class="fc" id="L71">  def render(): play.twirl.api.HtmlFormat.Appendable = apply()</span>
 
-<span class="nc" id="L75">  def f:(() =&gt; play.twirl.api.HtmlFormat.Appendable) = () =&gt; apply()</span>
+<span class="nc" id="L73">  def f:(() =&gt; play.twirl.api.HtmlFormat.Appendable) = () =&gt; apply()</span>
 
-<span class="nc" id="L77">  def ref: this.type = this</span>
+<span class="nc" id="L75">  def ref: this.type = this</span>
 
 }
 
@@ -82,7 +80,7 @@ import scala.jdk.CollectionConverters._
               /*
                   -- GENERATED --
                   SOURCE: app/views/freelancerInit.scala.html
-                  HASH: b8d0efbacf10905ab30ae086a0b4008e36411e36
+                  HASH: 2ec853785bb34289d93d0b80c4a0543fbc5792f7
                   MATRIX: 998-&gt;6
                   LINES: 32-&gt;4
                   -- GENERATED --

@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Freelancelot.iml" filepath="$PROJECT_DIR$/.idea/modules/Freelancelot.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Freelancelot-build.iml" filepath="$PROJECT_DIR$/.idea/modules/Freelancelot-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FreelancelotWebSocket.iml" filepath="$PROJECT_DIR$/.idea/modules/FreelancelotWebSocket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FreelancelotWebSocket-build.iml" filepath="$PROJECT_DIR$/.idea/modules/FreelancelotWebSocket-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/play-samples-play-java-hello-world-tutorial_5623.iml" filepath="$PROJECT_DIR$/.idea/modules/play-samples-play-java-hello-world-tutorial_5623.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/play-samples-play-java-hello-world-tutorial_5623-build.iml" filepath="$PROJECT_DIR$/.idea/modules/play-samples-play-java-hello-world-tutorial_5623-build.iml" />
     </modules>
   </component>
 </project>

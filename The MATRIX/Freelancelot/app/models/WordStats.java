@@ -1,9 +1,13 @@
 package models;
 import static play.mvc.Results.ok;
+
+import akka.actor.AbstractActor;
+import akka.actor.Props;
 import play.mvc.Result;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
+import service.*;
 
 /**
  * Calculates Global and Individual Word Stats
@@ -12,14 +16,13 @@ import java.util.concurrent.CompletionStage;
  * @version 1.0
  */
 public class WordStats {
-
     /**
      * Calculates Global Word Stats
      * @param listobjs Freelance Class Object
      * @return Global Statistics
      * @author Sankeerth Koduri
      */
-    public CompletionStage<Result> GlobalStats(FreelaancelotList listobjs) {
+    public static LinkedHashMap<String , Integer> GlobalStats(FreelaancelotList listobjs) {
         Utilities ut = new Utilities();
         ArrayList<Freelancelot> freeobjs = listobjs.getProjectList();
         String description = "";
@@ -27,19 +30,14 @@ public class WordStats {
             description += i.getProject_description();
         }
         String finalDescription = description;
-        CompletionStage<Result> futureResultMap = CompletableFuture.supplyAsync(
-                () -> ut.wordFrequencyCounter(finalDescription)
-        ).thenApply((mapOfWordFrequencies) -> ok(
-                views.html.wordstats.render(mapOfWordFrequencies)));
-        return futureResultMap;
+        LinkedHashMap<String , Integer> ResultMap = ut.wordFrequencyCounter(finalDescription);
+        return ResultMap;
     }
 
-    public CompletionStage<Result> InduvidualStats(String description){
+    public static LinkedHashMap<String , Integer> IndividualStats(String description){
         Utilities ut = new Utilities();
-        CompletionStage<Result> futureResultMap = CompletableFuture.supplyAsync(
-                () -> ut.wordFrequencyCounter(description)
-        ).thenApply((mapOfWordFrequencies) -> ok(
-                views.html.projectwordstats.render(mapOfWordFrequencies)));
-        return futureResultMap;
+        LinkedHashMap<String , Integer> ResultMap = ut.wordFrequencyCounter(description);
+        System.out.println( "Ind stats entered");
+        return ResultMap;
     }
 }

@@ -1,15 +1,19 @@
 package models;
 
-import models.FreelaancelotList;
-import models.Freelancelot;
 import org.junit.Test;
+import service.FreelaancelotList;
+import service.Freelancelot;
 
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
 
-public class FreelancelotListTest {
+/**
+ * Freelancelot List Test Class
+ * @author Raahul John
+ */
+public class freelancelotListTest {
 
     FreelaancelotList fl = new FreelaancelotList();
     Freelancelot flt = new Freelancelot("1324","1234",13254,"","","","","",464545L,"","",0,"");
@@ -18,23 +22,20 @@ public class FreelancelotListTest {
     public void getdatatest(){
         prolist.add(flt);
         fl.setProjectList(prolist);
-       assertEquals(prolist,fl.getProjectList());
+        assertEquals(prolist,fl.getProjectList());
 
+    }
+    @Test
+    public void getAvgReadabilitytest(){
+        Integer avgReadability = 0;
+        avgReadability = FleschReadabilityIndex.getAvgFleschIndex("php");
+        assertSame(avgReadability,fl.getAvgReadability("php"));
     }
 
     @Test
-    public void gettersSettersTest(){
-        flt.setOwner_id("9876");
-        flt.setDate("9876");
-        flt.setSkills("java");
-        flt.setReadability(1L);
-        flt.setStats("");
-        flt.setEducationalLevel("highschool");
-        flt.setSeoUrl("java/playframework");
-        flt.getAverageEducationalLevel();
-        flt.setEducationalLevel("highschool");
-        flt.setAverageReadability(84);
-        flt.setAverageEducationalLevel("");
-        assertNotNull(flt);
+    public void getAvgEducationalLeveltest(){
+        String avgEducationalLevel = null;
+        avgEducationalLevel = FleschReadabilityIndex.getAvgEducationLevel("php");
+        assertEquals(avgEducationalLevel,fl.getAvgEducationalLevel("php"));
     }
 }

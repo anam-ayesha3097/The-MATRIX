@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FleschReadabilityIndexActor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">actors</a> &gt; <span class="el_source">FleschReadabilityIndexActor.java</span></div><h1>FleschReadabilityIndexActor.java</h1><pre class="source lang-java linenums">package actors;
+
+import akka.actor.AbstractLoggingActor;
+import akka.actor.ActorRef;
+import akka.actor.Props;
+import models.FleschReadabilityIndex;
+import models.SearchResults;
+import models.Utilities;
+import service.FreelaancelotList;
+
+import java.util.LinkedHashMap;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+/**
+ * Actor Class for FleschReadability Index
+ * @extends AbstractActor
+ * @author Anam Ayesha Shaikh
+ */
+public class FleschReadabilityIndexActor extends AbstractLoggingActor {
+    ActorRef senderActor;
+<span class="fc" id="L21">    Utilities ut = new Utilities();</span>
+
+    /**
+     * Message Class callFleschReadability for getting the projects and appending the Flesch Readability
+     * @author Anam Ayesha Shaikh
+     */
+    public static class callFleschReadability {
+<span class="fc" id="L28">        LinkedHashMap&lt;String, FreelaancelotList&gt; responsePro = new LinkedHashMap&lt;&gt;();</span>
+<span class="fc" id="L29">        public callFleschReadability( LinkedHashMap&lt;String, FreelaancelotList&gt; responsePro) {</span>
+<span class="fc" id="L30">            this.responsePro = responsePro;</span>
+<span class="fc" id="L31">        }</span>
+    }
+
+    /**
+     * Creates the Flesch Readability Actor
+     * @return Props props of the created Actor
+     * @author Anam Ayesha Shaikh
+     */
+    static public Props getProps() {
+<span class="fc" id="L40">        return Props.create(FleschReadabilityIndexActor.class, FleschReadabilityIndexActor::new);</span>
+    }
+
+<span class="fc" id="L43">    public FleschReadabilityIndexActor() {</span>
+<span class="fc" id="L44">        this.senderActor = sender();</span>
+<span class="fc" id="L45">    }</span>
+
+    /**
+     * Receives the message for the FleschReadabilityIndex Actor
+     * @return Receive returns the Receive message output
+     * @author Anam Ayesha Shaikh
+     */
+    @Override
+    public Receive createReceive() {
+<span class="fc" id="L54">        return receiveBuilder().match(callFleschReadability.class, this::getFleschReadability).build();</span>
+    }
+
+    /**
+     * Generates the FleschReadabilityIndex Data
+     * @param object object of the message class callFleschReadability
+     * @author Anam Ayesha Shaikh
+     */
+    public void getFleschReadability(callFleschReadability object) throws ExecutionException, InterruptedException {
+<span class="fc" id="L63">        ActorRef senderActor = sender();</span>
+        //System.out.println(&quot;Inside get Flesch Readability GET Actor&quot;);
+<span class="fc" id="L65">        CompletableFuture&lt;LinkedHashMap&lt;String, FreelaancelotList&gt;&gt; readability = FleschReadabilityIndex.getReadabilityAsync(object.responsePro);</span>
+<span class="fc" id="L66">        LinkedHashMap&lt;String, FreelaancelotList&gt; responseReadability = readability.get();</span>
+<span class="fc" id="L67">        LinkedHashMap&lt;String, FreelaancelotList&gt; responseProcessed = new LinkedHashMap&lt;&gt;();</span>
+<span class="fc" id="L68">        responseProcessed = ut.reverseOrder(responseReadability);</span>
+        //System.out.println(&quot;Before Flesch Readability&quot;);
+<span class="fc" id="L70">        senderActor.tell(responseProcessed,self());</span>
+<span class="fc" id="L71">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

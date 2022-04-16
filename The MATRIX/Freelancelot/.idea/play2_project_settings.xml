@@ -3,13 +3,6 @@
   <component name="Play2ExcludedModulesSettings">
     <option name="INFO">
       <map>
-        <entry key="Freelancelot">
-          <value>
-            <ProjectSettingsEntry>
-              <option name="playDistrPath" value="$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/com/typesafe/play/play_2.13/2.8.13/play_2.13-2.8.13.jar" />
-            </ProjectSettingsEntry>
-          </value>
-        </entry>
         <entry key="play-java-hello-world-tutorial">
           <value>
             <ProjectSettingsEntry>
@@ -20,8 +13,8 @@
         <entry key="root">
           <value>
             <ProjectSettingsEntry>
-              <option name="sourceDir" value="C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\app" />
-              <option name="confDir" value="C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\app" />
+              <option name="sourceDir" value="E:\SOEN-6441\SOEN-6441 Lab\FreelancelotWebSocketActorsFinal\FreelancelotWebSocketActors\FreelancelotWebSocket\app" />
+              <option name="confDir" value="C:\SOEN-Final\FreelancelotWebSocket\app" />
               <option name="templateImports">
                 <list>
                   <option value="_root_.play.twirl.api.TwirlFeatureImports._" />
@@ -51,7 +44,7 @@
                   <option value="play.libs.F" />
                 </list>
               </option>
-              <option name="uri" value="/C:/Integrated%20soen/MatrixCopy/The%20MATRIX/Freelancelot" />
+              <option name="uri" value="/C:/SOEN-Final/FreelancelotWebSocket" />
             </ProjectSettingsEntry>
           </value>
         </entry>

@@ -5,8 +5,10 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
-
+import service.Freelancelot;
+import service.FreelaancelotList;
 import static java.util.stream.Collectors.toMap;
+
 /**
  * Utilities Class for the Freelancelot Models Similar to Java.Util
  *
@@ -16,6 +18,7 @@ import static java.util.stream.Collectors.toMap;
 public class Utilities {
     // public long sortedfrequencyMap;
 
+    LinkedHashMap<String, FreelaancelotList> projlistmap_10Projsx = new LinkedHashMap<>();
 
 
     /**
@@ -91,9 +94,8 @@ public class Utilities {
      * @return Inverted Response of the API
      * @author Anam Ayesha Shaikh
      */
-    public CompletionStage<LinkedHashMap<String, FreelaancelotList>> reverseOrder(LinkedHashMap<String, FreelaancelotList> responseReadability) {
+    public LinkedHashMap<String, FreelaancelotList> reverseOrder(LinkedHashMap<String, FreelaancelotList> responseReadability) {
         LinkedHashMap<String, FreelaancelotList> response= new LinkedHashMap<>();
-        CompletionStage<LinkedHashMap<String, FreelaancelotList>> reversedresponse = CompletableFuture.supplyAsync(LinkedHashMap::new);
         List<String> allKeys = new ArrayList<String>(responseReadability.keySet());
         ArrayList<Freelancelot>  freelancelotArrayList= new ArrayList<Freelancelot>();
         Freelancelot freelancelotObj = null;
@@ -112,8 +114,7 @@ public class Utilities {
             FreelaancelotList setListObjs = new FreelaancelotList();
             setListObjs.setProjectList(listFreelancelot);
             response.put(keys, setListObjs);
-            reversedresponse = CompletableFuture.supplyAsync(()-> response);
         }
-        return reversedresponse;
+        return response;
     }
 }

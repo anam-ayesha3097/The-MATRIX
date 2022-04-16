@@ -1,29 +1,6 @@
-[0m[[0m[0mdebug[0m] [0m[0m[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial source changes: [0m
-[0m[[0m[0mdebug[0m] [0m[0m	removed:Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0m	added: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0m	modified: Set(C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\test\controllers\HomeControllerTest.java)[0m
-[0m[[0m[0mdebug[0m] [0m[0mInvalidated products: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mExternal API changes: API Changes: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mModified binary dependencies: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial directly invalidated classes: Set(controllers.HomeControllerTest)[0m
-[0m[[0m[0mdebug[0m] [0m[0m[0m
-[0m[[0m[0mdebug[0m] [0m[0mSources indirectly invalidated by:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	product: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0m	binary dep: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0m	external source: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated classes: Set(controllers.HomeControllerTest)[0m
-[0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated sources:Set(C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\test\controllers\HomeControllerTest.java)[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: controllers.HomeControllerTest[0m
-[0m[[0m[0minfo[0m] [0m[0mCompiling 1 Java source to C:\Integrated soen\MatrixCopy\The MATRIX\Freelancelot\target\scala-2.13\test-classes ...[0m
-[0m[[0m[0mdebug[0m] [0m[0mAttempting to call com.sun.tools.javac.api.JavacTool@41214199 directly...[0m
-[0m[[0m[0mdebug[0m] [0m[0mJava compilation took 0.8768187 s[0m
-[0m[[0m[0mdebug[0m] [0m[0mJava analysis took 0.1350313 s[0m
-[0m[[0m[0mdebug[0m] [0m[0mJava compilation + analysis took 1.0319431 s[0m
-[0m[[0m[0mdebug[0m] [0m[0mDone compiling.[0m
-[0m[[0m[0mdebug[0m] [0m[0mNew invalidations:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: [0m
-[0m[[0m[0mdebug[0m] [0m[0mPreviously invalidated, but (transitively) depend on new invalidations:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mNo classes were invalidated.[0m
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] IncrementalCompile -----------[0m
+[0m[[0m[0mdebug[0m] [0m[0mIncrementalCompile.incrementalCompile[0m
+[0m[[0m[0mdebug[0m] [0m[0mprevious = Stamps for: 18 products, 14 sources, 9 libraries[0m
+[0m[[0m[0mdebug[0m] [0m[0mcurrent source = Set(${BASE}/test/models/ownerDetailsTest.java, ${BASE}/test/actors/skillsActorTest.java, ${BASE}/test/actors/wordStatsActorTest.java, ${BASE}/test/actors/ownerDetailsActorTest.java, ${BASE}/test/models/wordStatsTest.java, ${BASE}/test/models/searchResultTest.java, ${BASE}/test/models/freelancelotListTest.java, ${BASE}/test/models/skillsTest.java, ${BASE}/test/controllers/HomeControllerTest.java, ${BASE}/test/actors/fleschReadabilityActorTest.java, ${BASE}/test/models/ownerInformationTest.java, ${BASE}/test/models/utilitiesTest.java, ${BASE}/test/models/freelancelotTest.java, ${BASE}/test/models/fleschReadabilityIndexTest.java)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> initialChanges = InitialChanges(Changes(added = Set(), removed = Set(), changed = Set(), unmodified = ...),Set(),Set(),API Changes: Set())[0m
+[0m[[0m[0mdebug[0m] [0m[0mNo changes[0m

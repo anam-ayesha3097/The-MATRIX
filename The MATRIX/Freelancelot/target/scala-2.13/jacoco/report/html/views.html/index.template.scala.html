@@ -20,94 +20,53 @@ import play.api.data.Field
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 import scala.jdk.CollectionConverters._
+/*1.2*/import service.FreelaancelotList
 
-<span class="nc" id="L24">object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template0[play.twirl.api.HtmlFormat.Appendable] {</span>
+<span class="nc" id="L25">object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[play.mvc.Http.Request,String,Map[String, FreelaancelotList],play.twirl.api.HtmlFormat.Appendable] {</span>
 
   /**/
-  def apply/*1.2*/():play.twirl.api.HtmlFormat.Appendable = {
-<span class="nc" id="L28">    _display_ {</span>
+  def apply/*2.2*/(request: play.mvc.Http.Request, keyWord: String, searchForm : Map[String,FreelaancelotList]):play.twirl.api.HtmlFormat.Appendable = {
+<span class="nc" id="L29">    _display_ {</span>
       {
 
 
-<span class="nc" id="L32">Seq[Any](format.raw/*1.4*/(&quot;&quot;&quot;</span>
-
-
-<span class="nc" id="L35">&quot;&quot;&quot;),_display_(/*4.2*/main(&quot;Welcome&quot;)/*4.17*/ {_display_(Seq[Any](format.raw/*4.19*/(&quot;&quot;&quot;</span>
-<span class="nc" id="L36">&quot;&quot;&quot;),_display_(/*5.2*/defining(play.core.PlayVersion.current)/*5.41*/ { version =&gt;_display_(Seq[Any](format.raw/*5.54*/(&quot;&quot;&quot;</span>
-
-&quot;&quot;&quot;),format.raw/*7.1*/(&quot;&quot;&quot;&lt;section id=&quot;content&quot;&gt;
-  &lt;div class=&quot;wrapper doc&quot;&gt;
+<span class="nc" id="L33">Seq[Any](format.raw/*3.1*/(&quot;&quot;&quot;&lt;!DOCTYPE html&gt;</span>
+<span class="nc" id="L34">&quot;&quot;&quot;),_display_(/*4.2*/main(&quot;Welcome to Freelancelot&quot;)/*4.33*/ {_display_(Seq[Any](format.raw/*4.35*/(&quot;&quot;&quot;</span>
+<span class="nc" id="L35">  &quot;&quot;&quot;),format.raw/*5.3*/(&quot;&quot;&quot;&lt;html&gt;</span>
     &lt;article&gt;
-      &lt;h2&gt;Welcome to the Hello World Tutorial!&lt;/h2&gt;
-      &lt;p&gt;This tutorial introduces Play Framework, describes how Play web applications work, and walks you through steps
-        to create page that displays a Hello World greeting.&lt;/p&gt;
-      &lt;p&gt;If you loaded this page from the web server running on &lt;code&gt;localhost:9000&lt;/code&gt;, congratulations! You have
-        successfully built and run a Play application. If not, you likely opened the source &lt;code&gt;index.scala.html&lt;/code&gt;
-        file. Please follow the directions in the &lt;code&gt;README.md&lt;/code&gt; file in the top-level project directory to run
-        the tutorial.&lt;/p&gt;
+      &lt;head&gt;
+        &lt;title&gt;Freelancelot&lt;/title&gt;
+        &lt;h1 style= text-align:center;&gt;Welcome to FreeLancelot&lt;/h1&gt;
+        &lt;script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'&gt;&lt;/script&gt;
+<span class="nc" id="L41">        &lt;script type='text/javascript' src='&quot;&quot;&quot;),_display_(/*11.46*/routes/*11.52*/.Assets.at(&quot;javascripts/index.js&quot;)),format.raw/*11.86*/(&quot;&quot;&quot;'&gt;&lt;/script&gt;</span>
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;form id=&quot;searchForm&quot; class=&quot;needs-validation&quot;&gt;
+          &lt;div class=&quot;form-group&quot;&gt;
+            &lt;div class=&quot;input-group mb-1&quot;&gt;
+              &lt;input id=&quot;keyword&quot; type=&quot;text&quot; placeholder=&quot;Search Keyword&quot; class=&quot;form-control&quot; required&gt;
+            &lt;/div&gt;
+            &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Search&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
+      &lt;/hr&gt;
 
-      &lt;h3 id=&quot;introduction&quot;&gt;Introduction to Play&lt;/h3&gt;
-      &lt;p&gt;As illustrated below, Play is a full-stack framework with all of the components you need to build a Web
-        Application or a REST service, including:&lt;/p&gt;
-      &lt;ul&gt;
-        &lt;li&gt;An integrated HTTP server&lt;/li&gt;
-        &lt;li&gt;Form handling&lt;/li&gt;
-        &lt;li&gt;Cross-Site Request Forgery (CSRF) protection&lt;/li&gt;
-        &lt;li&gt;A powerful routing mechanism&lt;/li&gt;
-        &lt;li&gt;I18n support, and more.&lt;/li&gt;
-      &lt;/ul&gt;
-
-      &lt;img src=&quot;assets/images/play-stack.png&quot; alt=&quot;Play Stack&quot; class=&quot;small-5 medium-4 large-3&quot; /&gt;
-
-      &lt;p&gt;Play integrates with many object relational mapping (ORM) layers. It has out-of-the-box support for &lt;a href=&quot;https://www.playframework.com/documentation/&quot;&quot;&quot;),_display_(/*31.164*/version),format.raw/*31.171*/(&quot;&quot;&quot;/Anorm&quot;
-          target=&quot;_blank&quot;&gt;Anorm&lt;/a&gt;, &lt;a href=&quot;https://www.playframework.com/documentation/&quot;&quot;&quot;),_display_(/*32.92*/version),format.raw/*32.99*/(&quot;&quot;&quot;/JavaEbean&quot; target=&quot;_blank&quot;&gt;JavaEbean&lt;/a&gt;,
-        &lt;a href=&quot;https://www.playframework.com/documentation/&quot;&quot;&quot;),_display_(/*33.63*/version),format.raw/*33.70*/(&quot;&quot;&quot;/PlaySlick&quot; target=&quot;_blank&quot;&gt;PlaySlick&lt;/a&gt;, and
-        &lt;a href=&quot;https://www.playframework.com/documentation/&quot;&quot;&quot;),_display_(/*34.63*/version),format.raw/*34.70*/(&quot;&quot;&quot;/JavaJPA&quot; target=&quot;_blank&quot;&gt;JPA&lt;/a&gt;. See &lt;a href=&quot;https://www.playframework.com/documentation/&quot;&quot;&quot;),_display_(/*34.163*/version),format.raw/*34.170*/(&quot;&quot;&quot;/JavaDatabase&quot;
-          target=&quot;_blank&quot;&gt;Accessing an SQL Database&lt;/a&gt; for more information. Many customers use NoSQL, other ORMs or
-        even access data from a REST service.&lt;/p&gt;
-
-
-      &lt;p&gt;Play APIs are available in both Java and Scala. The Framework uses &lt;a href=&quot;https://akka.io&quot; target=&quot;_blank&quot;&gt;Akka&lt;/a&gt;
-        and &lt;a href=&quot;https://doc.akka.io/docs/akka-http/current/index.html&quot; target=&quot;_blank&quot;&gt;Akka HTTP&lt;/a&gt; under the
-        hood. This endows Play applications with a stateless, non-blocking, event-driven architecture that provides
-        horizontal and vertical scalability and uses resources more efficiently. Play projects contain Scala
-        components, but because Play has a Java API, Java developers do not need to learn Scala to use Play
-        successfully.&lt;/p&gt;
-
-      &lt;p&gt;Here are just a few of the reasons developers love using Play Framework:&lt;/p&gt;
-      &lt;ul&gt;
-        &lt;li&gt;Its Model-View-Controller (MVC) architecture is familiar and easy to learn.&lt;/li&gt;
-        &lt;li&gt;Direct support of common web development tasks and hot reloading saves precious development time.&lt;/li&gt;
-        &lt;li&gt;A large active community promotes knowledge sharing.&lt;/li&gt;
-        &lt;li&gt;Use of &lt;a href=&quot;https://github.com/playframework/twirl&quot;&gt;Twirl templates&lt;/a&gt; to render pages. The Twirl
-          template language is:
-          &lt;ol&gt;
-            &lt;li&gt;Easy to learn&lt;/li&gt;
-            &lt;li&gt;Requires no special editor&lt;/li&gt;
-            &lt;li&gt;Provides type safety&lt;/li&gt;
-            &lt;li&gt;Is compiled so that errors display in the browser&lt;/li&gt;
-          &lt;/ol&gt;
-        &lt;/li&gt;
-      &lt;/ul&gt;
-
-      &lt;p&gt;To learn more about Play's benefits, visit the &lt;a href=&quot;https://www.playframework.com&quot; target=&quot;_blank&quot;&gt;Play
-          website&lt;/a&gt;.&lt;/p&gt;
-
-      &lt;h3 id=&quot;next-steps&quot;&gt;Next steps&lt;/h3&gt;
-         &lt;/article&gt;
-  &lt;/div&gt;
-&lt;/section&gt;
-<span class="nc" id="L100">&quot;&quot;&quot;)))}),format.raw/*69.2*/(&quot;&quot;&quot;</span>
+<span class="nc" id="L54">        &lt;div id=&quot;webSocketData&quot; data-ws-url=&quot;&quot;&quot;&quot;),_display_(/*24.47*/routes/*24.53*/.HomeController.ws(&quot;&quot;).webSocketURL(request)),format.raw/*24.97*/(&quot;&quot;&quot;&quot;&gt;</span>
+          &lt;div id=&quot;data&quot;&gt; &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/body&gt;
+    &lt;/article&gt;
+  &lt;/html&gt;
 &quot;&quot;&quot;)))}))
       }
     }
   }
 
-<span class="nc" id="L106">  def render(): play.twirl.api.HtmlFormat.Appendable = apply()</span>
+<span class="nc" id="L65">  def render(request:play.mvc.Http.Request,keyWord:String,searchForm:Map[String, FreelaancelotList]): play.twirl.api.HtmlFormat.Appendable = apply(request,keyWord,searchForm)</span>
 
-<span class="nc" id="L108">  def f:(() =&gt; play.twirl.api.HtmlFormat.Appendable) = () =&gt; apply()</span>
+<span class="nc" id="L67">  def f:((play.mvc.Http.Request,String,Map[String, FreelaancelotList]) =&gt; play.twirl.api.HtmlFormat.Appendable) = (request,keyWord,searchForm) =&gt; apply(request,keyWord,searchForm)</span>
 
-<span class="nc" id="L110">  def ref: this.type = this</span>
+<span class="nc" id="L69">  def ref: this.type = this</span>
 
 }
 
@@ -115,9 +74,9 @@ import scala.jdk.CollectionConverters._
               /*
                   -- GENERATED --
                   SOURCE: app/views/index.scala.html
-                  HASH: 5ce807fd193822737f2f463dd59cc9a4a02998e4
-                  MATRIX: 900-&gt;1|996-&gt;3|1028-&gt;10|1051-&gt;25|1090-&gt;27|1118-&gt;30|1165-&gt;69|1215-&gt;82|1245-&gt;86|2718-&gt;1531|2747-&gt;1538|2874-&gt;1638|2902-&gt;1645|3035-&gt;1751|3063-&gt;1758|3200-&gt;1868|3228-&gt;1875|3349-&gt;1968|3378-&gt;1975|5235-&gt;3802
-                  LINES: 27-&gt;1|32-&gt;1|35-&gt;4|35-&gt;4|35-&gt;4|36-&gt;5|36-&gt;5|36-&gt;5|38-&gt;7|62-&gt;31|62-&gt;31|63-&gt;32|63-&gt;32|64-&gt;33|64-&gt;33|65-&gt;34|65-&gt;34|65-&gt;34|65-&gt;34|100-&gt;69
+                  HASH: a5fa2d266c477ff4bd4f60ac7a3f8fd4b2089596
+                  MATRIX: 610-&gt;1|1000-&gt;35|1187-&gt;129|1229-&gt;146|1268-&gt;177|1307-&gt;179|1336-&gt;182|1644-&gt;463|1659-&gt;469|1714-&gt;503|2205-&gt;967|2220-&gt;973|2285-&gt;1017
+                  LINES: 23-&gt;1|28-&gt;2|33-&gt;3|34-&gt;4|34-&gt;4|34-&gt;4|35-&gt;5|41-&gt;11|41-&gt;11|41-&gt;11|54-&gt;24|54-&gt;24|54-&gt;24
                   -- GENERATED --
               */
           

@@ -3,13 +3,13 @@
 # ~~~~
 
 # An example controller showing a sample home page
-
-
-GET    /freelance                           controllers.HomeController.freelancer(searchTerm: String ?="")
-GET    /IndvWordStats                       controllers.HomeController.projectWordStats(searchTerm: String ?="")
-GET    /wordstats                           controllers.HomeController.wordStats(searchTerm: String ?="")
-# Map static resources from the /public folder to the /assets URL path
-GET    /assets/*file                        controllers.Assets.versioned(path="/public", file: Asset)
+GET     /freelancelot               controllers.HomeController.freelancelot(request: Request, searchTerm:String ?="",sessionID:String ?="")
+GET    /myName                      controllers.HomeController.sayHello(name:String)
+GET    /ws                          controllers.HomeController.ws(searchTerm:String)
+GET    /IndvWordStats/:searchTerm   controllers.HomeController.projectWordStats(searchTerm: String)
+GET    /wordstats                   controllers.HomeController.wordStats(searchTerm: String ?="")
 GET    /skills                              controllers.HomeController.skills(s: String)
-GET    /                                    controllers.HomeController.freelancer(searchTerm: String ?="")
 GET    /ownerInformation/:ownerId           controllers.HomeController.ownerInformation(ownerId:String)
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+GET     /assets/*file               controllers.Assets.at(path = "/public", file)

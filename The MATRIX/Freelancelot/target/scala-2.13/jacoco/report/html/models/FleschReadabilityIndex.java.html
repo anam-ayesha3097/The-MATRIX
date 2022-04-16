@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FleschReadabilityIndex.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">models</a> &gt; <span class="el_source">FleschReadabilityIndex.java</span></div><h1>FleschReadabilityIndex.java</h1><pre class="source lang-java linenums">package models;
 
-import scala.Int;
-
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import service.FreelaancelotList;
+import service.Freelancelot;
+
 /**
  * Calculates the Flesch Readability Index of each Project with Education Level and its Average
  * @author Anam Ayesha Shaikh
  * @version 1.0
  */
-<span class="nc" id="L14">public class FleschReadabilityIndex {</span>
-<span class="fc" id="L15">    static LinkedHashMap&lt;String, Integer&gt; averageFleschIndex = new LinkedHashMap&lt;&gt;();</span>
-<span class="fc" id="L16">    static LinkedHashMap&lt;String, String&gt; averageEducationalLevel = new LinkedHashMap&lt;&gt;();</span>
+<span class="fc" id="L15">public class FleschReadabilityIndex {</span>
+<span class="fc" id="L16">    static LinkedHashMap&lt;String, Integer&gt; averageFleschIndex = new LinkedHashMap&lt;&gt;();</span>
+<span class="fc" id="L17">    static LinkedHashMap&lt;String, String&gt; averageEducationalLevel = new LinkedHashMap&lt;&gt;();</span>
+<span class="fc" id="L18">    static LinkedHashMap&lt;String,FreelaancelotList&gt; projsWithReadability = new LinkedHashMap&lt;&gt;();</span>
     /**
      * Gets the Data from Preview Description using Completable Future as Asynchronous Non-Blocking Code
      * @param projsSearched LinkedHashMap of &lt;Search Term ,Freelancelot&gt;
@@ -22,8 +24,9 @@ import java.util.stream.Stream;
      */
 
     public static CompletableFuture&lt;LinkedHashMap&lt;String, FreelaancelotList&gt;&gt; getReadabilityAsync(LinkedHashMap&lt;String,FreelaancelotList&gt; projsSearched) {
+        //System.out.println(&quot;Inside getReadability Async&quot;);
         //CompletableFuture&lt;LinkedHashMap&lt;String, FreelancelotList&gt;&gt; resultAPI = new CompletableFuture&lt;&gt;();
-<span class="fc" id="L26">        return CompletableFuture.supplyAsync(() -&gt; getPreviewDescription(projsSearched));</span>
+<span class="fc" id="L29">        return CompletableFuture.supplyAsync(() -&gt; getPreviewDescription(projsSearched));</span>
     }
 
 
@@ -35,52 +38,53 @@ import java.util.stream.Stream;
      * @author Anam Ayesha Shaikh
      */
     public static LinkedHashMap&lt;String, FreelaancelotList&gt; getPreviewDescription(LinkedHashMap&lt;String,FreelaancelotList&gt; projsSearched){
-<span class="fc" id="L38">        LinkedHashMap&lt;String,FreelaancelotList&gt; projsWithReadability = new LinkedHashMap&lt;&gt;();</span>
-<span class="fc" id="L39">        LinkedHashMap&lt;String,FreelaancelotList&gt; prev = new LinkedHashMap&lt;&gt;();</span>
-<span class="fc" id="L40">        int index = 0;</span>
-<span class="fc" id="L41">        Freelancelot freelancelotObj = null;</span>
-<span class="fc" id="L42">        int averageFlesch = 0;</span>
-<span class="fc" id="L43">        String averageEducationalLevel = null;</span>
+        //System.out.println(&quot;Inside Flesch Readability Main Logic&quot;);
+
+<span class="fc" id="L43">        LinkedHashMap&lt;String,FreelaancelotList&gt; prev = new LinkedHashMap&lt;&gt;();</span>
+<span class="fc" id="L44">        int index = 0;</span>
+<span class="fc" id="L45">        Freelancelot freelancelotObj = null;</span>
+<span class="fc" id="L46">        int averageFlesch = 0;</span>
+<span class="fc" id="L47">        String averageEducationalLevel = null;</span>
 
         //System.out.println(&quot;Preview Description &quot;+projsSearched);
 
-<span class="fc bfc" id="L47" title="All 2 branches covered.">        for(Iterator&lt;Map.Entry&lt;String, FreelaancelotList&gt;&gt; iterator = projsSearched.entrySet().iterator(); iterator.hasNext();){</span>
-<span class="fc" id="L48">            Map.Entry&lt;String, FreelaancelotList&gt; entries = iterator.next();</span>
-<span class="fc" id="L49">            ArrayList&lt;Freelancelot&gt; freelancelotArrayList =  entries.getValue().getProjectList();</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">        for(Iterator&lt;Map.Entry&lt;String, FreelaancelotList&gt;&gt; iterator = projsSearched.entrySet().iterator(); iterator.hasNext();){</span>
+<span class="fc" id="L52">            Map.Entry&lt;String, FreelaancelotList&gt; entries = iterator.next();</span>
+<span class="fc" id="L53">            ArrayList&lt;Freelancelot&gt; freelancelotArrayList =  entries.getValue().getProjectList();</span>
 
-<span class="fc" id="L51">            List&lt;String&gt; listPrevDesc = freelancelotArrayList.stream()</span>
-<span class="fc" id="L52">                    .map(fl -&gt; fl.getProject_description().toLowerCase().replaceAll(&quot;[0-9]&quot;,&quot;&quot;))</span>
-<span class="fc" id="L53">                    .collect(Collectors.toList());</span>
+<span class="fc" id="L55">            List&lt;String&gt; listPrevDesc = freelancelotArrayList.stream()</span>
+<span class="fc" id="L56">                    .map(fl -&gt; fl.getProject_description().toLowerCase().replaceAll(&quot;[0-9]&quot;,&quot;&quot;))</span>
+<span class="fc" id="L57">                    .collect(Collectors.toList());</span>
 
-<span class="fc" id="L55">            List&lt;Long&gt; fleschIndex = listPrevDesc.stream().map(s -&gt; processPrevDesc(s)).collect(Collectors.toList());</span>
-<span class="fc" id="L56">            List&lt;Integer&gt; fleschIndexInt = fleschIndex.stream().mapToInt(Long::intValue).boxed().collect(Collectors.toList());</span>
-<span class="fc" id="L57">            averageFlesch = fleschIndexInt.stream().reduce(0, Integer::sum);</span>
-<span class="fc" id="L58">            averageFlesch = averageFlesch / 10;</span>
-<span class="fc" id="L59">            averageFlesch(averageFlesch, entries.getKey());</span>
-<span class="fc" id="L60">            averageEducationalLevel = calculateEductionalLevel(averageFlesch);</span>
-<span class="fc" id="L61">            averageEducationalLevel(averageEducationalLevel,entries.getKey());</span>
-<span class="fc" id="L62">            List&lt;String&gt; educationalLevel = fleschIndex.stream().map(fi -&gt; calculateEductionalLevel(fi)).collect(Collectors.toList());</span>
+<span class="fc" id="L59">            List&lt;Long&gt; fleschIndex = listPrevDesc.stream().map(s -&gt; processPrevDesc(s)).collect(Collectors.toList());</span>
+<span class="fc" id="L60">            List&lt;Integer&gt; fleschIndexInt = fleschIndex.stream().mapToInt(Long::intValue).boxed().collect(Collectors.toList());</span>
+<span class="fc" id="L61">            averageFlesch = fleschIndexInt.stream().reduce(0, Integer::sum);</span>
+<span class="fc" id="L62">            averageFlesch = averageFlesch / 10;</span>
+<span class="fc" id="L63">            averageFlesch(averageFlesch, entries.getKey());</span>
+<span class="fc" id="L64">            averageEducationalLevel = calculateEductionalLevel(averageFlesch);</span>
+<span class="fc" id="L65">            averageEducationalLevel(averageEducationalLevel,entries.getKey());</span>
+<span class="fc" id="L66">            List&lt;String&gt; educationalLevel = fleschIndex.stream().map(fi -&gt; calculateEductionalLevel(fi)).collect(Collectors.toList());</span>
 
-<span class="fc" id="L64">            index = 0;</span>
-<span class="fc" id="L65">            ArrayList&lt;Freelancelot&gt; listFreelancelot = new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L66" title="All 2 branches covered.">            for(Freelancelot fl : freelancelotArrayList)</span>
+<span class="fc" id="L68">            index = 0;</span>
+<span class="fc" id="L69">            ArrayList&lt;Freelancelot&gt; listFreelancelot = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">            for(Freelancelot fl : freelancelotArrayList)</span>
             {
-<span class="fc" id="L68">                freelancelotObj = new Freelancelot( fl.getOwner_id(), fl.getDate(), fl.getProject_ID(), fl.getProject_title(), fl.getProject_description(), fl.getProject_type(), fl.getSkills(), &quot;&quot;, fleschIndex.get(index), educationalLevel.get(index), fl.getSeoUrl(), fl.getAverageReadability(), fl.getEducationalLevel() );</span>
-<span class="fc" id="L69">                listFreelancelot.add(freelancelotObj);</span>
-<span class="fc" id="L70">                index += 1;</span>
-<span class="fc" id="L71">            }</span>
-<span class="fc" id="L72">            FreelaancelotList setListObjs = new FreelaancelotList();</span>
-<span class="fc" id="L73">            setListObjs.setProjectList(listFreelancelot);</span>
-<span class="fc" id="L74">            projsWithReadability.put(entries.getKey(), setListObjs);</span>
+<span class="fc" id="L72">                freelancelotObj = new Freelancelot( fl.getOwner_id(), fl.getDate(), fl.getProject_ID(), fl.getProject_title(), fl.getProject_description(), fl.getProject_type(), fl.getSkills(), &quot;&quot;, fleschIndex.get(index), educationalLevel.get(index), fl.getSeoUrl(), fl.getAverageReadability(), fl.getEducationalLevel() );</span>
+<span class="fc" id="L73">                listFreelancelot.add(freelancelotObj);</span>
+<span class="fc" id="L74">                index += 1;</span>
+<span class="fc" id="L75">            }</span>
+<span class="fc" id="L76">            FreelaancelotList setListObjs = new FreelaancelotList();</span>
+<span class="fc" id="L77">            setListObjs.setProjectList(listFreelancelot);</span>
+<span class="fc" id="L78">            projsWithReadability.put(entries.getKey(), setListObjs);</span>
 
-<span class="fc bfc" id="L76" title="All 2 branches covered.">            for(Iterator&lt;Map.Entry&lt;String, FreelaancelotList&gt;&gt; iterator1 = projsWithReadability.entrySet().iterator(); iterator1.hasNext();){</span>
-<span class="fc" id="L77">                Map.Entry&lt;String, FreelaancelotList&gt; entries1 = iterator1.next();</span>
-<span class="fc" id="L78">                ArrayList&lt;Freelancelot&gt; freelancelotArrayList1 =  entries1.getValue().getProjectList();</span>
-<span class="fc bfc" id="L79" title="All 2 branches covered.">                for(Freelancelot fl : freelancelotArrayList1)</span>
-<span class="fc" id="L80">                    fl.display();</span>
-<span class="fc" id="L81">            }</span>
-<span class="fc" id="L82">        }</span>
-<span class="fc" id="L83">        return projsWithReadability;</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">            for(Iterator&lt;Map.Entry&lt;String, FreelaancelotList&gt;&gt; iterator1 = projsWithReadability.entrySet().iterator(); iterator1.hasNext();){</span>
+<span class="fc" id="L81">                Map.Entry&lt;String, FreelaancelotList&gt; entries1 = iterator1.next();</span>
+<span class="fc" id="L82">                ArrayList&lt;Freelancelot&gt; freelancelotArrayList1 =  entries1.getValue().getProjectList();</span>
+                //for(Freelancelot fl : freelancelotArrayList1)
+                    //fl.display();
+<span class="fc" id="L85">            }</span>
+<span class="fc" id="L86">        }</span>
+<span class="fc" id="L87">        return projsWithReadability;</span>
     }
     /**
      *Calculates Flesch Index of the words count, sentence count and syllable count of each Preview Description
@@ -89,21 +93,21 @@ import java.util.stream.Stream;
      * @author Anam Ayesha Shaikh
      */
     public static long processPrevDesc(String prevDesc){
-<span class="fc" id="L92">        long wordCount = 0;</span>
-<span class="fc" id="L93">        long sentenceCount = 0;</span>
-<span class="fc" id="L94">        long syllableCount = 0;</span>
-<span class="fc" id="L95">        long fleschIndex = 0;</span>
+<span class="fc" id="L96">        long wordCount = 0;</span>
+<span class="fc" id="L97">        long sentenceCount = 0;</span>
+<span class="fc" id="L98">        long syllableCount = 0;</span>
+<span class="fc" id="L99">        long fleschIndex = 0;</span>
         //System.out.println(&quot;String passed from Map&quot; +prevDesc);
 
-<span class="fc" id="L98">        wordCount = wordCounter(prevDesc);</span>
-<span class="fc" id="L99">        sentenceCount = sentenceCounter(prevDesc);</span>
-<span class="fc" id="L100">        syllableCount = syllableCounter(prevDesc);</span>
+<span class="fc" id="L102">        wordCount = wordCounter(prevDesc);</span>
+<span class="fc" id="L103">        sentenceCount = sentenceCounter(prevDesc);</span>
+<span class="fc" id="L104">        syllableCount = syllableCounter(prevDesc);</span>
         //System.out.println(&quot;Word Count of '&quot; +prevDesc+ &quot;' is &quot; +wordCount);
         //System.out.println(&quot;Sentence Count of '&quot; +prevDesc+ &quot;' is &quot; +sentenceCount);
         //System.out.println(&quot;Syllable Count of '&quot; +prevDesc+ &quot;' is &quot; +syllableCount);
 
-<span class="fc" id="L105">        fleschIndex = calculateFleschIndex(wordCount,sentenceCount,syllableCount);</span>
-<span class="fc" id="L106">        return fleschIndex;</span>
+<span class="fc" id="L109">        fleschIndex = calculateFleschIndex(wordCount,sentenceCount,syllableCount);</span>
+<span class="fc" id="L110">        return fleschIndex;</span>
     }
 
 
@@ -115,15 +119,15 @@ import java.util.stream.Stream;
      */
     public static long wordCounter(String prevDesc){
 
-<span class="fc" id="L118">        long wordCount = 0;</span>
+<span class="fc" id="L122">        long wordCount = 0;</span>
 
-<span class="fc" id="L120">        List&lt;String&gt; stringSplit = Stream.of(prevDesc).map(s-&gt; s.split(&quot;\\W+&quot;))</span>
-<span class="fc" id="L121">                .flatMap( stringArray -&gt;</span>
-<span class="fc" id="L122">                        Arrays.stream(stringArray).filter(s-&gt; !s.equals(&quot; &quot;) &amp;&amp; !s.equals(&quot;\t&quot;) &amp;&amp; !s.equals(&quot;\n&quot;))).collect(Collectors.toList());</span>
+<span class="fc" id="L124">        List&lt;String&gt; stringSplit = Stream.of(prevDesc).map(s-&gt; s.split(&quot;\\W+&quot;))</span>
+<span class="fc" id="L125">                .flatMap( stringArray -&gt;</span>
+<span class="fc" id="L126">                        Arrays.stream(stringArray).filter(s-&gt; !s.equals(&quot; &quot;) &amp;&amp; !s.equals(&quot;\t&quot;) &amp;&amp; !s.equals(&quot;\n&quot;))).collect(Collectors.toList());</span>
         //System.out.println(&quot;String after Java 8 Split &quot;+stringSplit);
-<span class="fc" id="L124">        wordCount = stringSplit.size();</span>
+<span class="fc" id="L128">        wordCount = stringSplit.size();</span>
         //System.out.println(&quot;String Word Count &quot;+wordCount);
-<span class="fc" id="L126">        return wordCount;</span>
+<span class="fc" id="L130">        return wordCount;</span>
     }
 
 
@@ -134,17 +138,17 @@ import java.util.stream.Stream;
      * @author Anam Ayesha Shaikh
      */
     public static long sentenceCounter(String prevDesc){
-<span class="fc" id="L137">        long sentenceCount = 0;</span>
+<span class="fc" id="L141">        long sentenceCount = 0;</span>
 
 
-<span class="fc" id="L140">        List&lt;String&gt; stringSplit = Stream.of(prevDesc).map(s-&gt; s.split(&quot;[.!?:;]+&quot;))</span>
-<span class="fc" id="L141">                .flatMap( stringArray -&gt;</span>
-<span class="fc" id="L142">                        Arrays.stream(stringArray).filter(s-&gt; !s.equals(&quot; &quot;) &amp;&amp; !s.equals(&quot;\t&quot;) &amp;&amp; !s.equals(&quot;\n&quot;) &amp;&amp; !s.equals(&quot;.&quot;))).collect(Collectors.toList());</span>
+<span class="fc" id="L144">        List&lt;String&gt; stringSplit = Stream.of(prevDesc).map(s-&gt; s.split(&quot;[.!?:;]+&quot;))</span>
+<span class="fc" id="L145">                .flatMap( stringArray -&gt;</span>
+<span class="fc" id="L146">                        Arrays.stream(stringArray).filter(s-&gt; !s.equals(&quot; &quot;) &amp;&amp; !s.equals(&quot;\t&quot;) &amp;&amp; !s.equals(&quot;\n&quot;) &amp;&amp; !s.equals(&quot;.&quot;))).collect(Collectors.toList());</span>
 
-<span class="fc" id="L144">        sentenceCount = stringSplit.size();</span>
+<span class="fc" id="L148">        sentenceCount = stringSplit.size();</span>
         //System.out.println(&quot;Sentence Count Java 8 Streams&quot;+sentenceCount);
 
-<span class="fc" id="L147">        return sentenceCount;</span>
+<span class="fc" id="L151">        return sentenceCount;</span>
     }
 
 
@@ -156,36 +160,36 @@ import java.util.stream.Stream;
      */
     public static Long syllableCounter(String prevDesc) {
 
-<span class="fc" id="L159">        int smallSyllableCount = 0;</span>
-<span class="fc" id="L160">        int bigSyllableCount = 0;</span>
-<span class="fc" id="L161">        long finalSyllableCount = 0;</span>
+<span class="fc" id="L163">        int smallSyllableCount = 0;</span>
+<span class="fc" id="L164">        int bigSyllableCount = 0;</span>
+<span class="fc" id="L165">        long finalSyllableCount = 0;</span>
 
-<span class="fc" id="L163">        List&lt;String&gt; words = Stream.of(prevDesc).map(s -&gt; s.split(&quot;\\W+&quot;))</span>
-<span class="fc" id="L164">                .flatMap(stringArray -&gt; Arrays.stream(stringArray).filter(s -&gt; !s.equals(&quot; &quot;) &amp;&amp; !s.equals(&quot;\t&quot;) &amp;&amp; !s.equals(&quot;\n&quot;)))</span>
-<span class="fc" id="L165">                .collect(Collectors.toList());</span>
+<span class="fc" id="L167">        List&lt;String&gt; words = Stream.of(prevDesc).map(s -&gt; s.split(&quot;\\W+&quot;))</span>
+<span class="fc" id="L168">                .flatMap(stringArray -&gt; Arrays.stream(stringArray).filter(s -&gt; !s.equals(&quot; &quot;) &amp;&amp; !s.equals(&quot;\t&quot;) &amp;&amp; !s.equals(&quot;\n&quot;)))</span>
+<span class="fc" id="L169">                .collect(Collectors.toList());</span>
         //System.out.println(&quot;String after Java 8 Split &quot; + words);
 
-<span class="fc" id="L168">        List&lt;String&gt; smallWords = words.stream().filter(s -&gt; s.length() &lt; 4).collect(Collectors.toList());</span>
+<span class="fc" id="L172">        List&lt;String&gt; smallWords = words.stream().filter(s -&gt; s.length() &lt; 4).collect(Collectors.toList());</span>
         //System.out.println(&quot;Single Syllable Words &quot;+smallWords);
-<span class="fc" id="L170">        List&lt;String&gt; bigWords = words.stream().filter(s -&gt; s.length() &gt;= 4).collect(Collectors.toList());</span>
+<span class="fc" id="L174">        List&lt;String&gt; bigWords = words.stream().filter(s -&gt; s.length() &gt;= 4).collect(Collectors.toList());</span>
         //System.out.println(&quot;Before Big Words Replace &quot; +bigWords);
 
-<span class="fc" id="L173">        List&lt;String&gt; bigWordsUpdate = bigWords.stream().map(s -&gt; checkEndings(s)).collect(Collectors.toList());</span>
+<span class="fc" id="L177">        List&lt;String&gt; bigWordsUpdate = bigWords.stream().map(s -&gt; checkEndings(s)).collect(Collectors.toList());</span>
         //System.out.println(&quot;After Big Words Replace &quot;+bigWordsUpdate);
 
-<span class="fc" id="L176">        List&lt;Integer&gt; slSmallWords = smallWords.stream().map(s -&gt; checkSyllable(s)).collect(Collectors.toList());</span>
+<span class="fc" id="L180">        List&lt;Integer&gt; slSmallWords = smallWords.stream().map(s -&gt; checkSyllable(s)).collect(Collectors.toList());</span>
         //System.out.println(&quot;Small Words Syllable Count &quot;+slSmallWords);
-<span class="fc" id="L178">        List&lt;Integer&gt; slBigWords = bigWordsUpdate.stream().map(s-&gt; checkSyllable(s)).collect(Collectors.toList());</span>
+<span class="fc" id="L182">        List&lt;Integer&gt; slBigWords = bigWordsUpdate.stream().map(s-&gt; checkSyllable(s)).collect(Collectors.toList());</span>
         //System.out.println(&quot;Big Words Syllable Count &quot;+slBigWords);
 
-<span class="fc" id="L181">        smallSyllableCount = slSmallWords.stream().map(count -&gt; count).reduce(0, Integer::sum);</span>
+<span class="fc" id="L185">        smallSyllableCount = slSmallWords.stream().map(count -&gt; count).reduce(0, Integer::sum);</span>
         //System.out.println(&quot;Small Words Syllable Count&quot; +smallSyllableCount);
-<span class="fc" id="L183">        bigSyllableCount = slBigWords.stream().reduce(0, Integer::sum);</span>
+<span class="fc" id="L187">        bigSyllableCount = slBigWords.stream().reduce(0, Integer::sum);</span>
         //System.out.println(&quot;Big Words Syllable Count&quot; +bigSyllableCount);
-<span class="fc" id="L185">        finalSyllableCount = smallSyllableCount + bigSyllableCount;</span>
+<span class="fc" id="L189">        finalSyllableCount = smallSyllableCount + bigSyllableCount;</span>
         //System.out.println(&quot;Final Syllable Count &quot;+finalSyllableCount);
 
-<span class="fc" id="L188">        return finalSyllableCount;</span>
+<span class="fc" id="L192">        return finalSyllableCount;</span>
     }
     /**
      * Checks the ending of each string for the correct Syllable Count in order to remove 'es', 'ed', 'e'
@@ -194,59 +198,59 @@ import java.util.stream.Stream;
      * @author Anam Ayesha Shaikh
      */
     public static String checkEndings(String s){
-<span class="fc" id="L197">        List&lt;String &gt; bigWordsUpdate = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L198">        String replace = null;</span>
-<span class="fc" id="L199">        String secondLastValue = s.substring(s.length() - 2);</span>
-<span class="fc" id="L200">        String lastValue = s.substring(s.length() - 1);</span>
+<span class="fc" id="L201">        List&lt;String &gt; bigWordsUpdate = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L202">        String replace = null;</span>
+<span class="fc" id="L203">        String secondLastValue = s.substring(s.length() - 2);</span>
+<span class="fc" id="L204">        String lastValue = s.substring(s.length() - 1);</span>
         //System.out.println(&quot;Second Last Index Substring &quot; + es);
         //System.out.println(&quot;Last Index Substring &quot; + lastValue);
-<span class="fc bfc" id="L203" title="All 2 branches covered.">        if (lastValue.equals(&quot;e&quot;)) {</span>
-<span class="fc" id="L204">            replace = s.replaceAll(&quot;e$&quot;, &quot;&quot;);</span>
+<span class="fc bfc" id="L207" title="All 2 branches covered.">        if (lastValue.equals(&quot;e&quot;)) {</span>
+<span class="fc" id="L208">            replace = s.replaceAll(&quot;e$&quot;, &quot;&quot;);</span>
             //System.out.println(&quot;Replacement &quot; + replace);
             //bigWordsUpdate.add(replace);
 
         } else {
-<span class="fc bfc" id="L209" title="All 2 branches covered.">            if (secondLastValue.equals(&quot;es&quot;)) {</span>
+<span class="fc bfc" id="L213" title="All 2 branches covered.">            if (secondLastValue.equals(&quot;es&quot;)) {</span>
                 //    System.out.println(&quot;Ignore Syllable &quot; + s);
-<span class="fc" id="L211">                replace = s.replaceAll(&quot;es$&quot;, &quot;&quot;);</span>
+<span class="fc" id="L215">                replace = s.replaceAll(&quot;es$&quot;, &quot;&quot;);</span>
                 //  System.out.println(&quot;Replacement &quot; + replace);
-<span class="fc" id="L213">                String end = replace.substring(replace.length() - 1);</span>
+<span class="fc" id="L217">                String end = replace.substring(replace.length() - 1);</span>
                 //System.out.println(&quot;End value for replacement &quot; + end);
-<span class="pc bpc" id="L215" title="1 of 2 branches missed.">                if (end.equals(&quot;e&quot;)) {</span>
-<span class="nc" id="L216">                    replace = replace.replaceAll(&quot;e$&quot;, &quot;&quot;);</span>
+<span class="pc bpc" id="L219" title="1 of 2 branches missed.">                if (end.equals(&quot;e&quot;)) {</span>
+<span class="nc" id="L220">                    replace = replace.replaceAll(&quot;e$&quot;, &quot;&quot;);</span>
                     //  System.out.println(&quot;Replacement &quot; + replace);
                 }
                 //bigWordsUpdate.add(replace);
             }
-<span class="fc bfc" id="L221" title="All 2 branches covered.">            if (secondLastValue.equals(&quot;ed&quot;)) {</span>
+<span class="fc bfc" id="L225" title="All 2 branches covered.">            if (secondLastValue.equals(&quot;ed&quot;)) {</span>
                 //System.out.println(&quot;Ignore Syllable &quot; + s);
-<span class="fc" id="L223">                replace = s.replaceAll(&quot;ed$&quot;, &quot;&quot;);</span>
+<span class="fc" id="L227">                replace = s.replaceAll(&quot;ed$&quot;, &quot;&quot;);</span>
                 //System.out.println(&quot;Replacement &quot; + replace);
-<span class="fc" id="L225">                String end = replace.substring(replace.length() - 1);</span>
+<span class="fc" id="L229">                String end = replace.substring(replace.length() - 1);</span>
                 //System.out.println(&quot;End value for replacement &quot; + end);
-<span class="pc bpc" id="L227" title="1 of 2 branches missed.">                if (end.equals(&quot;e&quot;)) {</span>
-<span class="fc" id="L228">                    replace = replace.replaceAll(&quot;e$&quot;, &quot;&quot;);</span>
+<span class="fc bfc" id="L231" title="All 2 branches covered.">                if (end.equals(&quot;e&quot;)) {</span>
+<span class="fc" id="L232">                    replace = replace.replaceAll(&quot;e$&quot;, &quot;&quot;);</span>
                     //System.out.println(&quot;Replacement &quot; + replace);
                 }
                 //bigWordsUpdate.add(replace);
             }
-<span class="pc bpc" id="L233" title="1 of 2 branches missed.">            if (secondLastValue.equals(&quot;ee&quot;)) {</span>
+<span class="pc bpc" id="L237" title="1 of 2 branches missed.">            if (secondLastValue.equals(&quot;ee&quot;)) {</span>
                 //System.out.println(&quot;Ignore Syllable &quot; + s);
-<span class="nc" id="L235">                replace = s.replaceAll(&quot;ee$&quot;, &quot;&quot;);</span>
+<span class="nc" id="L239">                replace = s.replaceAll(&quot;ee$&quot;, &quot;&quot;);</span>
                 //System.out.println(&quot;Replacement &quot; + replace);
-<span class="nc" id="L237">                String end = replace.substring(replace.length() - 1);</span>
-<span class="nc bnc" id="L238" title="All 2 branches missed.">                if (end.equals(&quot;e&quot;)) {</span>
+<span class="nc" id="L241">                String end = replace.substring(replace.length() - 1);</span>
+<span class="nc bnc" id="L242" title="All 2 branches missed.">                if (end.equals(&quot;e&quot;)) {</span>
 
-<span class="nc" id="L240">                    replace = replace.replaceAll(&quot;e$&quot;, &quot;&quot;);</span>
+<span class="nc" id="L244">                    replace = replace.replaceAll(&quot;e$&quot;, &quot;&quot;);</span>
                     //System.out.println(&quot;Replacement &quot; + replace);
                 }
                 //bigWordsUpdate.add(replace);
             }
         }
-<span class="pc bpc" id="L246" title="1 of 8 branches missed.">        if(!secondLastValue.equals(&quot;es&quot;) &amp;&amp; !secondLastValue.equals(&quot;ed&quot;) &amp;&amp; !secondLastValue.equals(&quot;ee&quot;) &amp;&amp; !lastValue.equals(&quot;e&quot;))</span>
-<span class="fc" id="L247">            replace = s;</span>
+<span class="pc bpc" id="L250" title="1 of 8 branches missed.">        if(!secondLastValue.equals(&quot;es&quot;) &amp;&amp; !secondLastValue.equals(&quot;ed&quot;) &amp;&amp; !secondLastValue.equals(&quot;ee&quot;) &amp;&amp; !lastValue.equals(&quot;e&quot;))</span>
+<span class="fc" id="L251">            replace = s;</span>
         //bigWordsUpdate.add(s);
-<span class="fc" id="L249">        return replace;</span>
+<span class="fc" id="L253">        return replace;</span>
     }
     /**
      * Checks the Syllable for each Word
@@ -255,18 +259,18 @@ import java.util.stream.Stream;
      * @author Anam Ayesha Shaikh
      */
     public static Integer checkSyllable(String s){
-<span class="fc" id="L258">        int syllableCounter = 0;</span>
+<span class="fc" id="L262">        int syllableCounter = 0;</span>
         //System.out.println(s);
-<span class="fc bfc" id="L260" title="All 14 branches covered.">        if(s.length() &lt; 4 &amp;&amp; (s.contains(&quot;a&quot;) || s.contains(&quot;e&quot;) || s.contains(&quot;i&quot;) || s.contains(&quot;o&quot;) || s.contains(&quot;u&quot;) || s.contains(&quot;y&quot;)))</span>
-<span class="fc" id="L261">            syllableCounter += 1;</span>
-<span class="fc bfc" id="L262" title="All 2 branches covered.">        else if (s.length() &gt;= 4) {</span>
+<span class="fc bfc" id="L264" title="All 14 branches covered.">        if(s.length() &lt; 4 &amp;&amp; (s.contains(&quot;a&quot;) || s.contains(&quot;e&quot;) || s.contains(&quot;i&quot;) || s.contains(&quot;o&quot;) || s.contains(&quot;u&quot;) || s.contains(&quot;y&quot;)))</span>
+<span class="fc" id="L265">            syllableCounter += 1;</span>
+<span class="fc bfc" id="L266" title="All 2 branches covered.">        else if (s.length() &gt;= 4) {</span>
             // System.out.println(&quot;Big Words String Passed &quot;+s);
-<span class="fc" id="L264">            List&lt;Integer&gt; slCount = Stream.of(s).map(words -&gt; words.toCharArray()).map(c -&gt; countSyllable(c)).collect(Collectors.toList());</span>
+<span class="fc" id="L268">            List&lt;Integer&gt; slCount = Stream.of(s).map(words -&gt; words.toCharArray()).map(c -&gt; countSyllable(c)).collect(Collectors.toList());</span>
             //System.out.println(&quot;Syllable Counter After Count &quot;+slCount);
-<span class="fc" id="L266">            syllableCounter = slCount.get(0);</span>
+<span class="fc" id="L270">            syllableCounter = slCount.get(0);</span>
         }
 
-<span class="fc" id="L269">        return syllableCounter;</span>
+<span class="fc" id="L273">        return syllableCounter;</span>
     }
     /**
      * Counts Syllable for each Character
@@ -275,25 +279,25 @@ import java.util.stream.Stream;
      * @author Anam Ayesha Shaikh
      */
     public static Integer countSyllable(char[] chars){
-<span class="fc" id="L278">        int syllableCounter = 0;</span>
-<span class="fc" id="L279">        char temp = '@';</span>
+<span class="fc" id="L282">        int syllableCounter = 0;</span>
+<span class="fc" id="L283">        char temp = '@';</span>
         //System.out.println(&quot;Initial Temp &quot; +temp);
-<span class="fc bfc" id="L281" title="All 2 branches covered.">        for(char c: chars){</span>
+<span class="fc bfc" id="L285" title="All 2 branches covered.">        for(char c: chars){</span>
             // System.out.println(&quot;Char &quot;+c);
             //System.out.println(&quot;Temp Inside For Loop &quot;+temp);
-<span class="fc bfc" id="L284" title="All 12 branches covered.">            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'y' )</span>
+<span class="fc bfc" id="L288" title="All 12 branches covered.">            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'y' )</span>
             {
-<span class="fc bfc" id="L286" title="All 12 branches covered.">                if(temp == 'a' || temp == 'e' || temp == 'i' || temp== 'o' || temp== 'u' || temp=='y')</span>
-<span class="fc" id="L287">                    continue;</span>
+<span class="pc bpc" id="L290" title="1 of 12 branches missed.">                if(temp == 'a' || temp == 'e' || temp == 'i' || temp== 'o' || temp== 'u' || temp=='y')</span>
+<span class="nc" id="L291">                    continue;</span>
                 else
-<span class="fc" id="L289">                    syllableCounter += 1;</span>
+<span class="fc" id="L293">                    syllableCounter += 1;</span>
                 //System.out.println(&quot;Syllable Cunter &quot;+syllableCounter);
             }
-<span class="fc" id="L292">            temp = c;</span>
+<span class="fc" id="L296">            temp = c;</span>
             //System.out.println(&quot;Temp after Previous Char Assignment &quot;+temp);
         }
         //System.out.println(&quot;Syllable Counter inside CountSyllable Method &quot;+syllableCounter);
-<span class="fc" id="L296">        return syllableCounter;</span>
+<span class="fc" id="L300">        return syllableCounter;</span>
     }
     /**
      * Calculates the Flesch Readability Index
@@ -303,13 +307,13 @@ import java.util.stream.Stream;
      */
     public static long calculateFleschIndex(Long wordCount, Long sentenceCount, Long syllableCount){
 
-<span class="fc" id="L306">        double fleschIndex = 0;</span>
-<span class="fc" id="L307">        long fleschIndexValue = 0;</span>
+<span class="fc" id="L310">        double fleschIndex = 0;</span>
+<span class="fc" id="L311">        long fleschIndexValue = 0;</span>
 
-<span class="fc" id="L309">        fleschIndex = 206.835 - 84.6 * syllableCount/wordCount  - 1.015 * wordCount/sentenceCount ;</span>
-<span class="fc" id="L310">        fleschIndexValue = Math.round(fleschIndex);</span>
+<span class="fc" id="L313">        fleschIndex = 206.835 - 84.6 * syllableCount/wordCount  - 1.015 * wordCount/sentenceCount ;</span>
+<span class="fc" id="L314">        fleschIndexValue = Math.round(fleschIndex);</span>
         //System.out.println(&quot;Flesch Index &quot; +fleschIndex);
-<span class="fc" id="L312">        return fleschIndexValue;</span>
+<span class="fc" id="L316">        return fleschIndexValue;</span>
     }
     /**
      * Calculates the Educational Level for the Flesch Index
@@ -319,28 +323,28 @@ import java.util.stream.Stream;
      */
     public static String calculateEductionalLevel(long fleschIndex){
 
-<span class="fc bfc" id="L322" title="All 2 branches covered.">        if(fleschIndex &gt; 100 )</span>
-<span class="fc" id="L323">            return &quot;Early&quot;;</span>
-<span class="pc bpc" id="L324" title="1 of 2 branches missed.">        else if(fleschIndex &gt; 91 )</span>
-<span class="nc" id="L325">            return &quot;5th Grade&quot;;</span>
-<span class="fc bfc" id="L326" title="All 2 branches covered.">        else if(fleschIndex &gt; 81)</span>
-<span class="fc" id="L327">            return &quot;6th Grade&quot;;</span>
-<span class="fc bfc" id="L328" title="All 2 branches covered.">        else if(fleschIndex &gt; 71)</span>
-<span class="fc" id="L329">            return &quot;7th Grade&quot;;</span>
-<span class="fc bfc" id="L330" title="All 2 branches covered.">        else if(fleschIndex &gt; 66)</span>
-<span class="fc" id="L331">            return &quot;8th Grade&quot;;</span>
-<span class="pc bpc" id="L332" title="1 of 2 branches missed.">        else if(fleschIndex &gt; 61)</span>
-<span class="fc" id="L333">            return &quot;9th Grade&quot;;</span>
-<span class="nc bnc" id="L334" title="All 2 branches missed.">        else if(fleschIndex &gt; 51)</span>
-<span class="nc" id="L335">            return &quot;High School&quot;;</span>
-<span class="nc bnc" id="L336" title="All 2 branches missed.">        else if(fleschIndex &gt; 31)</span>
-<span class="nc" id="L337">            return &quot;Some College&quot;;</span>
-<span class="nc bnc" id="L338" title="All 2 branches missed.">        else if(fleschIndex &gt; 0)</span>
-<span class="nc" id="L339">            return &quot;College Graduate&quot;;</span>
-<span class="nc bnc" id="L340" title="All 2 branches missed.">        else if(fleschIndex &lt;= 0)</span>
-<span class="nc" id="L341">            return &quot;Law School Graduate&quot;;</span>
+<span class="pc bpc" id="L326" title="1 of 2 branches missed.">        if(fleschIndex &gt; 100 )</span>
+<span class="nc" id="L327">            return &quot;Early&quot;;</span>
+<span class="fc bfc" id="L328" title="All 2 branches covered.">        else if(fleschIndex &gt; 91 )</span>
+<span class="fc" id="L329">            return &quot;5th Grade&quot;;</span>
+<span class="fc bfc" id="L330" title="All 2 branches covered.">        else if(fleschIndex &gt; 81)</span>
+<span class="fc" id="L331">            return &quot;6th Grade&quot;;</span>
+<span class="fc bfc" id="L332" title="All 2 branches covered.">        else if(fleschIndex &gt; 71)</span>
+<span class="fc" id="L333">            return &quot;7th Grade&quot;;</span>
+<span class="fc bfc" id="L334" title="All 2 branches covered.">        else if(fleschIndex &gt; 66)</span>
+<span class="fc" id="L335">            return &quot;8th Grade&quot;;</span>
+<span class="pc bpc" id="L336" title="1 of 2 branches missed.">        else if(fleschIndex &gt; 61)</span>
+<span class="nc" id="L337">            return &quot;9th Grade&quot;;</span>
+<span class="fc bfc" id="L338" title="All 2 branches covered.">        else if(fleschIndex &gt; 51)</span>
+<span class="fc" id="L339">            return &quot;High School&quot;;</span>
+<span class="fc bfc" id="L340" title="All 2 branches covered.">        else if(fleschIndex &gt; 31)</span>
+<span class="fc" id="L341">            return &quot;Some College&quot;;</span>
+<span class="pc bpc" id="L342" title="1 of 2 branches missed.">        else if(fleschIndex &gt; 0)</span>
+<span class="fc" id="L343">            return &quot;College Graduate&quot;;</span>
+<span class="nc bnc" id="L344" title="All 2 branches missed.">        else if(fleschIndex &lt;= 0)</span>
+<span class="nc" id="L345">            return &quot;Law School Graduate&quot;;</span>
         else
-<span class="nc" id="L343">            return &quot;Not Valid Flesch Index&quot;;</span>
+<span class="nc" id="L347">            return &quot;Not Valid Flesch Index&quot;;</span>
     }
     /**
      * Stores the Average Flesch Index for each Search Term
@@ -348,8 +352,8 @@ import java.util.stream.Stream;
      * @author Anam Ayesha Shaikh
      */
     public static void averageFlesch(Integer avgFleshIndex, String searchTerm){
-<span class="fc" id="L351">        averageFleschIndex.put(searchTerm,avgFleshIndex);</span>
-<span class="fc" id="L352">    }</span>
+<span class="fc" id="L355">        averageFleschIndex.put(searchTerm,avgFleshIndex);</span>
+<span class="fc" id="L356">    }</span>
 
     /**
      * Stores the Average Educational Level for each Search Term
@@ -357,8 +361,8 @@ import java.util.stream.Stream;
      * @author Anam Ayesha Shaikh
      */
     public static void averageEducationalLevel(String avgEducationalLevel, String searchTerm){
-<span class="fc" id="L360">        averageEducationalLevel.put(searchTerm,avgEducationalLevel);</span>
-<span class="fc" id="L361">    }</span>
+<span class="fc" id="L364">        averageEducationalLevel.put(searchTerm,avgEducationalLevel);</span>
+<span class="fc" id="L365">    }</span>
 
 
 
@@ -369,14 +373,14 @@ import java.util.stream.Stream;
      * @author Anam Ayesha Shaikh
      */
     public static Integer getAvgFleschIndex(String searchTerm){
-<span class="fc" id="L372">        Integer averageFIndex = 0;</span>
-<span class="fc bfc" id="L373" title="All 2 branches covered.">        for(Iterator&lt;Map.Entry&lt;String, Integer&gt;&gt; iterator = averageFleschIndex.entrySet().iterator(); iterator.hasNext();) {</span>
-<span class="fc" id="L374">            Map.Entry&lt;String, Integer&gt; entries = iterator.next();</span>
-<span class="pc bpc" id="L375" title="1 of 2 branches missed.">            if(entries.getKey().contains(searchTerm)){</span>
-<span class="fc" id="L376">                averageFIndex = entries.getValue();</span>
+<span class="fc" id="L376">        Integer averageFIndex = 0;</span>
+<span class="fc bfc" id="L377" title="All 2 branches covered.">        for(Iterator&lt;Map.Entry&lt;String, Integer&gt;&gt; iterator = averageFleschIndex.entrySet().iterator(); iterator.hasNext();) {</span>
+<span class="fc" id="L378">            Map.Entry&lt;String, Integer&gt; entries = iterator.next();</span>
+<span class="fc bfc" id="L379" title="All 2 branches covered.">            if(entries.getKey().contains(searchTerm)){</span>
+<span class="fc" id="L380">                averageFIndex = entries.getValue();</span>
             }
-<span class="fc" id="L378">        }</span>
-<span class="fc" id="L379">        return averageFIndex;</span>
+<span class="fc" id="L382">        }</span>
+<span class="fc" id="L383">        return averageFIndex;</span>
     }
     /**
      * Gets the Average Educational Level Index for Each Search Project
@@ -385,14 +389,14 @@ import java.util.stream.Stream;
      * @author Anam Ayesha Shaikh
      */
     public static String getAvgEducationLevel(String searchTerm){
-<span class="fc" id="L388">        String avgEducationalLevel = null;</span>
-<span class="fc bfc" id="L389" title="All 2 branches covered.">        for(Iterator&lt;Map.Entry&lt;String, String&gt;&gt; iterator = averageEducationalLevel.entrySet().iterator(); iterator.hasNext();) {</span>
-<span class="fc" id="L390">            Map.Entry&lt;String,String&gt; entries = iterator.next();</span>
-<span class="pc bpc" id="L391" title="1 of 2 branches missed.">            if(entries.getKey().contains(searchTerm)){</span>
-<span class="fc" id="L392">                avgEducationalLevel = entries.getValue();</span>
+<span class="fc" id="L392">        String avgEducationalLevel = null;</span>
+<span class="fc bfc" id="L393" title="All 2 branches covered.">        for(Iterator&lt;Map.Entry&lt;String, String&gt;&gt; iterator = averageEducationalLevel.entrySet().iterator(); iterator.hasNext();) {</span>
+<span class="fc" id="L394">            Map.Entry&lt;String,String&gt; entries = iterator.next();</span>
+<span class="fc bfc" id="L395" title="All 2 branches covered.">            if(entries.getKey().contains(searchTerm)){</span>
+<span class="fc" id="L396">                avgEducationalLevel = entries.getValue();</span>
             }
-<span class="fc" id="L394">        }</span>
-<span class="fc" id="L395">        return avgEducationalLevel;</span>
+<span class="fc" id="L398">        }</span>
+<span class="fc" id="L399">        return avgEducationalLevel;</span>
     }
 }
 

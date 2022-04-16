@@ -1,18 +1,20 @@
 package models;
 
+import akka.actor.AbstractActor;
+import akka.actor.Props;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import service.FreelaancelotList;
+import service.Freelancelot;
 
-import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Scanner;
-
-import models.Utilities.*;
+import java.util.stream.Collectors;
 
 import static models.Utilities.date_converter;
 /**
@@ -21,29 +23,36 @@ import static models.Utilities.date_converter;
  * @version 1.0
  */
 public class skills {
+
+    // public static Props getProps(){return Props.create(WordStats.class);}
     public static LinkedHashMap<String, FreelaancelotList> projects_active= new LinkedHashMap<String, FreelaancelotList>();
     public static LinkedHashMap<String, FreelaancelotList> projects_active10= new LinkedHashMap<String, FreelaancelotList>();
     public static LinkedHashMap<String, FreelaancelotList> skills_active= new LinkedHashMap<String, FreelaancelotList>();
-
     public static Freelancelot proj_det = null;
     public static String preview_description = "";
     static JSONObject result;
+    static ArrayList<String> skillarr = new ArrayList<>();
+    //  static ArrayList<String> skillperproj = new ArrayList<>();
+
+
+
     /**
      * Calculates the Flesch Readability Index of each Project with Education Level and its Average
      * @param searchTerm String Job Searched
      * @return Freelancelotlist Linked HashMap
      * @author Raahul John
      */
-    public static LinkedHashMap<String, FreelaancelotList> getDataSkills(String searchTerm ){
-        String [] s= searchTerm.split(" ");
+
+    public static LinkedHashMap<String, FreelaancelotList> getDataSkills(String searchTerm ) throws MalformedURLException {
+        String[] s = searchTerm.split(" ");
         String string = "\"";
-        for(int i =0;i<s.length;i++){
-            string += s[i]+"%20";
+        for (int i = 0; i < s.length; i++) {
+            string += s[i] + "%20";
         }
         string += "\"";
         FreelaancelotList projectList = new FreelaancelotList();
         try {
-            URL url = new URL("https://www.freelancer.com/api/projects/0.1/projects/active?job_details=true&limit=10&preview_description=true&query="+ string);
+            URL url = new URL("https://wwww.freelancer.com/api/projects/0.1/projects/active?job_details=true&limit=10&sort_field=time_submitted&jobs[]&query=" + string);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.connect();
@@ -56,9 +65,15 @@ public class skills {
                 }
                 JSONObject json = new JSONObject(temp);
                 result = json.getJSONObject("result");
+                //project
                 JSONArray jsonArr = json.getJSONObject("result").getJSONArray("projects");
                 ArrayList<Freelancelot> projects = new ArrayList<Freelancelot>();
-                for(int i = 0; i < jsonArr.length(); i++){
+
+                for (int i = 0; i < jsonArr.length(); i++) {
+                    ArrayList<String> skillarr = new ArrayList<>();
+                    ArrayList<String> list = new ArrayList<>();
+
+
                     Integer project_ID = jsonArr.getJSONObject(i).getInt("id");
                     String project_title = jsonArr.getJSONObject(i).getString("title");
 
@@ -68,20 +83,54 @@ public class skills {
                     String converted_date = date_converter(date);
 
                     String project_type = jsonArr.getJSONObject(i).getString("type");
-                    String skills = jsonArr.getJSONObject(i).getString("seo_url");
-                    String skillarr[] = skills.split("/");
-                    skills = skillarr[0];
-                    proj_det = new Freelancelot(owner_ID, converted_date,project_ID, project_title, project_Description, project_type, skills, "", 1L,"","",0,"");
-                    proj_det.display();
+                    JSONArray jsonArr2 = jsonArr.getJSONObject(i).getJSONArray("jobs");
+
+                    JSONArray jsonArray = (JSONArray)jsonArr2;
+                    if (jsonArray != null) {
+                        int len = jsonArray.length();
+                        for (int k = 0; k < len; k++) {
+                            list.add(jsonArray.get(k).toString());
+                        }
+                    }
+
+                    for (int l = 0; l < list.size(); l++) {
+                        String[] list2;
+
+                        list2 = list.get(l).split("\"");
+
+                        skillarr.add(list2[3]);
+                    }
+
+
+                    List<String> firstNElementsList = skillarr.stream().limit(5).collect(Collectors.toList());
+                    // System.out.println(firstNElementsList);
+                    firstNElementsList.clear();
+                    // System.out.println(firstNElementsList);
+
+
+
+                    proj_det = new Freelancelot(owner_ID, converted_date,project_ID, project_title, project_Description, project_type, String.valueOf(skillarr), "", 1L,"","",0,"");
+                    skillarr.clear();
+                    //  proj_det.display();
                     projects.add(proj_det);
+
+
                 }
                 projectList.setProjectList(projects);
                 skills_active.put(searchTerm,projectList);
+
+
+
+
             }
             conn.disconnect();
         } catch (Exception e) {
             e.printStackTrace();
         }
+        HttpURLConnection conn = null;
+
         return skills_active;
-    }
-}
+
+
+
+    }}

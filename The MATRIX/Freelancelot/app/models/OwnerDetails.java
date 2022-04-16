@@ -1,11 +1,14 @@
 package models;
 
+import akka.actor.AbstractActor;
+import akka.actor.Props;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.*;
+import service.*;
 /**
  * Gets the information about the employee from the Freelancer API
  *
@@ -23,7 +26,7 @@ public class OwnerDetails {
      * @author Vikyath
      */
 
-    public OwnerInformation getOwnerDetails(String ownerId)
+    public static OwnerInformation getOwnerDetails(String ownerId)
     {
 
         OwnerInformation ownerInformation = new OwnerInformation();
@@ -118,14 +121,14 @@ public class OwnerDetails {
      * @return boolen true/false
      * @author Vikyath
      */
-    public boolean checkNodeExists(JSONObject jObj, String key){
+    public static boolean checkNodeExists(JSONObject jObj, String key){
         if(jObj.has(key))
             return true;
         else
             return false;
     }
 
-    public LinkedHashMap<String, FreelaancelotList> getOwnerProject(String ownerId ) {
+    public static LinkedHashMap<String, FreelaancelotList> getOwnerProject(String ownerId) {
 
         LinkedHashMap<String, FreelaancelotList> OwnerProjects_active= new LinkedHashMap<String, FreelaancelotList>();
         Freelancelot proj_det = null;
@@ -176,5 +179,6 @@ public class OwnerDetails {
         }
         return OwnerProjects_active;
     }
+
 
 }

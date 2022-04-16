@@ -24,47 +24,46 @@ import scala.jdk.CollectionConverters._
 <span class="pc" id="L24">object main extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[String,Html,play.twirl.api.HtmlFormat.Appendable] {</span>
 
   /*
- * This template is called from the `index` template. This template
- * handles the rendering of the page header and body tags. It takes
- * two arguments, a `String` for the title of the page and an `Html`
- * object to insert into the body of the page.
- */
+* This template is called from the `index` template. This template
+* handles the rendering of the page header and body tags. It takes
+* two arguments, a `String` for the title of the page and an `Html`
+* object to insert into the body of the page.
+*/
   def apply/*7.2*/(title: String)(content: Html):play.twirl.api.HtmlFormat.Appendable = {
 <span class="fc" id="L33">    _display_ {</span>
       {
 
 
-<span class="fc" id="L37">Seq[Any](format.raw/*7.32*/(&quot;&quot;&quot;</span>
-
-<span class="fc" id="L39">&quot;&quot;&quot;),format.raw/*9.1*/(&quot;&quot;&quot;&lt;!DOCTYPE html&gt;</span>
+<span class="fc" id="L37">Seq[Any](format.raw/*8.1*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L38">&quot;&quot;&quot;),format.raw/*9.1*/(&quot;&quot;&quot;&lt;!DOCTYPE html&gt;</span>
 &lt;html lang=&quot;en&quot;&gt;
 
-&lt;head&gt;
-<span class="fc" id="L43">    &lt;title&gt;&quot;&quot;&quot;),_display_(/*13.13*/title),format.raw/*13.18*/(&quot;&quot;&quot;&lt;/title&gt;</span>
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-<span class="fc" id="L45">    &lt;link rel=&quot;stylesheet&quot; media=&quot;screen&quot; href='&quot;&quot;&quot;),_display_(/*15.50*/routes/*15.56*/.Assets.versioned(&quot;stylesheets/main.css&quot;)),format.raw/*15.97*/(&quot;&quot;&quot;'&gt;</span>
-<span class="fc" id="L46">    &lt;link rel=&quot;stylesheet&quot; media=&quot;screen&quot; href='&quot;&quot;&quot;),_display_(/*16.50*/routes/*16.56*/.Assets.versioned(&quot;stylesheets/prism.css&quot;)),format.raw/*16.98*/(&quot;&quot;&quot;'&gt;</span>
-<span class="fc" id="L47">    &lt;link rel=&quot;shortcut icon&quot; type=&quot;image/png&quot; href='&quot;&quot;&quot;),_display_(/*17.55*/routes/*17.61*/.Assets.versioned(&quot;images/favicon.png&quot;)),format.raw/*17.100*/(&quot;&quot;&quot;'&gt;</span>
-<span class="fc" id="L48">    &lt;script src='&quot;&quot;&quot;),_display_(/*18.19*/routes/*18.25*/.Assets.versioned(&quot;javascripts/hello.js&quot;)),format.raw/*18.66*/(&quot;&quot;&quot;' type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span>
-<span class="fc" id="L49">    &lt;script src='&quot;&quot;&quot;),_display_(/*19.19*/routes/*19.25*/.Assets.versioned(&quot;javascripts/prism.js&quot;)),format.raw/*19.66*/(&quot;&quot;&quot;' type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span>
-&lt;/head&gt;
+    &lt;head&gt;
+<span class="fc" id="L42">        &lt;title&gt;&quot;&quot;&quot;),_display_(/*13.17*/title),format.raw/*13.22*/(&quot;&quot;&quot;&lt;/title&gt;</span>
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+<span class="fc" id="L44">        &lt;link rel=&quot;stylesheet&quot; media=&quot;screen&quot; href='&quot;&quot;&quot;),_display_(/*15.54*/routes/*15.60*/.Assets.versioned(&quot;stylesheets/main.css&quot;)),format.raw/*15.101*/(&quot;&quot;&quot;'&gt;</span>
+<span class="fc" id="L45">        &lt;link rel=&quot;stylesheet&quot; media=&quot;screen&quot; href='&quot;&quot;&quot;),_display_(/*16.54*/routes/*16.60*/.Assets.versioned(&quot;stylesheets/prism.css&quot;)),format.raw/*16.102*/(&quot;&quot;&quot;'&gt;</span>
+<span class="fc" id="L46">        &lt;link rel=&quot;shortcut icon&quot; type=&quot;image/png&quot; href='&quot;&quot;&quot;),_display_(/*17.59*/routes/*17.65*/.Assets.versioned(&quot;images/favicon.png&quot;)),format.raw/*17.104*/(&quot;&quot;&quot;'&gt;</span>
+<span class="fc" id="L47">        &lt;script src='&quot;&quot;&quot;),_display_(/*18.23*/routes/*18.29*/.Assets.versioned(&quot;javascripts/hello.js&quot;)),format.raw/*18.70*/(&quot;&quot;&quot;' type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span>
+<span class="fc" id="L48">        &lt;script src='&quot;&quot;&quot;),_display_(/*19.23*/routes/*19.29*/.Assets.versioned(&quot;javascripts/prism.js&quot;)),format.raw/*19.70*/(&quot;&quot;&quot;' type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span>
+    &lt;/head&gt;
 
-&lt;body&gt;
-    &lt;section id=&quot;top&quot;&gt;
-    &lt;/section&gt;
-<span class="fc" id="L55">    &quot;&quot;&quot;),_display_(/*25.6*/content),format.raw/*25.13*/(&quot;&quot;&quot;</span>
-<span class="fc" id="L56">&quot;&quot;&quot;),format.raw/*26.1*/(&quot;&quot;&quot;&lt;/body&gt;</span>
+    &lt;body&gt;
+        &lt;section id=&quot;top&quot;&gt;
+        &lt;/section&gt;
+<span class="fc" id="L54">        &quot;&quot;&quot;),_display_(/*25.10*/content),format.raw/*25.17*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L55">    &quot;&quot;&quot;),format.raw/*26.5*/(&quot;&quot;&quot;&lt;/body&gt;</span>
 
 &lt;/html&gt;&quot;&quot;&quot;))
       }
     }
   }
 
-<span class="nc" id="L63">  def render(title:String,content:Html): play.twirl.api.HtmlFormat.Appendable = apply(title)(content)</span>
+<span class="nc" id="L62">  def render(title:String,content:Html): play.twirl.api.HtmlFormat.Appendable = apply(title)(content)</span>
 
-<span class="nc" id="L65">  def f:((String) =&gt; (Html) =&gt; play.twirl.api.HtmlFormat.Appendable) = (title) =&gt; (content) =&gt; apply(title)(content)</span>
+<span class="nc" id="L64">  def f:((String) =&gt; (Html) =&gt; play.twirl.api.HtmlFormat.Appendable) = (title) =&gt; (content) =&gt; apply(title)(content)</span>
 
-<span class="nc" id="L67">  def ref: this.type = this</span>
+<span class="nc" id="L66">  def ref: this.type = this</span>
 
 }
 
@@ -72,9 +71,9 @@ import scala.jdk.CollectionConverters._
               /*
                   -- GENERATED --
                   SOURCE: app/views/main.scala.html
-                  HASH: 5424940baf5ee3572e8e6fb7965c90bb89ec8c15
-                  MATRIX: 1170-&gt;266|1295-&gt;296|1325-&gt;300|1409-&gt;357|1435-&gt;362|1597-&gt;497|1612-&gt;503|1674-&gt;544|1754-&gt;597|1769-&gt;603|1832-&gt;645|1917-&gt;703|1932-&gt;709|1993-&gt;748|2042-&gt;770|2057-&gt;776|2119-&gt;817|2200-&gt;871|2215-&gt;877|2277-&gt;918|2403-&gt;1018|2431-&gt;1025|2460-&gt;1027
-                  LINES: 32-&gt;7|37-&gt;7|39-&gt;9|43-&gt;13|43-&gt;13|45-&gt;15|45-&gt;15|45-&gt;15|46-&gt;16|46-&gt;16|46-&gt;16|47-&gt;17|47-&gt;17|47-&gt;17|48-&gt;18|48-&gt;18|48-&gt;18|49-&gt;19|49-&gt;19|49-&gt;19|55-&gt;25|55-&gt;25|56-&gt;26
+                  HASH: 072fb59191e9045b475c981a6650c563c44d0ed4
+                  MATRIX: 1160-&gt;255|1284-&gt;286|1311-&gt;287|1399-&gt;348|1425-&gt;353|1593-&gt;494|1608-&gt;500|1671-&gt;541|1754-&gt;597|1769-&gt;603|1833-&gt;645|1921-&gt;706|1936-&gt;712|1997-&gt;751|2049-&gt;776|2064-&gt;782|2126-&gt;823|2210-&gt;880|2225-&gt;886|2287-&gt;927|2428-&gt;1041|2456-&gt;1048|2488-&gt;1053
+                  LINES: 32-&gt;7|37-&gt;8|38-&gt;9|42-&gt;13|42-&gt;13|44-&gt;15|44-&gt;15|44-&gt;15|45-&gt;16|45-&gt;16|45-&gt;16|46-&gt;17|46-&gt;17|46-&gt;17|47-&gt;18|47-&gt;18|47-&gt;18|48-&gt;19|48-&gt;19|48-&gt;19|54-&gt;25|54-&gt;25|55-&gt;26
                   -- GENERATED --
               */
           
